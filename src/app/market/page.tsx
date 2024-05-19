@@ -2,7 +2,7 @@
 
 import React, { useState, ChangeEvent, useEffect } from "react"
 
-export const page = () => {
+const Page = () => {
   const [price, setPrice] = useState<number | null>(10000)
   const [items, setItems] = useState<number | null>(99)
   const [tax, setTax] = useState<number | null>(3)
@@ -114,4 +114,4 @@ export const page = () => {
   )
 }
 
-export default page
+export default Page
