@@ -112,7 +112,7 @@ const Page = () => {
           </div>
 
           <div className="mt-4 px-4 py-4 bg-white shadow-md rounded-lg">
-          <h1 className="text-3xl font-bold text-gray-700">マーケット出品価格計算</h1>
+          <h1 className="text-3xl font-bold text-gray-700">マーケット価格計算</h1>
             <div className="w-full max-w-xl mt-5">
               <div className="">
                 <FinalPrice />
