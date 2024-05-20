@@ -28,7 +28,7 @@ const Page = () => {
       </div>
       <footer className="mt-auto items-center p-4">
         <aside className="items-center flex flex-row justify-center">
-          <p className="pl-3">Copyright © 2024 - トーラムいろいろツール</p>
+          <p className="pl-3">© トーラムいろいろツール 2024</p>
         </aside>
       </footer>
     </main>
