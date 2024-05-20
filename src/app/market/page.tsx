@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, ChangeEvent, useEffect } from "react"
+import FinalPrice from "../features/market/components/FinalPrice/FinalPrice"
 
 const Page = () => {
   const [price, setPrice] = useState<number | null>(10000)
@@ -107,6 +108,15 @@ const Page = () => {
                   {sumPrice !== null && <><p className="mt-4 text-lg">99個: {sumPrice} スピナ</p><p className="mt-4">※小数点以下は切り捨て</p></>}
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="mt-4 px-4 py-4 bg-white shadow-md rounded-lg">
+          <h1 className="text-3xl font-bold text-gray-700">マーケット出品価格計算</h1>
+            <div className="w-full max-w-xl mt-5">
+              <div className="">
+                <FinalPrice />
+              </div>                
             </div>
           </div>
       </div>
