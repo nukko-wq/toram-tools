@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -8,7 +8,9 @@ export default function Home() {
       </h1>
       <div className="w-full max-w-xl mt-5">
         <ul>
-          <li>マーケット単価計算</li>
+          <li>
+            <Link href="/market">マーケット単価計算</Link>
+          </li>
         </ul>
       </div>
     </main>
