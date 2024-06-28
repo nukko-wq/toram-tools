@@ -25,9 +25,9 @@ const UnitPrice = () => {
   const calculateUnitPrice = () => {
     if (price !== null && items !== null && tax !== null) {
       const unitPrice = price / (1 + tax / 100) / items
-      setResult(Math.floor(unitPrice))
+      setResult(Math.ceil(unitPrice))
       const sum = unitPrice * 99
-      setSumPrice(Math.floor(sum))
+      setSumPrice(Math.ceil(sum))
     } else {
       setResult(null)
       setSumPrice(null)
@@ -88,7 +88,7 @@ const UnitPrice = () => {
         計算する
       </button><div className="mt-4 p-4 rounded bg-teal-100">
         {result !== null && <p className="text-lg">単価: {result} スピナ</p>}
-        {sumPrice !== null && <><p className="mt-4 text-lg">99個: {sumPrice} スピナ</p><p className="mt-4">※小数点以下は切り捨て</p></>}
+        {sumPrice !== null && <><p className="mt-4 text-lg">99個: {sumPrice} スピナ</p></>}
       </div></>
   )
 }
