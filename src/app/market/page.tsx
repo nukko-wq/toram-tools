@@ -28,7 +28,7 @@ const Page = () => {
           </div>
           
           <div className="md:mx-auto mt-4 px-4 py-4 max-w-xl bg-white shadow-md rounded-lg">
-          <h1 className="text-3xl font-bold text-gray-700">マーケット価格計算</h1>
+          <h1 className="text-3xl font-bold text-gray-700">税込み価格計算</h1>
             <div className="w-full max-w-xl mt-5">
               <div className="">
                 <FinalPrice />
