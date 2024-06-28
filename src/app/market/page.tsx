@@ -3,6 +3,7 @@
 import React, { useState, ChangeEvent, useEffect } from "react"
 import FinalPrice from "../features/market/components/FinalPrice/FinalPrice"
 import UnitPrice from "../features/market/components/UnitPrice/UnitPrice"
+import ExcludingTax from "../features/market/components/ExcludingTax/ExcludingTax"
 
 const Page = () => {
   return (
@@ -17,6 +18,15 @@ const Page = () => {
             </div>
           </div>
 
+          <div className="md:mx-auto mt-4 px-4 py-4 max-w-xl bg-white shadow-md rounded-lg">
+          <h1 className="text-3xl font-bold text-gray-700">税抜き価格計算</h1>
+            <div className="w-full max-w-xl mt-5">
+              <div className="">
+                <ExcludingTax />
+              </div>                
+            </div>
+          </div>
+          
           <div className="md:mx-auto mt-4 px-4 py-4 max-w-xl bg-white shadow-md rounded-lg">
           <h1 className="text-3xl font-bold text-gray-700">マーケット価格計算</h1>
             <div className="w-full max-w-xl mt-5">
