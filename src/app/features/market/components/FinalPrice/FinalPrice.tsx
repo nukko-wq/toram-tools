@@ -64,7 +64,7 @@ const FinalPrice = () => {
       >
         計算する
       </button><div className="mt-4 p-4 rounded bg-teal-100">
-        {result !== null && <><p className="text-lg">出品価格: {result} スピナ</p><p className='mt-4'>※小数点以下は切り捨て</p></>}
+        {result !== null && <><p className="text-lg">出品価格: {result.toLocaleString()} スピナ</p><p className='mt-4'>※小数点以下は切り捨て</p></>}
       </div></>
   )
 }
