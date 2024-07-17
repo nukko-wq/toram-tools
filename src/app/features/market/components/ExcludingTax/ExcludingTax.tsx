@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 
 const ExcludingTax = () => {
   const [price, setPrice] = useState<number | null>(10000)
@@ -32,12 +32,18 @@ const ExcludingTax = () => {
     setTax(null)
   }
 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    calculateExcludingTaxPrice()
+  }
+
   useEffect(() => {
     calculateExcludingTaxPrice()
   }, [])
 
   return (
-    <><div>
+    <form onSubmit={handleSubmit}>
+    <div>
       <label className="block mb-2">価格</label>
       <input
         type="number"
@@ -64,7 +70,8 @@ const ExcludingTax = () => {
         計算する
       </button><div className="mt-4 p-4 rounded bg-teal-100">
         {result !== null && <p className="text-lg">税抜価格: {result.toLocaleString()} スピナ</p>}
-      </div></>
+      </div>
+      </form>
   )
 }
 

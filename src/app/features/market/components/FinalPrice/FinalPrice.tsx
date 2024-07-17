@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 
 const FinalPrice = () => {
   const [price, setPrice] = useState<number | null>(10000)
@@ -23,6 +23,11 @@ const FinalPrice = () => {
     setTax(null)
   }
 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    calculateFinalPrice()
+  }
+
   const calculateFinalPrice = () => {
     if (price !== null && tax !== null) {
       const finalPrice = price * (1 + tax / 100)
@@ -37,7 +42,8 @@ const FinalPrice = () => {
   }, [])
 
   return (
-    <><div>
+    <form onSubmit={handleSubmit}>
+      <div>
       <label className="block mb-2">価格</label>
       <input
         type="number"
@@ -65,7 +71,8 @@ const FinalPrice = () => {
         計算する
       </button><div className="mt-4 p-4 rounded bg-teal-100">
         {result !== null && <><p className="text-lg">出品価格: {result.toLocaleString()} スピナ</p><p className='mt-4'>※小数点以下は切り捨て</p></>}
-      </div></>
+      </div>
+    </form>
   )
 }
 
