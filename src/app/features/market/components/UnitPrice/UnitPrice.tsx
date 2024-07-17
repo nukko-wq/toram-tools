@@ -29,6 +29,11 @@ const UnitPrice = () => {
         setResult(Math.ceil(unitPrice))
         const sum = (Math.ceil(unitPrice) * 99)
         setSumPrice(sum)
+      } else if (items == 99) {
+        const sum = price / (1 + tax / 100)
+        setSumPrice(Math.ceil(sum))
+        const unitPrice = sum / 99
+        setResult(Math.floor(unitPrice))
       } else {
         const unitPrice = price / (1 + tax / 100) / items
         setResult(Math.floor(unitPrice))
