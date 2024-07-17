@@ -24,10 +24,17 @@ const UnitPrice = () => {
 
   const calculateUnitPrice = () => {
     if (price !== null && items !== null && tax !== null) {
-      const unitPrice = price / (1 + tax / 100) / items
-      setResult(Math.floor(unitPrice))
-      const sum = unitPrice * 99
-      setSumPrice(Math.floor(sum))
+      if (items == 1) {
+        const unitPrice = price / (1 + tax / 100)
+        setResult(Math.ceil(unitPrice))
+        const sum = (Math.ceil(unitPrice) * 99)
+        setSumPrice(sum)
+      } else {
+        const unitPrice = price / (1 + tax / 100) / items
+        setResult(Math.floor(unitPrice))
+        const sum = unitPrice * 99
+        setSumPrice(Math.floor(sum))
+      }
     } else {
       setResult(null)
       setSumPrice(null)
