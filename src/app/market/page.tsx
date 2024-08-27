@@ -38,7 +38,7 @@ const Page = () => {
       </div>
       <footer className="mt-auto items-center p-4">
         <aside className="items-center flex flex-row justify-center">
-          <p className="pl-3">© トーラムいろいろツール 2024</p>
+          <p className="text-sm text-gray-500">© トーラムいろいろツール 2024</p>
         </aside>
       </footer>
     </main>
