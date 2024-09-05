@@ -4,9 +4,14 @@ import "./globals.css"
 import Favicon from '/public/images/Metadata/favicon.ico'
 import AppleIcon from '/public/images/Metadata/apple-icon.png'
 import { Analytics } from "@vercel/analytics/react"
-import { GoogleAnalytics } from "@next/third-parties/google"
+import { GoogleTagManager } from "@next/third-parties/google"
 
 const inter = Inter({ subsets: ["latin"] })
+
+const isProduction = process.env.NODE_ENV === 'production'
+const gtmId = process.env.GTM_ID!
+
+console.log(gtmId)
 
 export const metadata: Metadata = {
   title: "トーラムいろいろツール",
@@ -35,7 +40,7 @@ export default function RootLayout({
         {children}
         <Analytics />
       </body>
-      <GoogleAnalytics gaId="G-GZ32LPEYKN" />
+      {isProduction && <GoogleTagManager gtmId={gtmId} />}
     </html>
   )
 }
