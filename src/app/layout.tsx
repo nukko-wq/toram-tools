@@ -4,7 +4,7 @@ import "./globals.css"
 import Favicon from '/public/images/Metadata/favicon.ico'
 import AppleIcon from '/public/images/Metadata/apple-icon.png'
 import { Analytics } from "@vercel/analytics/react"
-import { GoogleTagManager } from "@next/third-parties/google"
+import { GoogleAnalytics } from "@next/third-parties/google"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -35,7 +35,7 @@ export default function RootLayout({
         {children}
         <Analytics />
       </body>
-      <GoogleTagManager gtmId="GTM-PJM827D3" />
+      <GoogleAnalytics gaId="G-GZ32LPEYKN" />
     </html>
   )
 }
