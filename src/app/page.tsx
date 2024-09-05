@@ -10,7 +10,7 @@ export default function Home() {
       <div className="w-full text-center mt-8">
         <ul>
           <li>
-            <Link href="/market" className="text-lg text-blue-600 hover:underline">マーケット単価計算</Link>
+            <Link href="/market" className="text-lg text-blue-600 hover:underline">マーケット計算</Link>
           </li>
         </ul>
       </div>

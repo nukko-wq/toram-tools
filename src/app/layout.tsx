@@ -4,19 +4,16 @@ import "./globals.css"
 import Favicon from '/public/images/Metadata/favicon.ico'
 import AppleIcon from '/public/images/Metadata/apple-icon.png'
 import { Analytics } from "@vercel/analytics/react"
+import { GoogleTagManager } from "@next/third-parties/google"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "トーラムいろいろツール",
-  description: "トーラムオンラインのいろいろツール",
+  description: "トーラムオンラインのいろいろツール。今のところマーケット計算ツールしかありません。",
   robots: {
-    index: false,
-    follow: false,
-    nocache: true,
-    noarchive: true,
-    noimageindex: true,
-    nosnippet: true,
+    index: true,
+    follow: true,
   },
   icons: [
     { rel: 'icon', url: Favicon.src },
@@ -31,6 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <GoogleTagManager gtmId="G-GZ32LPEYKN" />
       <body className={inter.className}>
         {children}
         <Analytics />

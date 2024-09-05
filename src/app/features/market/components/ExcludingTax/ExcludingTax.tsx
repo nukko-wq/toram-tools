@@ -1,3 +1,5 @@
+"use client"
+
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 
 const ExcludingTax = () => {
