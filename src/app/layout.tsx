@@ -28,11 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <GoogleAnalytics gaId="G-GZ32LPEYKN" />
       <body className={inter.className}>
         {children}
         <Analytics />
       </body>
+      <GoogleAnalytics gaId="G-GZ32LPEYKN" />
     </html>
   )
 }
