@@ -3,7 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import Favicon from '/public/images/Metadata/favicon.ico'
 import AppleIcon from '/public/images/Metadata/apple-icon.png'
-import AndroidIcon from '/public/images/Metadata/androic-touch-icon.png'
+import AndroidIcon from '/public/images/Metadata/android-touch-icon.png'
 import { Analytics } from "@vercel/analytics/react"
 import { GoogleAnalytics } from "@next/third-parties/google"
 
