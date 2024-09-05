@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import Favicon from '/public/images/Metadata/favicon.ico'
 import AppleIcon from '/public/images/Metadata/apple-icon.png'
+import AndroidIcon from '/public/images/Metadata/androic-touch-icon.png'
 import { Analytics } from "@vercel/analytics/react"
 import { GoogleAnalytics } from "@next/third-parties/google"
 
@@ -20,7 +21,8 @@ export const metadata: Metadata = {
   },
   icons: [
     { rel: 'icon', url: Favicon.src },
-    { rel: 'apple-touch-icon', url: AppleIcon.src}
+    { rel: 'apple-touch-icon', url: AppleIcon.src, sizes: "180x180"},
+    { rel: 'icon', url: AndroidIcon.src, sizes: "192x192"}
   ]
 }
 
