@@ -1,9 +1,13 @@
-"use client"
-
 import React, { useState, ChangeEvent, useEffect } from "react"
 import FinalPrice from "../features/market/components/FinalPrice/FinalPrice"
 import UnitPrice from "../features/market/components/UnitPrice/UnitPrice"
 import ExcludingTax from "../features/market/components/ExcludingTax/ExcludingTax"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "マーケット計算 | トーラムいろいろツール",
+  description: "トーラムオンラインのマーケット単価計算や税抜価格の計算ができます。"
+}
 
 const Page = () => {
   return (
