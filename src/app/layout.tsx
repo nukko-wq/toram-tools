@@ -8,11 +8,6 @@ import { GoogleTagManager } from "@next/third-parties/google"
 
 const inter = Inter({ subsets: ["latin"] })
 
-const isProduction = process.env.NODE_ENV === 'production'
-const gtmId = process.env.GTM_ID!
-
-console.log(gtmId)
-
 export const metadata: Metadata = {
   title: "トーラムいろいろツール",
   description: "トーラムオンラインのいろいろツール。今のところマーケット計算ツールしかありません。",
@@ -40,7 +35,7 @@ export default function RootLayout({
         {children}
         <Analytics />
       </body>
-      {isProduction && <GoogleTagManager gtmId={gtmId} />}
+      <GoogleTagManager gtmId="GTM-PJM827D3" />
     </html>
   )
 }
