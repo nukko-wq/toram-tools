@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "トーラムいろいろツール",
-  description: "トーラムオンラインのいろいろツール。今のところマーケット計算ツールしかありません。",
+  description: "トーラムオンラインのいろいろツール。マーケット計算ツールがあります。",
   robots: {
     index: true,
     follow: true,
