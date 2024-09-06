@@ -9,7 +9,7 @@ export default function Home() {
             トーラムいろいろツール
           </h1>
         </div>
-        <div className="max-w-lg p-6 mt-8 border border-gray-200 rounded-lg shadow">
+        <div className="max-w-lg p-6 mt-8 mx-2 border border-gray-200 rounded-lg shadow">
           <Link
             href="/market"
           >
