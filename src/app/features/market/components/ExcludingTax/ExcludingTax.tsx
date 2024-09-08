@@ -96,11 +96,11 @@ const ExcludingTax = () => {
             <button
               type="button"
               onClick={handleCopy}
-              className="sm:ml-4 mt-1 sm:mt-0 px-3 py-1 text-gray-700 text-sm w-16 bg-white opacity-70 rounded hover:bg-teal-400"
+              className="sm:ml-4 mt-1 sm:mt-0 px-3 py-1 text-gray-700 text-sm w-24 sm:w-auto bg-white opacity-70 rounded hover:bg-teal-400 active:bg-teal-400"
             >
               {copied ? <span className='inline-flex items-center'><svg className='w-3 h-3 text-gray-700 me-1.5' aria-hidden="true" xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 12'>
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                </svg>Copied!</span> : "Copy"}
+                </svg>Copied!</span> : <span>Copy</span>}
 
             </button>
             </div>
