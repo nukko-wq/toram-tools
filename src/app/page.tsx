@@ -16,7 +16,7 @@ export default function Home() {
             <h5 className="text-2xl font-bold text-gray-700">マーケット計算</h5>
           </Link>
           <p className="mb-3 font-normal text-gray-700">
-            トーラムオンラインのマーケット単価計算や税抜価格の計算が出来ます。
+            トーラムオンラインのマーケット最安価格の計算や税抜き価格の計算が出来ます。
             <br />
             最安値で出品したい場合や国際マーケットで決まった値段で出品したいときにどうぞ。
           </p>

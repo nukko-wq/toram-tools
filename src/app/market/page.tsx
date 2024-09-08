@@ -14,7 +14,7 @@ const Page = () => {
     <main className="flex flex-col min-h-screen bg-gray-200">
       <div className="w-full md:mt-12 px-4 py-4 ">
         <div className="md:mx-auto px-4 py-4 max-w-xl bg-white shadow-md rounded-lg">
-          <h1 className="text-3xl font-bold text-gray-700">マーケット単価計算</h1>
+          <h1 className="text-3xl font-bold text-gray-700">マーケット最安計算</h1>
             <div className="w-full max-w-xl items-center mt-5">
               <div className="">
                 <UnitPrice />
