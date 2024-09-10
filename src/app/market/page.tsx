@@ -7,9 +7,6 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "マーケット計算 | トーラムいろいろツール",
   description: "トーラムオンラインのマーケット単価計算や税抜価格の計算ができます。",
-  openGraph: {
-    url: 'https://toram-tools.vercel.app/market'
-  }
 }
 
 const Page = () => {
