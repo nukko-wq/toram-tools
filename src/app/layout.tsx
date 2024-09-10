@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     title: "トーラムいろいろツール",
     description: "トーラムオンラインのいろいろツール。マーケット計算ツールがあります。",
     type: "website",
-    url: "https://toram-tools.vercel.app",
     images: [
       {
         url: OgImage.src,
