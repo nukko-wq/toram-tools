@@ -4,6 +4,8 @@ import "./globals.css"
 import Favicon from '/public/images/Metadata/favicon.ico'
 import AppleIcon from '/public/images/Metadata/apple-icon.png'
 import AndroidIcon from '/public/images/Metadata/android-touch-icon.png'
+import OgImage from '/public/images/Metadata/og-image.jpg'
+import TwitterImage from '/public/images/Metadata/twitter-image.jpg'
 import { Analytics } from "@vercel/analytics/react"
 import { GoogleAnalytics } from "@next/third-parties/google"
 
@@ -15,6 +17,24 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  openGraph: {
+    title: "トーラムいろいろツール",
+    description: "トーラムオンラインのいろいろツール。マーケット計算ツールがあります。",
+    type: "website",
+    images: [
+      {
+        url: OgImage.src,
+        width: 1200,
+        height: 630
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary',
+    title: 'トーラムいろいろツール',
+    description: 'トーラムオンラインのいろいろツール。マーケット計算ツールがあります。',
+    images: TwitterImage.src
   },
   verification: {
     google: "6OpGn6zf_DC6Sq376ndFl1wJ47WnLtXf0YK4Q6qW8u4",
