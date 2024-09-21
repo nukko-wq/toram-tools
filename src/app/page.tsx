@@ -1,8 +1,9 @@
 import Link from 'next/link'
+import Footer from './components/layouts/footer/footer'
 
-export default function Home() {
+export default async function Home() {
 	return (
-		<main className="flex flex-col justify-center min-h-screen">
+		<main className="flex flex-col justify-center">
 			<div className="mt-10 flex flex-col justify-center items-center">
 				<div>
 					<h1 className="text-center text-3xl font-bold text-gray-700">
@@ -41,11 +42,6 @@ export default function Home() {
 					</Link>
 				</div>
 			</div>
-			<footer className="mt-auto items-center p-4">
-				<aside className="items-center flex flex-row justify-center">
-					<p className="text-sm text-gray-500">© トーラムいろいろツール 2024</p>
-				</aside>
-			</footer>
 		</main>
 	)
 }
