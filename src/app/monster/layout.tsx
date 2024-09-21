@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '@/src/app/globals.css'
 import Favicon from '/public/images/Metadata/favicon.ico'
 import AppleIcon from '/public/images/Metadata/apple-icon.png'
 import AndroidIcon from '/public/images/Metadata/android-touch-icon.png'
@@ -8,7 +8,7 @@ import OgImage from '/public/images/Metadata/og-image.jpg'
 import TwitterImage from '/public/images/Metadata/twitter-image.jpg'
 import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import Footer from './components/layouts/footer/footer'
+import Header from '../components/layouts/header/header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -50,23 +50,15 @@ export const metadata: Metadata = {
 	],
 }
 
-export default function RootLayout({
+export default function MonsterLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="ja">
-			<body className={inter.className}>
-				<div className='flex flex-col min-h-screen'>
-					<main className='flex flex-col flex-grow'>
-						{children}
-					</main>
-					<Footer />
-				</div>
-				<Analytics />
-			</body>
-			<GoogleAnalytics gaId="G-GZ32LPEYKN" />
-		</html>
+		<>
+			<Header />
+			{children}
+		</>
 	)
 }
