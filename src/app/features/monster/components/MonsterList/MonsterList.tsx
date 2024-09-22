@@ -1,24 +1,11 @@
 import Link from 'next/link'
 import { getList } from '@/libs/microcms'
-import { Suspense } from 'react'
 
 const MonsterList = async () => {
   const { contents } = await getList()
 
   return (
-    <div>
-      {/*
-      <div className='w-1/4'>
-        <Suspense fallback={<Loading />}>
-          <Search />
-        </Suspense>
-      </div>
-      <div className='w-3/4'>
-        <Suspense fallback={<Loading />}>
-          <Results />
-        </Suspense>
-      </div>
-      */}
+    <div className='p-8'>
       <ul>
         {contents.map((monster) => {
           return (

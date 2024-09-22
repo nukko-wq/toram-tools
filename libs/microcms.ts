@@ -1,5 +1,8 @@
-import { createClient } from 'microcms-js-sdk'
-import type { MicroCMSQueries, MicroCMSDate } from 'microcms-js-sdk'
+import {
+	createClient,
+	type MicroCMSQueries,
+	type MicroCMSDate,
+} from 'microcms-js-sdk'
 import { notFound } from 'next/navigation'
 
 export type Monster = {
@@ -15,6 +18,18 @@ export type Monster = {
 	body: string
 	item: string
 	category: string[]
+	drop1: string
+	drop2: string
+	drop3: string
+	drop4: string
+	drop5: string
+	drop6: string
+	drop7: string
+	drop8: string
+	drop9: string
+	drop10: string
+	drop11: string
+	drop12: string
 } & MicroCMSDate
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {

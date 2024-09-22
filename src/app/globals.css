@@ -11,3 +11,12 @@
     text-decoration: none;
   }
 }
+
+span.text-red {
+  color: #f87171;
+}
+.boss-data {
+  h4 {
+    opacity: .85;
+  }
+}

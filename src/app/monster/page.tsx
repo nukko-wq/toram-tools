@@ -23,16 +23,16 @@ export default async function MonsterPage({ searchParams = {} }: { searchParams?
 		redirect('/profile')
 	}
 	return (
-		<div className='max-w-5xl w-full mx-auto p-6 flex-grow bg-slate-200'>
+		<div className='max-w-5xl w-full mx-auto p-6 flex-grow '>
 			<div>{session.user?.name}</div>
-			<h1 className="text-2xl">ようこそ {user?.name}</h1>
+			<h1 className="">ようこそ {user?.name}</h1>
 			<form className='mb-1'
 				action={async () => {
 					'use server'
 					await signOut()
 				}}
 			>
-				<button type="submit" className="p-2 border-2 bg-blue-400">
+				<button type="submit" className="ml-2 py-1.5 px-3 bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 focus:shadow-none active:bg-blue-600 active:shadow-none text-white font-bold rounded border border-transparent text-sm transition-all shadow-md hover:shadow-lg">
 					Sign Out
 				</button>
 			</form>
