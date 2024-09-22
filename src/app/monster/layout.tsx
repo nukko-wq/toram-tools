@@ -13,12 +13,12 @@ import Header from '../components/layouts/header/header'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-	title: 'トーラムいろいろツール',
+	title: 'トーラムボスモンスター | トーラムいろいろツール',
 	description:
 		'トーラムオンラインのいろいろツール。マーケット計算ツールがあります。',
 	robots: {
-		index: true,
-		follow: true,
+		index: false,
+		follow: false,
 	},
 	openGraph: {
 		title: 'トーラムいろいろツール',
