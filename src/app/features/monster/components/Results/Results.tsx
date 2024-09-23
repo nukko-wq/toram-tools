@@ -9,6 +9,8 @@ type Props = {
 const Results = async ({ q }: Props) => {
   const monsters = await getMonsters({ q })
 
+
+
   return (
     <div className='flex h-full'>
       <section className='p-8'>
@@ -30,6 +32,7 @@ const Results = async ({ q }: Props) => {
         </div>
       </section>
     </div>
+
   )
 }
 
