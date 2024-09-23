@@ -40,7 +40,8 @@ const KeyWord = () => {
           className='w-full px-3 py-2 focus:outline-none focus-visible:outline-1'
           defaultValue={searchParams.get('q')?.toString()}
         />
-        <button type='button' aria-label='検索する' className='px-3'>
+        {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
+        <button aria-label='検索する' className='px-3'>
           <SearchIcon className="h-4 w-4 opacity-50" />
         </button>
       </div>
