@@ -1,6 +1,6 @@
 import KeyWord from "../KeyWord/KeyWord";
 
-const Search = () => {
+const Search = async () => {
   return (
     <section className="h-full w-full border-r border-x-gray-200 p-8">
       <div className="gird gap8">
