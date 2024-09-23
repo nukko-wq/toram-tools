@@ -1,14 +1,9 @@
 import { getDetail } from '@/libs/microcms'
 import { v4 as uuidv4 } from 'uuid'
-import { cache } from 'react'
-
-const fetchMonsterDetail = cache(async (slug: string) => {
-  return await getDetail(slug)
-})
 
 /*モンスターの詳細を表示*/
 export default async function MonsterDetail({ params }: { params: { slug: string } }) {
-  const monster = await fetchMonsterDetail(params.slug)
+  const monster = await getDetail(params.slug)
 
   // ドロップアイテムの配列を作成
   const dropItems = Array.from({ length: 12 }, (_, i) => {
