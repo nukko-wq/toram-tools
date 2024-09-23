@@ -1,4 +1,5 @@
 import { getDetail } from '@/libs/microcms'
+import parse from 'html-react-parser'
 import { v4 as uuidv4 } from 'uuid'
 
 /*モンスターの詳細を表示*/
@@ -19,8 +20,7 @@ export default async function MonsterDetail({ params }: { params: { slug: string
           <p className='mt-12'>場所: {monster.area}</p>
           <p className=''>Lv: {monster.Lv}</p>
           <p className=''>属性: {monster.Element}</p>
-          {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
-          <div className="" dangerouslySetInnerHTML={{ __html: `${monster.body}` }} />
+          <div className="">{parse(monster.body)}</div>
           <h4 className='mt-8 opacity-80'>ドロップアイテム</h4>
           {dropItems.map((item) => (
             <div key={item?.id}>
