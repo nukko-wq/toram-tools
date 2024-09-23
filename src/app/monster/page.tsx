@@ -17,7 +17,6 @@ export default async function MonsterPage({ searchParams = {} }: { searchParams?
 	} = searchParams
 
 	const session = await auth()
-	console.log("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 ~ MonsterPage ~ session:", session)
 	const user = session?.user
 
 	if (!session) {
