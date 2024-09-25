@@ -1,7 +1,12 @@
 'use client'
+import Link from "next/link"
 import { useState } from "react"
 
-const MobileMenu = () => {
+type MobileMenuProps = {
+  isLoggedIn: boolean
+}
+
+const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -14,9 +19,20 @@ const MobileMenu = () => {
       <div className={`fixed top-0 left-0 h-full w-[240px] bg-white transform transition-all duration-500 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} z-30`}>
         <nav className='p-6'>
           <ul>
-            <li className='border-b border-gray-300'><a className="block py-4 text-gray-700 hover:bg-gray-100" href="/market">マーケット計算</a></li>
-            <li className='border-b border-gray-300'><a className="block py-4 text-gray-700 hover:bg-gray-100" href="/monster">モンスター</a></li>
-            <li className='border-b border-gray-300'><a className="block py-4 text-gray-700 hover:bg-gray-100" href="/colors">色一覧</a></li>
+            <li className='border-b border-gray-300'>
+              <Link className="block py-4 text-gray-700 hover:bg-gray-100" href="/market">マーケット計算</Link>
+            </li>
+            {isLoggedIn && (
+              <>
+                <li className='border-b border-gray-300'>
+                  <Link className="block py-4 text-gray-700 hover:bg-gray-100" href="/monster">モンスター</Link>
+                </li>
+                <li className='border-b border-gray-300'>
+                  <Link className="block py-4 text-gray-700 hover:bg-gray-100" href="/colors">色一覧</Link>
+                </li>
+
+              </>
+            )}
           </ul>
         </nav>
       </div>
