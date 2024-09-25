@@ -7,9 +7,9 @@ export default async function Home() {
 		<>
 			<Header title='' link="/" />
 			<main className="flex flex-col justify-center">
-				<div className="mt-10 flex flex-col justify-center items-center">
+				<div className="flex flex-col justify-center items-center">
 					<div className="max-w-lg p-6 mt-8 mx-2 border border-gray-200 rounded-lg shadow">
-						<Link href="/market">
+						<Link href="/market" scroll={false}>
 							<h5 className="text-2xl font-bold text-gray-700">マーケット計算</h5>
 						</Link>
 						<p className="mb-3 font-normal text-gray-700">
@@ -20,6 +20,7 @@ export default async function Home() {
 						<Link
 							href="/market"
 							className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-500 rounded-lg hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+							scroll={false}
 						>
 							Learn more
 							<svg
