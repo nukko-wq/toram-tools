@@ -5,14 +5,11 @@ import MobileMenu from '@/src/app/components/elements/MobileMenu'
 
 export default async function Header({ title, link }: { title: string, link: string }) {
 	const session = await auth()
-
-	if (!session) {
-		redirect('/profile')
-	}
+	const isLoggedIn = !!session
 
 	return (
 		<header className="top-0 flex items-center justify-between border-b bg-white z-50 w-full h-16 relative">
-			<MobileMenu />
+			<MobileMenu isLoggedIn={isLoggedIn} />
 			<div className='hidden fixed top-0 left-0 w-full h-full bg-black opacity-80 z-20 cursor-pointer' />
 			<div className='font-bold text-base lg:text-xl absolute md:static md:ml-4 left-1/2 transform -translate-x-1/2 md:-translate-x-0 opacity-90 text-blue-500'>
 				<Link href="/">トーラムいろいろツール</Link>

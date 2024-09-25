@@ -25,10 +25,10 @@ export default async function MonsterPage({ searchParams = {} }: { searchParams?
 	}
 	return (
 		<div className='max-w-5xl w-full mx-auto p-6 flex-grow '>
-			{/*
+
 			<div>{session.user?.name}</div>
 			<h1 className="">ようこそ {user?.name}</h1>
-			*/}
+
 			{/*
 			<form className='mb-1'
 				action={async () => {

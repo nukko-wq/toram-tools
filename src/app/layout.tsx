@@ -9,6 +9,7 @@ import TwitterImage from '/public/images/Metadata/twitter-image.jpg'
 import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Footer from './components/layouts/footer/footer'
+import Header from './components/layouts/header/header'
 
 const inter = Inter({ subsets: ['latin'] })
 

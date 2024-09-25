@@ -1,7 +1,12 @@
 'use client'
+import Link from "next/link"
 import { useState } from "react"
 
-const MobileMenu = () => {
+type MobileMenuProps = {
+  isLoggedIn: boolean
+}
+
+const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -11,18 +16,29 @@ const MobileMenu = () => {
 
   return (
     <div className="md:hidden relative">
-      <div className={`fixed top-0 left-0 h-full w-[300px] bg-white transform transition-transform duration-500 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} z-30`}>
+      <div className={`fixed top-0 left-0 h-full w-[240px] bg-white transform transition-all duration-500 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} z-30`}>
         <nav className='p-6'>
           <ul>
-            <li className='border-b border-gray-300'><a className="block py-4 text-gray-700 hover:bg-gray-100 duration-200" href="/">Text</a></li>
-            <li className='border-b border-gray-300'><a className="block py-4 text-gray-700 hover:bg-gray-100 duration-200" href="/">Text</a></li>
-            <li className='border-b border-gray-300'><a className="block py-4 text-gray-700 hover:bg-gray-100 duration-200" href="/">Text</a></li>
+            <li className='border-b border-gray-300'>
+              <Link className="block py-4 text-gray-700 hover:bg-gray-100" href="/market">マーケット計算</Link>
+            </li>
+            {isLoggedIn && (
+              <>
+                <li className='border-b border-gray-300'>
+                  <Link className="block py-4 text-gray-700 hover:bg-gray-100" href="/monster">モンスター</Link>
+                </li>
+                <li className='border-b border-gray-300'>
+                  <Link className="block py-4 text-gray-700 hover:bg-gray-100" href="/colors">色一覧</Link>
+                </li>
+
+              </>
+            )}
           </ul>
         </nav>
       </div>
       <button
         onClick={toggleMenu}
-        className={`block fixed left-4 top-[15px] z-30 w-[30px] h-[30px] cursor-pointer transition-all duration-500 ${isOpen ? 'left-[331px]' : ''}`}
+        className={`block fixed left-4 top-[15px] z-30 w-[30px] h-[30px] cursor-pointer transition-all duration-500 ${isOpen ? 'left-[260px]' : ''}`}
         type="button"
       >
         <span className={`block absolute left-0 w-[30px] h-[2px] top-[4px] rounded-[4px] transition-all duration-500 ${isOpen ? 'translate-y-[10px] rotate-[-315deg] bg-white' : 'bg-gray-600'} `} />
