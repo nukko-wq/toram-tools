@@ -14,6 +14,9 @@ const config: Config = {
 				'gradient-conic':
 					'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 			},
+			gridTemplateColumns: {
+				'17': 'repeat(17, minmax(0, 1fr))',
+			},
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],

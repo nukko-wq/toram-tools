@@ -57,7 +57,7 @@ export default function MonsterLayout({
 }>) {
 	return (
 		<>
-			<Header />
+			<Header title='トーラムボスモンスター' link='/monster' />
 			{children}
 		</>
 	)
