@@ -98,8 +98,9 @@ const UnitPrice = () => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<label className="block mb-2">マーケットの価格</label>
+				<label htmlFor="market-price" className="block mb-2">マーケットの価格</label>
 				<input
+					id="market-price"
 					type="number"
 					inputMode="numeric"
 					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
@@ -110,8 +111,9 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label className="block mb-2">個数</label>
+				<label htmlFor="quantity" className="block mb-2">個数</label>
 				<input
+					id="quantity"
 					type="number"
 					inputMode="numeric"
 					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
@@ -122,8 +124,9 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label className="block mb-2">税率(%)</label>
+				<label htmlFor="tax" className="block mb-2">税率(%)</label>
 				<input
+					id="tax"
 					type="number"
 					inputMode="numeric"
 					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
@@ -134,8 +137,9 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label className="block mb-2">出品したい個数</label>
+				<label htmlFor="listing-quantity" className="block mb-2">出品したい個数</label>
 				<input
+					id="listing-quantity"
 					type="number"
 					inputMode="numeric"
 					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"

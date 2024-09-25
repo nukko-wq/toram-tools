@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react"
 
-const index = () => {
+const MobileMenu = () => {
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -41,4 +41,4 @@ const index = () => {
   )
 }
 
-export default index
+export default MobileMenu
