@@ -6,7 +6,7 @@ export default async function Home() {
 	return (
 		<>
 			<Header title='' link="/" />
-			<main className="flex flex-col justify-center">
+			<main className="flex flex-col justify-center pt-16">
 				<div className="flex flex-col justify-center items-center">
 					<div className="max-w-lg p-6 mt-8 mx-2 border border-gray-200 rounded-lg shadow">
 						<Link href="/market" scroll={false}>
