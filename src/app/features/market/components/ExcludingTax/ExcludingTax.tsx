@@ -62,8 +62,9 @@ const ExcludingTax = () => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<label className="block mb-2">価格</label>
+				<label className="block mb-2" htmlFor='excludingtax_price'>価格</label>
 				<input
+					id='excludingtax_price'
 					type="number"
 					inputMode="numeric"
 					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
@@ -74,8 +75,9 @@ const ExcludingTax = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label className="block mb-2">税率(%)</label>
+				<label className="block mb-2" htmlFor='excluding-tax-tax'>税率(%)</label>
 				<input
+					id='excluding-tax-tax'
 					type="number"
 					inputMode="numeric"
 					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
@@ -87,7 +89,7 @@ const ExcludingTax = () => {
 			</div>
 			<button
 				className="w-full mt-4 px-4 py-2 text-white bg-teal-500 rounded transform transition-transform duration-200 ease-in-out hover:bg-teal-600 hover:scale-95 active:bg-teal-600 active:scale-95"
-				type="button"
+				type="submit"
 				onClick={calculateExcludingTaxPrice}
 			>
 				計算する

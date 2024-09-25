@@ -151,7 +151,7 @@ const UnitPrice = () => {
 			</div>
 			<button
 				className="w-full mt-4 px-4 py-2 text-white bg-teal-500 rounded transform transition-transform duration-200 ease-in-out hover:bg-teal-600 hover:scale-95 active:bg-teal-600 active:scale-95"
-				type="button"
+				type="submit"
 				onClick={calculateUnitPrice}
 			>
 				計算する
