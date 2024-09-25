@@ -24,10 +24,11 @@ export default async function MonsterPage({ searchParams = {} }: { searchParams?
 		redirect('/profile')
 	}
 	return (
-		<div className='max-w-5xl w-full mx-auto p-6 flex-grow '>
-
+		<div className='max-w-5xl w-full mx-auto pt-16 flex-grow '>
+			{/*}
 			<div>{session.user?.name}</div>
 			<h1 className="">ようこそ {user?.name}</h1>
+			*/}
 
 			{/*
 			<form className='mb-1'

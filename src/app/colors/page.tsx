@@ -15,7 +15,7 @@ export default async function ColorsPage() {
     redirect('/profile')
   }
   return (
-    <div className='w-full mx-auto px-10 py-6 flex-grow '>
+    <div className='w-full mx-auto px-10 py-6 flex-grow pt-24'>
       <div className='grid grid-cols-17 gap-4'>
         <div className='relative grid grid-rows-subgrid h-14 bg-[#ffffff]'><div className='w-full absolute top-[50%] mt-[-12px] text-center opacity-0 hover:opacity-100 transition duration-100'>1</div></div>
         <div className='h-14 bg-[#c0c0c0]'>2</div>
