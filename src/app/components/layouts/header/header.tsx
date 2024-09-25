@@ -6,10 +6,6 @@ import MobileMenu from '@/src/app/components/elements/MobileMenu'
 export default async function Header({ title, link }: { title: string, link: string }) {
 	const session = await auth()
 
-	if (!session) {
-		redirect('/profile')
-	}
-
 	return (
 		<header className="top-0 flex items-center justify-between border-b bg-white z-50 w-full h-16 relative">
 			<MobileMenu />
