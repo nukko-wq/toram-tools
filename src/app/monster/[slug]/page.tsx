@@ -14,7 +14,7 @@ export default async function MonsterDetail({ params }: { params: { slug: string
 
   return (
     <div>
-      <div className='boss-data w-full max-w-5xl mx-auto pt-6 flex-grow'>
+      <div className='boss-data w-full max-w-5xl mx-auto flex-grow pt-16 md:pt-20'>
         <div className='prose p-6'>
           <h1 className="text-center opacity-80">{monster.name}</h1>
           <p className='mt-12'>場所: {monster.area}</p>
