@@ -8,7 +8,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title, description, link }) => {
   return (
-    <div className="flex flex-col max-w-lg p-6 border border-gray-200 rounded-lg shadow">
+    <div className="flex flex-col max-w-lg p-6 border border-gray-200 rounded-lg">
       <Link href={link} scroll={false}>
         <h5 className="text-2xl font-bold text-gray-700">{title}</h5>
       </Link>

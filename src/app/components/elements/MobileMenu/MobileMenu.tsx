@@ -25,7 +25,7 @@ const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
   return (
     <>
       <div className="md:hidden relative">
-        <nav className={`flex flex-col fixed top-0 bottom-0 h-full w-[240px] bg-white transition-all duration-500 overflow-x-hidden overflow-y-auto ${isOpen ? 'left-0' : '-left-[240px]'} z-30`}>
+        <nav className={`flex flex-col fixed top-0 bottom-0 w-[240px] h-svh bg-white transition-all duration-500 overflow-x-hidden overflow-y-auto ${isOpen ? 'left-0' : '-left-[240px]'} z-30`}>
           <div className='p-[25px]'>
             <ul className="">
               <li className='border-b border-gray-300 relative'>
@@ -61,7 +61,7 @@ const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
 
         {isOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-80 z-20 cursor-pointer transition-all duration-500"
+            className="fixed inset-0 bg-black bg-opacity-80 z-20 cursor-pointer transition-all duration-500 h-svh"
             onClick={toggleMenu}
             onKeyDown={(e) => e.key === 'Enter' && toggleMenu()}
           />
