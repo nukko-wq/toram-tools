@@ -1,7 +1,7 @@
 'use client'
-import Link from "next/link"
 import { useState } from "react"
 import { useRouter } from 'next/navigation'
+import SignOutButton from "../SignOutButton/SignOutButton"
 
 type MobileMenuProps = {
   isLoggedIn: boolean
@@ -25,7 +25,7 @@ const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
   return (
     <>
       <div className="md:hidden relative">
-        <nav className={`fixed top-0 bottom-0 h-full w-[240px] bg-white transition-all duration-500 overflow-x-hidden overflow-y-auto ${isOpen ? 'left-0' : '-left-[240px]'} z-30`}>
+        <nav className={`flex flex-col fixed top-0 bottom-0 h-full w-[240px] bg-white transition-all duration-500 overflow-x-hidden overflow-y-auto ${isOpen ? 'left-0' : '-left-[240px]'} z-30`}>
           <div className='p-[25px]'>
             <ul className="">
               <li className='border-b border-gray-300 relative'>
@@ -39,11 +39,15 @@ const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
                   <li className='border-b border-gray-300 relative'>
                     <button type="button" onClick={() => handleLinkClick('/colors')} className="block py-4 w-full text-left text-gray-700 hover:bg-gray-100 active:bg-gray-100 duration-200">色一覧</button>
                   </li>
-
                 </>
               )}
             </ul>
           </div>
+          {isLoggedIn && (
+            <div className="flex flex-grow items-end p-[25px] mb-4">
+              <SignOutButton />
+            </div>
+          )}
         </nav>
         <button
           onClick={toggleMenu}

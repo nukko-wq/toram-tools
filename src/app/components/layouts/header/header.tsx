@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { auth, signOut } from '@/auth'
+import { auth } from '@/auth'
 import MobileMenu from '@/src/app/components/elements/MobileMenu/MobileMenu'
 
 export default async function Header({ title, link }: { title: string, link: string }) {
@@ -13,18 +13,6 @@ export default async function Header({ title, link }: { title: string, link: str
 				<Link href="/" scroll={false}>トーラムいろいろツール</Link>
 			</div>
 			<div className="hidden md:block md:absolute md:left-1/2 md:transform md:-translate-x-1/2 font-bold flex-grow text-center text-lg lg:text-xl opacity-90"><Link href={link}>{title}</Link></div>
-			{session && (
-				<form className='flex items-center flex-grow justify-end mr-4'
-					action={async () => {
-						'use server'
-						await signOut()
-					}}
-				>
-					<button type="submit" className="py-1.5 px-3 bg-pink-500 hover:bg-pink-600 focus:bg-pink-600 focus:shadow-none active:bg-pink-600 active:shadow-none text-white font-bold rounded border border-transparent text-xs md:text-sm transition-all shadow-md hover:shadow-lg">
-						Sign Out
-					</button>
-				</form>
-			)}
 		</header>
 	)
 }

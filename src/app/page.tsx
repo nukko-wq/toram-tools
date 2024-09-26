@@ -1,8 +1,10 @@
 import Link from 'next/link'
-import Footer from './components/layouts/footer/footer'
 import Header from './components/layouts/header/header'
+import { auth } from '@/auth'
 
 export default async function Home() {
+	const session = await auth()
+
 	return (
 		<>
 			<Header title='' link="/" />
@@ -40,6 +42,11 @@ export default async function Home() {
 							</svg>
 						</Link>
 					</div>
+					{session && (
+						<div id='card2'>
+							card2
+						</div>
+					)}
 				</div>
 			</main>
 		</>
