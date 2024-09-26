@@ -21,7 +21,7 @@ const Results = async ({ q }: Props) => {
           ) : (
             <ul className='grid gap-3'>
               {monsters.map((monster) => (
-                <li key={monster.id} className='grid gap-2 rounded-md border p-4 transition hover:bg-gray-50'>
+                <li key={monster.id} className='grid gap-2 rounded-md border p-4 transition hover:bg-gray-50 active:bg-gray-50'>
                   <Link href={`/monster/${monster.id}`}>
                     <p className='font-bold'>{monster.name}</p>
                   </Link>

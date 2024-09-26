@@ -27,17 +27,17 @@ const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
       <div className="md:hidden relative">
         <nav className={`fixed top-0 bottom-0 h-full w-[240px] bg-white transition-all duration-500 overflow-x-hidden overflow-y-auto ${isOpen ? 'left-0' : '-left-[240px]'} z-30`}>
           <div className='p-[25px]'>
-            <ul>
+            <ul className="">
               <li className='border-b border-gray-300 relative'>
-                <button type="button" onClick={() => handleLinkClick('/market')} className="block py-4 text-gray-700 hover:bg-gray-100 duration-200">マーケット計算</button>
+                <button type="button" onClick={() => handleLinkClick('/market')} className="block w-full text-left py-4 text-gray-700 hover:bg-gray-100 active:bg-gray-100 duration-200">マーケット計算</button>
               </li>
               {isLoggedIn && (
                 <>
                   <li className='border-b border-gray-300 relative'>
-                    <button type="button" onClick={() => handleLinkClick('/monster')} className="block py-4 text-gray-700 hover:bg-gray-100 duration-200">モンスター</button>
+                    <button type="button" onClick={() => handleLinkClick('/monster')} className="block w-full text-left py-4 text-gray-700 hover:bg-gray-100 active:bg-gray-100 duration-200">モンスター</button>
                   </li>
                   <li className='border-b border-gray-300 relative'>
-                    <button type="button" onClick={() => handleLinkClick('/colors')} className="block py-4 text-gray-700 hover:bg-gray-100 duration-200">色一覧</button>
+                    <button type="button" onClick={() => handleLinkClick('/colors')} className="block py-4 w-full text-left text-gray-700 hover:bg-gray-100 active:bg-gray-100 duration-200">色一覧</button>
                   </li>
 
                 </>
