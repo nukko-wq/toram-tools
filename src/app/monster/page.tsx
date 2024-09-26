@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 import MonsterList from '../features/monster/components/MonsterList/MonsterList'
 import Search from '../features/monster/components/Serch/Search'
 import Results from '../features/monster/components/Results/Results'
-import Spinner from '@/src/app/components/elements/Spinner'
+import Spinner from '@/src/app/components/elements/Spinner/Spinner'
 
 type Props = {
 	q?: string
@@ -24,7 +24,7 @@ export default async function MonsterPage({ searchParams = {} }: { searchParams?
 		redirect('/profile')
 	}
 	return (
-		<div className='max-w-5xl w-full mx-auto pt-16 flex-grow '>
+		<div className='max-w-5xl w-full mx-auto pt-16 flex flex-grow flex-col'>
 			{/*}
 			<div>{session.user?.name}</div>
 			<h1 className="">ようこそ {user?.name}</h1>
@@ -43,10 +43,8 @@ export default async function MonsterPage({ searchParams = {} }: { searchParams?
 			</form>
 			*/}
 
-			<Suspense fallback={<Spinner />}>
-				<Search />
-			</Suspense>
-			<div>
+			<Search />
+			<div className='flex flex-grow'>
 				<Suspense key={q} fallback={<Spinner />}>
 					<Results
 						q={q}
