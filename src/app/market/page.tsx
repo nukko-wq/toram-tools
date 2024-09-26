@@ -14,7 +14,7 @@ const Page = () => {
   return (
     <>
       <Header title="マーケット計算" link="/market" />
-      <div className="flex flex-col bg-gray-200 flex-grow 2xl:justify-center pt-16">
+      <div className="flex flex-col bg-gray-100 flex-grow 2xl:justify-center pt-16">
 
         <div className="w-full md:mt-4 2xl:mt-0 px-4 py-4 2xl:flex items-start 2xl:mx-auto justify-center">
           <div className="mx-auto px-4 py-4 max-w-xl 2xl:w-full bg-white shadow-md rounded-lg 2xl:mr-4 2xl:ml-0">
