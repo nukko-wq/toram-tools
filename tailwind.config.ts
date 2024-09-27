@@ -22,6 +22,9 @@ const config: Config = {
 				custom: '0 2px 8px rgb(0 0 0 / 0.1)',
 				card: '1px 5px 15px rgb(0 0 0 / 0.1)',
 			},
+			transitionDuration: {
+				250: '250ms',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
