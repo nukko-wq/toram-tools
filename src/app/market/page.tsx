@@ -11,15 +11,15 @@ export const metadata: Metadata = {
   description: "トーラムオンラインのマーケット単価計算や税抜価格の計算ができます。",
 }
 
-export const containerVariants = tv({
+const containerVariants = tv({
   base: 'mx-auto px-4 py-4 max-w-xl bg-white shadow-md rounded-lg'
 })
 
-export const titleVariants = tv({
+const titleVariants = tv({
   base: 'text-3xl font bold text-gray-700'
 })
 
-export const contentVariants = tv({
+const contentVariants = tv({
   base: 'w-full max-w-xl items-center mt-5'
 })
 
