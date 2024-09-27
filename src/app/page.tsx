@@ -1,7 +1,13 @@
-import Link from 'next/link'
 import Header from './components/layouts/header/header'
 import { auth } from '@/auth'
 import Card from './features/card/components/Card'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	alternates: {
+		canonical: 'https://toram-tools.vercel.app/',
+	}	
+}
 
 export default async function Home() {
 	const session = await auth()
