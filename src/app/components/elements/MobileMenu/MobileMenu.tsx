@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react"
 import { useRouter } from 'next/navigation'
-import SignOutButton from "../SignOutButton/SignOutButton"
+import { SignOut } from "../SignOutButton/SignOutButton"
 
 type MobileMenuProps = {
   isLoggedIn: boolean
@@ -17,9 +17,7 @@ const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
   }
   const handleLinkClick = (href: string) => {
     setIsOpen(false)
-    setTimeout(() => {
-      router.push(href, { scroll: false })
-    }, 100)
+    router.push(href, { scroll: false })
   }
 
   return (
@@ -45,7 +43,7 @@ const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
           </div>
           {isLoggedIn && (
             <div className="flex flex-grow items-end p-[25px] mb-4">
-              <SignOutButton />
+              <SignOut />
             </div>
           )}
         </nav>

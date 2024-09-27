@@ -3,7 +3,7 @@ import { auth } from '@/auth'
 import MobileMenu from '@/src/app/components/elements/MobileMenu/MobileMenu'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle, NavigationMenuList, NavigationMenuTrigger } from '@/components/ui/navigation-menu'
 import { CaretDownIcon } from '@radix-ui/react-icons'
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
+import AvatarMenu from '../../elements/AvatarMenu/AvatarMenu'
 
 export default async function Header({ title, link }: { title: string, link: string }) {
 	const session = await auth()
@@ -44,10 +44,10 @@ export default async function Header({ title, link }: { title: string, link: str
 							</NavigationMenuItem>
 						</NavigationMenuList>
 					</NavigationMenu>
-					<Avatar className='w-11 h-11 mr-4'>
-						<AvatarImage src={session.user?.image || ""} alt="ユーザーアバター" className='rounded-full' />
-						<AvatarFallback>{session.user?.name?.[0] || 'U'}</AvatarFallback>
-					</Avatar>
+					<AvatarMenu
+						userImage={session.user?.image || ""}
+						userName={session.user?.name || ""}
+					/>
 				</>
 			)}
 		</header >
