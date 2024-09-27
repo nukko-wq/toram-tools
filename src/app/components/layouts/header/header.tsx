@@ -22,7 +22,7 @@ export default async function Header({ title, link }: { title: string, link: str
 							<NavigationMenuTrigger>
 								ツール{' '}
 								<CaretDownIcon
-									className="relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
+									className="relative top-[1px] transition-transform duration-250 ease-in group-data-[state=open]:-rotate-180"
 									aria-hidden
 								/>
 							</NavigationMenuTrigger>
