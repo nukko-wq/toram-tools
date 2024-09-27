@@ -33,7 +33,6 @@ export default async function SignInForm() {
 		<>
 			<Header title='' link='' />
 			<div className='flex flex-col justify-center items-center flex-grow'>
-				<h1 className='mt-4 text-center text-3xl font-bold text-gray-700'>トーラムいろいろツール</h1>
 				<div className='flex flex-col justify-center items-center flex-grow'>
 					<form
 						action={async () => {
