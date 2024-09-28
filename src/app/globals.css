@@ -12,7 +12,7 @@
     text-decoration: none;
   }
   :root {
-    --font-sans: var(--font-inter), 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'BIZ UDPGothic' Meiryo, sans-serif
+    --font-sans: var(--font-inter), 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif
   }
   :root {
     --background: 0 0% 100%;
