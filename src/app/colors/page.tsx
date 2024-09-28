@@ -2,11 +2,6 @@ import { auth, signOut } from '@/auth'
 import { redirect } from 'next/navigation'
 import { tv } from 'tailwind-variants'
 
-type Props = {
-  q?: string
-}
-
-
 export default async function ColorsPage() {
   const card = tv({
     slots: {
@@ -52,28 +47,28 @@ export default async function ColorsPage() {
           <div className={cardRight()}>4</div>
         </div>
         <div className={cardContainer()}>
-          <div className={cardLeft({ class: 'bg-[]' })} />
+          <div className={cardLeft({ class: 'bg-[#000000]' })} />
           <div className={cardRight()}>5</div>
         </div>
         <div className={cardContainer()}>
-          <div className={cardLeft({ class: 'bg-[]' })} />
+          <div className={cardLeft({ class: 'bg-[#fab3b2]' })} />
           <div className={cardRight()}>6</div>
         </div>
         <div className={cardContainer()}>
-          <div className={cardLeft({ class: 'bg-[]' })} />
+          <div className={cardLeft({ class: 'bg-[#fbcbb3]' })} />
           <div className={cardRight()}>7</div>
         </div>
         <div className={cardContainer()}>
-          <div className={cardLeft({ class: 'bg-[]' })} />
+          <div className={cardLeft({ class: 'bg-[#fcd8b4]' })} />
           <div className={cardRight()}>8</div>
         </div>
         <div className={cardContainer()}>
-          <div className={cardLeft({ class: 'bg-[]' })} />
-          <div className={cardRight()}>1</div>
+          <div className={cardLeft({ class: 'bg-[#fdebb4]' })} />
+          <div className={cardRight()}>9</div>
         </div>
         <div className={cardContainer()}>
-          <div className={cardLeft({ class: 'bg-[]' })} />
-          <div className={cardRight()}>1</div>
+          <div className={cardLeft({ class: 'bg-[#fffeb5]' })} />
+          <div className={cardRight()}>10</div>
         </div>
         <div className={cardContainer()}>
           <div className={cardLeft({ class: 'bg-[]' })} />
