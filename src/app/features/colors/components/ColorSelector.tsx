@@ -24,7 +24,7 @@ export default function ColorSelector({
 
 	return (
 		<>
-			<div className="flex flex-wrap gap-2 mb-4">
+			<div className="grid grid-cols-3 gap-1.5 mb-4">
 				{categories.map((category) => (
 					<CategoryButton
 						key={category.key}
