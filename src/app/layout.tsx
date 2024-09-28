@@ -9,10 +9,16 @@ import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Footer from './components/layouts/footer/footer'
 import { inter } from './styles/fonts'
+import type {
+	Article as JsonLDArticle,
+	WebPage as JsonLDWebPage,
+	WithContext,
+} from 'schema-dts'
 
 export const metadata: Metadata = {
 	title: 'トーラムいろいろツール',
-	description: 'トーラムオンラインのいろいろツール。マーケット計算ツールがあります。',
+	description:
+		'トーラムオンラインのいろいろツール。マーケット計算ツールがあります。',
 	robots: {
 		index: true,
 		follow: true,
@@ -48,6 +54,13 @@ export const metadata: Metadata = {
 	],
 }
 
+const jsonLD: WithContext<JsonLDArticle | JsonLDWebPage> = {
+	'@context': 'https://schema.org',
+	'@type': 'WebPage',
+	name: 'トーラムいろいろツール',
+	url: 'https://toram-tools.vercel.app',
+}
+
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -56,13 +69,17 @@ export default function RootLayout({
 	return (
 		<html lang="ja">
 			<body className={`${inter.variable} font-sans`}>
-				<div className='flex flex-col min-h-screen'>
-					<main className='flex flex-col flex-grow'>
-						{children}
-					</main>
+				<div className="flex flex-col min-h-screen">
+					<main className="flex flex-col flex-grow">{children}</main>
 					<Footer />
 				</div>
 				<Analytics />
+				<script
+					key="json-ld"
+					type="application/ld+json"
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD) }}
+				/>
 			</body>
 			<GoogleAnalytics gaId="G-GZ32LPEYKN" />
 		</html>
