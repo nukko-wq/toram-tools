@@ -18,6 +18,7 @@ const config: Config = {
 					'Arial',
 					'Hiragino Kaku Gothic ProN',
 					'Hiragino Sans',
+					'BIZ UDPGothic',
 					'Meiryo',
 					...defaultTheme.fontFamily.sans,
 				],
