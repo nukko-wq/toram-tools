@@ -1,33 +1,19 @@
-import { auth, signOut } from '@/auth'
+import { auth } from '@/auth'
 import { redirect } from 'next/navigation'
-import { tv } from 'tailwind-variants'
+import ColorSelector from '../features/colors/components/ColorSelector'
+import { colorCards, colorCategories } from '../features/colors/ColorData'
 
 export default async function ColorsPage() {
-	const card = tv({
-		slots: {
-			cardContainer: 'h-14 flex border-b pb-2',
-			cardLeft: 'bg-blue-400 flex-grow',
-			cardRight:
-				'bg-white w-1/6 flex justify-center items-center text-slate-500',
-		},
-		variants: {
-			position: {
-				top: {
-					cardContainer: '',
-				},
-			},
-		},
-	})
-
-	const { cardLeft, cardRight, cardContainer } = card()
-
 	const session = await auth()
 
 	if (!session) {
 		redirect('/profile')
 	}
 	return (
-		<div className="w-full mx-auto px-2 pb-4 flex-grow pt-20">
+		<div className="w-full mx-auto px-2 pb-4 flex-grow pt-20 bg-[#fcfcfc">
+			<ColorSelector categories={colorCategories} cards={colorCards} />
+
+			{/*
 			<div className="grid grid-cols-2 gap-2">
 				<div id="top-card" className={cardContainer({ position: 'top' })}>
 					<div className={cardLeft({ class: 'bg-[#ffffff]' })} />
@@ -370,6 +356,7 @@ export default async function ColorsPage() {
 					<div className={cardRight()}>85</div>
 				</div>
 			</div>
+      */}
 		</div>
 	)
 }
