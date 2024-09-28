@@ -20,7 +20,7 @@ export const colorCards: Card[] = [
 	{ id: 4, color: '#404040', category: ['monochrome'] },
 	{ id: 5, color: '#000000', category: ['monochrome'] },
 	{ id: 6, color: '#fab3b2', category: ['pink'] },
-	{ id: 7, color: '#fbcbb3', category: ['pink'] },
+	{ id: 7, color: '#fbcbb3', category: ['pink', 'orange'] },
 	{ id: 8, color: '#fcd8b4', category: ['orange'] },
 	{ id: 9, color: '#fdebb4', category: ['yellow'] },
 	{ id: 10, color: '#fffeb5', category: ['yellow'] },

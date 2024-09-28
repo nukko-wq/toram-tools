@@ -24,7 +24,7 @@ export default function ColorSelector({
 
 	return (
 		<>
-			<div className="grid grid-cols-3 gap-1.5 mb-4">
+			<div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 md:max-w-3xl gap-1.5 mb-4 mx-auto">
 				{categories.map((category) => (
 					<CategoryButton
 						key={category.key}
@@ -34,7 +34,7 @@ export default function ColorSelector({
 					/>
 				))}
 			</div>
-			<div className="grid grid-cols-2 gap-2">
+			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
 				{filteredCards.map((card) => (
 					<ColorCard key={card.id} card={card} />
 				))}
