@@ -9,8 +9,7 @@ import TwitterImage from '/public/images/Metadata/twitter-image.jpg'
 import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Footer from './components/layouts/footer/footer'
-
-const inter = Inter({ subsets: ['latin'] })
+import { inter } from './styles/fonts'
 
 export const metadata: Metadata = {
 	title: 'トーラムいろいろツール',
@@ -57,7 +56,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="ja">
-			<body className={inter.className}>
+			<body className={`${inter.variable} font-sans`}>
 				<div className='flex flex-col min-h-screen'>
 					<main className='flex flex-col flex-grow'>
 						{children}
