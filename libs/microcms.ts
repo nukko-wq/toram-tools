@@ -2,6 +2,7 @@ import {
 	createClient,
 	type MicroCMSQueries,
 	type MicroCMSDate,
+	type MicroCMSContentId,
 } from 'microcms-js-sdk'
 import { notFound } from 'next/navigation'
 
@@ -31,6 +32,18 @@ export type Monster = {
 	drop11: string
 	drop12: string
 } & MicroCMSDate
+
+export type FoodItem = {
+	fieldId: string
+	Lv: number
+	address: number
+}
+
+export type FoodBuff = {
+	name: string[]
+	item: FoodItem[]
+} & MicroCMSContentId &
+	MicroCMSDate
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
 	throw new Error('MICROCMS_SERVICE_DOMAIN is required')
@@ -72,4 +85,14 @@ export const getDetail = async (
 		.catch(notFound)
 
 	return detailData
+}
+
+// 料理情報を取得
+export const getFoodBuff = async (queries?: MicroCMSQueries) => {
+	const foodBuff = await client.getList({
+		endpoint: 'food',
+		queries,
+	})
+
+	return foodBuff
 }
