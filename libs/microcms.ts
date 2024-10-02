@@ -88,10 +88,12 @@ export const getDetail = async (
 }
 
 // 料理情報を取得
-export const getFoodBuff = async (queries?: MicroCMSQueries) => {
+export const getFoodBuff = async () => {
 	const foodBuff = await client.getList({
 		endpoint: 'food',
-		queries,
+		queries: {
+			limit: 30,
+		},
 	})
 
 	return foodBuff
