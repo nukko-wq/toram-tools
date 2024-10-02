@@ -95,7 +95,7 @@ export default async function FoodPage() {
 
 	return (
 		<div className="max-w-7xl w-full mx-auto pt-16 flex flex-grow flex-col">
-			<table className="border-collapse border border-slate-400 mx-2 mt-4 mb-10 lg:hidden">
+			<table className="border-collapse border border-slate-400 mx-2 mt-7 mb-7 lg:hidden">
 				<thead>
 					<tr className="border">
 						<th scope="col" className="border font-medium">
@@ -155,7 +155,7 @@ export default async function FoodPage() {
 			</table>
 
 			<div className="hidden lg:flex">
-				<table className="flex-grow border-collapse border-slate-400 mx-2 mt-4 mb-10">
+				<table className="flex-grow border-collapse border-slate-400 mx-2 my-10">
 					<thead>
 						<tr className="border">
 							<th scope="col" className="border font-medium">
@@ -217,7 +217,7 @@ export default async function FoodPage() {
 						))}
 					</tbody>
 				</table>
-				<table className="flex-grow border-collapse border border-slate-400 mx-2 mt-4 mb-10">
+				<table className="flex-grow border-collapse border border-slate-400 mx-2 my-10">
 					<thead>
 						<tr className="border">
 							<th scope="col" className="border font-medium">
