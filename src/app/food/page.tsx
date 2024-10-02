@@ -3,11 +3,12 @@ import { redirect } from 'next/navigation'
 import { getFoodBuff } from '@/libs/microcms'
 import React from 'react'
 import { tv } from 'tailwind-variants'
+import { inconsolata } from '../styles/fonts'
 
 const table = tv({
 	slots: {
-		tableTr: '',
-		tableTd: 'border p-4',
+		tableTr: 'odd:bg-slate-100 even:bg-white',
+		tableTd: `border text-xl p-4 ${inconsolata.className}`,
 	},
 })
 
@@ -67,487 +68,218 @@ export default async function FoodPage() {
 		(food) => food.name[0] === '無属性ダメージ',
 	)
 
+	const foodCategories = [
+		{ name: 'クリティカル率', data: foodCritical },
+		{ name: '最大MP', data: foodMaxMP },
+		{ name: '最大HP', data: foodMaxHP },
+		{ name: '攻撃MP回復', data: foodAMPR },
+		{ name: '武器ATK', data: foodWeaponATK },
+		{ name: '命中', data: foodHit },
+		{ name: 'ヘイト＋', data: foodHatePlus },
+		{ name: 'ヘイト－', data: foodHateMinus },
+		{ name: '割合バリア', data: foodPercentageBarrier },
+		{ name: '物理耐性', data: foodPhysicalResistance },
+		{ name: '魔法耐性', data: foodMagicResistance },
+		{ name: 'STR', data: foodStr },
+		{ name: 'INT', data: foodInt },
+		{ name: 'DEX', data: foodDex },
+		{ name: 'AGI', data: foodAgi },
+		{ name: '闇属性にダメージ', data: foodAdvangateDark },
+		{ name: '地属性にダメージ', data: foodAdvangateEarth },
+		{ name: '光属性にダメージ', data: foodAdvangateLight },
+		{ name: '風属性にダメージ', data: foodAdvangateWind },
+		{ name: '水属性にダメージ', data: foodAdvangateWater },
+		{ name: '火属性にダメージ', data: foodAdvangateFire },
+		{ name: '無属性にダメージ', data: foodAdvangateNeutral },
+	]
+
 	return (
-		<div className="max-w-5xl w-full mx-auto pt-16 flex flex-grow flex-col">
-			<table className="border-collapse border border-slate-400 mx-2 mt-4 mb-10">
+		<div className="max-w-7xl w-full mx-auto pt-16 flex flex-grow flex-col">
+			<table className="border-collapse border border-slate-400 mx-2 mt-4 mb-10 lg:hidden">
 				<thead>
 					<tr className="border">
-						<th scope="col" className="border">
+						<th scope="col" className="border font-medium">
 							料理
 						</th>
-						<th scope="col" className="border">
+						<th scope="col" className="border font-medium">
 							簡易コード
 						</th>
-						<th scope="col" className="border">
+						<th scope="col" className="border font-medium">
 							Lv
 						</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr className="">
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodCritical[0].item.length + 1}
-						>
-							クリティカル率
-						</th>
-					</tr>
-					{foodCritical.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodMaxMP[0].item.length + 1}
-						>
-							最大MP
-						</th>
-					</tr>
-					{foodMaxMP.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodMaxHP[0].item.length + 1}
-						>
-							最大HP
-						</th>
-					</tr>
-					{foodMaxHP.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodAMPR[0].item.length + 1}
-						>
-							攻撃MP回復
-						</th>
-					</tr>
-					{foodAMPR.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodWeaponATK[0].item.length + 1}
-						>
-							武器ATK
-						</th>
-					</tr>
-					{foodWeaponATK.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodHit[0].item.length + 1}
-						>
-							命中
-						</th>
-					</tr>
-					{foodHit.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodHatePlus[0].item.length + 1}
-						>
-							ヘイト＋
-						</th>
-					</tr>
-					{foodHatePlus.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodHateMinus[0].item.length + 1}
-						>
-							ヘイト－
-						</th>
-					</tr>
-					{foodHateMinus.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodPercentageBarrier[0].item.length + 1}
-						>
-							割合バリア
-						</th>
-					</tr>
-					{foodPercentageBarrier.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodPhysicalResistance[0].item.length + 1}
-						>
-							物理耐性
-						</th>
-					</tr>
-					{foodPhysicalResistance.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodMagicResistance[0].item.length + 1}
-						>
-							魔法耐性
-						</th>
-					</tr>
-					{foodMagicResistance.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodStr[0].item.length + 1}
-						>
-							STR
-						</th>
-					</tr>
-					{foodStr.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodInt[0].item.length + 1}
-						>
-							INT
-						</th>
-					</tr>
-					{foodInt.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodDex[0].item.length + 1}
-						>
-							DEX
-						</th>
-					</tr>
-					{foodDex.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodAgi[0].item.length + 1}
-						>
-							AGI
-						</th>
-					</tr>
-					{foodAgi.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodAdvangateDark[0].item.length + 1}
-						>
-							闇属性にダメージ
-						</th>
-					</tr>
-					{foodAdvangateDark.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodAdvangateEarth[0].item.length + 1}
-						>
-							地属性にダメージ
-						</th>
-					</tr>
-					{foodAdvangateEarth.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodAdvangateLight[0].item.length + 1}
-						>
-							光属性にダメージ
-						</th>
-					</tr>
-					{foodAdvangateLight.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodAdvangateWind[0].item.length + 1}
-						>
-							風属性にダメージ
-						</th>
-					</tr>
-					{foodAdvangateWind.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodAdvangateWater[0].item.length + 1}
-						>
-							水属性にダメージ
-						</th>
-					</tr>
-					{foodAdvangateWater.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodAdvangateFire[0].item.length + 1}
-						>
-							火属性にダメージ
-						</th>
-					</tr>
-					{foodAdvangateFire.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
-						</React.Fragment>
-					))}
-					<tr>
-						<th
-							scope="row"
-							className="border"
-							rowSpan={foodAdvangateNeutral[0].item.length + 1}
-						>
-							水属性にダメージ
-						</th>
-					</tr>
-					{foodAdvangateNeutral.map((food) => (
-						<React.Fragment key={food.id}>
-							{food.item.map(
-								(item: { address: string; Lv: number }, index: number) => (
-									<tr key={`${food.id}-${index}`} className={tableTr()}>
-										<td className={tableTd()}>{item.address}</td>
-										<td className={tableTd()}>{item.Lv}</td>
-									</tr>
-								),
-							)}
+					{foodCategories.map((category) => (
+						<React.Fragment key={category.name}>
+							{category.data.map((food) => (
+								<React.Fragment key={food.id}>
+									{food.item.map(
+										(item: { address: string; Lv: number }, index: number) => (
+											<tr key={item.address} className={tableTr()}>
+												{index === 0 && (
+													<th
+														scope="row"
+														className={`border bg-white font-medium ${
+															category.name === '闇属性にダメージ'
+																? 'text-violet-500'
+																: category.name === '地属性にダメージ'
+																	? 'text-amber-600'
+																	: category.name === '光属性にダメージ'
+																		? 'text-yellow-400'
+																		: category.name === '風属性にダメージ'
+																			? 'text-green-500'
+																			: category.name === '水属性にダメージ'
+																				? 'text-blue-400'
+																				: category.name === '火属性にダメージ'
+																					? 'text-red-500'
+																					: category.name === '無属性にダメージ'
+																						? 'text-gray-600'
+																						: ''
+														}`}
+														rowSpan={food.item.length}
+													>
+														{category.name}
+													</th>
+												)}
+												<td className={tableTd()}>{item.address}</td>
+												<td className={tableTd()}>{item.Lv}</td>
+											</tr>
+										),
+									)}
+								</React.Fragment>
+							))}
 						</React.Fragment>
 					))}
 				</tbody>
 			</table>
+
+			<div className="hidden lg:flex">
+				<table className="flex-grow border-collapse border-slate-400 mx-2 mt-4 mb-10">
+					<thead>
+						<tr className="border">
+							<th scope="col" className="border font-medium">
+								料理
+							</th>
+							<th scope="col" className="border font-medium">
+								簡易コード
+							</th>
+							<th scope="col" className="border font-medium">
+								Lv
+							</th>
+						</tr>
+					</thead>
+					<tbody className="">
+						{foodCategories.slice(0, 11).map((category) => (
+							<React.Fragment key={category.name}>
+								{category.data.map((food) => (
+									<React.Fragment key={food.id}>
+										{food.item.map(
+											(
+												item: { address: string; Lv: number },
+												index: number,
+											) => (
+												<tr key={item.address} className={tableTr()}>
+													{index === 0 && (
+														<th
+															scope="row"
+															className={`border font-medium bg-white ${
+																category.name === '闇属性にダメージ'
+																	? 'text-violet-500'
+																	: category.name === '地属性にダメージ'
+																		? 'text-amber-600'
+																		: category.name === '光属性にダメージ'
+																			? 'text-yellow-400'
+																			: category.name === '風属性にダメージ'
+																				? 'text-green-500'
+																				: category.name === '水属性にダメージ'
+																					? 'text-blue-400'
+																					: category.name === '火属性にダメージ'
+																						? 'text-red-500'
+																						: category.name ===
+																								'無属性にダメージ'
+																							? 'text-gray-600'
+																							: ''
+															}`}
+															rowSpan={food.item.length}
+														>
+															{category.name}
+														</th>
+													)}
+													<td className={tableTd()}>{item.address}</td>
+													<td className={tableTd()}>{item.Lv}</td>
+												</tr>
+											),
+										)}
+									</React.Fragment>
+								))}
+							</React.Fragment>
+						))}
+					</tbody>
+				</table>
+				<table className="flex-grow border-collapse border border-slate-400 mx-2 mt-4 mb-10">
+					<thead>
+						<tr className="border">
+							<th scope="col" className="border font-medium">
+								料理
+							</th>
+							<th scope="col" className="border font-medium">
+								簡易コード
+							</th>
+							<th scope="col" className="border font-medium">
+								Lv
+							</th>
+						</tr>
+					</thead>
+					<tbody className="">
+						{foodCategories.slice(11, 22).map((category) => (
+							<React.Fragment key={category.name}>
+								{category.data.map((food) => (
+									<React.Fragment key={food.id}>
+										{food.item.map(
+											(
+												item: { address: string; Lv: number },
+												index: number,
+											) => (
+												<tr key={item.address} className={tableTr()}>
+													{index === 0 && (
+														<th
+															scope="row"
+															className={`border font-medium bg-white ${
+																category.name === '闇属性にダメージ'
+																	? 'text-violet-500'
+																	: category.name === '地属性にダメージ'
+																		? 'text-amber-600'
+																		: category.name === '光属性にダメージ'
+																			? 'text-yellow-400'
+																			: category.name === '風属性にダメージ'
+																				? 'text-green-500'
+																				: category.name === '水属性にダメージ'
+																					? 'text-blue-400'
+																					: category.name === '火属性にダメージ'
+																						? 'text-red-500'
+																						: category.name ===
+																								'無属性にダメージ'
+																							? 'text-gray-600'
+																							: ''
+															}`}
+															rowSpan={food.item.length}
+														>
+															{category.name}
+														</th>
+													)}
+													<td className={tableTd()}>{item.address}</td>
+													<td className={tableTd()}>{item.Lv}</td>
+												</tr>
+											),
+										)}
+									</React.Fragment>
+								))}
+							</React.Fragment>
+						))}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	)
 }

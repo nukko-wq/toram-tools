@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import { Inconsolata } from 'next/font/google'
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -6,4 +7,11 @@ const inter = Inter({
 	display: 'swap',
 })
 
-export { inter }
+const inconsolata = Inconsolata({
+	subsets: ['latin'],
+	weight: '500',
+	variable: '--font-inconsolata',
+	display: 'swap',
+})
+
+export { inter, inconsolata }

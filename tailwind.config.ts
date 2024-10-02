@@ -1,6 +1,7 @@
 import { transform } from 'next/dist/build/swc'
 import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
+import { inconsolata } from './src/app/styles/fonts'
 
 const config: Config = {
 	darkMode: ['class'],
@@ -21,6 +22,7 @@ const config: Config = {
 					'Meiryo',
 					...defaultTheme.fontFamily.sans,
 				],
+				inconsolata: ['var(--font-inconsolata', 'monospace'],
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
