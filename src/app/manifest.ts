@@ -1,4 +1,4 @@
-import type { Metadata, MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import AndroidIcon from '/public/images/Metadata/android-touch-icon.png'
 import AndroidIcon512 from '/public/images/Metadata/android-touch-icon-512.png'
 
