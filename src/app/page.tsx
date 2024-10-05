@@ -15,7 +15,7 @@ export default async function Home() {
 	return (
 		<>
 			<Header title="" link="/" />
-			<div className="flex flex-col flex-grow pt-16 md:pt-32 items-center">
+			<div className="flex flex-col flex-grow pt-16 md:pt-32 pb-4 items-center">
 				<div
 					className={`grid grid-cols-1 auto-rows-fr gap-4 max-w-7xl mt-4 mx-2 md:mx-4 ${session ? 'md:grid-cols-2 lg:grid-cols-3' : ''}`}
 				>
