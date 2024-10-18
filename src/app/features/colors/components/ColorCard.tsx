@@ -18,7 +18,7 @@ interface CardProps {
 export default function ColorCard({ card }: { card: CardProps }) {
 	return (
 		<div className={cardContainer()}>
-			<div className={cardLeft({ class: `bg-[${card.color}]` })} />
+			<div className={cardLeft()} style={{ backgroundColor: card.color }} />
 			<div className={cardRight()}>{card.id}</div>
 		</div>
 	)
