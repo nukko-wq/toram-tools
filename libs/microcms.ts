@@ -80,7 +80,10 @@ export const getDetail = async (
 		.getListDetail<Monster>({
 			endpoint: 'monster',
 			contentId,
-			queries,
+			queries: {
+				...queries,
+				draftKey: new Date().getTime().toString(),
+			},
 		})
 		.catch(notFound)
 

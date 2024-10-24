@@ -2,6 +2,8 @@ import { getDetail } from '@/libs/microcms'
 import parse from 'html-react-parser'
 import { v4 as uuidv4 } from 'uuid'
 
+export const revalidate = 60
+
 /*モンスターの詳細を表示*/
 export default async function MonsterDetail({
 	params,
