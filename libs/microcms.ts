@@ -82,12 +82,14 @@ export const getDetail = async (
 			contentId,
 			queries: {
 				...queries,
-				draftKey: new Date().getTime().toString(),
 			},
 		})
 		.catch(notFound)
 
-	return detailData
+	return {
+		...detailData,
+		revalidate: 0,
+	}
 }
 
 // 料理情報を取得
