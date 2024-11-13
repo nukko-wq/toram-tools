@@ -1,23 +1,37 @@
 import Link from 'next/link'
+import { v4 as uuidv4 } from 'uuid'
+import { useMemo } from 'react'
 
 interface CardProps {
 	title: string
-	description: string
+	description: string | string[]
 	link: string
 }
 
 const Card: React.FC<CardProps> = ({ title, description, link }) => {
+	const descriptionWithIds = useMemo(
+		() =>
+			Array.isArray(description)
+				? description.map((line) => ({ id: uuidv4(), text: line }))
+				: [{ id: uuidv4(), text: description }],
+		[description],
+	)
+
 	return (
 		<div className="flex flex-col max-w-lg p-6 border border-gray-200 rounded-lg">
 			<Link href={link} scroll={false}>
-				<h5 className="text-2xl font-bold text-gray-700">{title}</h5>
+				<h5 className="text-2xl font-bold text-gray-700 mb-2">{title}</h5>
 			</Link>
 			<div className="flex flex-col flex-grow">
-				<p
-					className="mb-3 font-normal text-gray-700"
-					// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-					dangerouslySetInnerHTML={{ __html: description }}
-				/>
+				{Array.isArray(description) ? (
+					descriptionWithIds.map(({ id, text }) => (
+						<p key={id} className="mb-2 font-normal text-gray-700">
+							{text}
+						</p>
+					))
+				) : (
+					<p className="mb-3 font-normal text-gray-700">{description}</p>
+				)}
 			</div>
 			<Link
 				href={link}
