@@ -1,11 +1,7 @@
 'use client'
 
-import React, {
-	type ChangeEvent,
-	type FormEvent,
-	useEffect,
-	useState,
-} from 'react'
+import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
+import { Button, Form, Input, Label } from 'react-aria-components'
 
 const UnitPrice = () => {
 	const [price, setPrice] = useState<number | null>(10000)
@@ -96,9 +92,11 @@ const UnitPrice = () => {
 	}, [])
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<Form onSubmit={handleSubmit}>
 			<div>
-				<label htmlFor="market-price" className="block mb-2">マーケットの価格</label>
+				<label htmlFor="market-price" className="block mb-2">
+					マーケットの価格
+				</label>
 				<input
 					id="market-price"
 					type="number"
@@ -111,8 +109,10 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label htmlFor="quantity" className="block mb-2">個数</label>
-				<input
+				<Label htmlFor="quantity" className="block mb-2">
+					個数
+				</Label>
+				<Input
 					id="quantity"
 					type="number"
 					inputMode="numeric"
@@ -124,8 +124,10 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label htmlFor="tax" className="block mb-2">税率(%)</label>
-				<input
+				<Label htmlFor="tax" className="block mb-2">
+					税率(%)
+				</Label>
+				<Input
 					id="tax"
 					type="number"
 					inputMode="numeric"
@@ -137,8 +139,10 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label htmlFor="listing-quantity" className="block mb-2">出品したい個数</label>
-				<input
+				<Label htmlFor="listing-quantity" className="block mb-2">
+					出品したい個数
+				</Label>
+				<Input
 					id="listing-quantity"
 					type="number"
 					inputMode="numeric"
@@ -149,13 +153,13 @@ const UnitPrice = () => {
 					onFocus={handleListingQuantityFocus}
 				/>
 			</div>
-			<button
+			<Button
 				className="w-full mt-4 px-4 py-2 text-white bg-teal-500 rounded transform transition-transform duration-200 ease-in-out hover:bg-teal-600 hover:scale-95 active:bg-teal-600 active:scale-95"
 				type="submit"
-				onClick={calculateUnitPrice}
+				onPress={calculateUnitPrice}
 			>
 				計算する
-			</button>
+			</Button>
 			<div className="mt-4 p-4 rounded bg-teal-100">
 				{result !== null && (
 					<p className="text-lg">
@@ -177,7 +181,7 @@ const UnitPrice = () => {
 				)}
 				<p className="mt-4">※小数点以下は切り捨て</p>
 			</div>
-		</form>
+		</Form>
 	)
 }
 
