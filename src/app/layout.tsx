@@ -8,7 +8,6 @@ import TwitterImage from '/public/images/Metadata/twitter-image.jpg'
 import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Footer from './components/layouts/footer/footer'
-import { inter } from './styles/fonts'
 import type {
 	Article as JsonLDArticle,
 	WebPage as JsonLDWebPage,
@@ -68,7 +67,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="ja">
-			<body className={`${inter.variable} font-sans`}>
+			<body className="">
 				<div className="flex flex-col min-h-screen">
 					<main className="flex flex-col flex-grow">{children}</main>
 					<Footer />
