@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({ title, description, link }) => {
 
 	return (
 		<Link href={link} scroll={false}>
-			<div className="flex flex-col max-w-lg p-6 border border-gray-200 rounded-lg">
+			<div className="flex flex-col max-w-lg p-6 border border-gray-200 rounded-lg w-full h-full">
 				<h5 className="text-2xl font-bold text-gray-700">{title}</h5>
 				<hr className="my-2 border-teal-400 border-2" />
 				<div className="flex flex-col flex-grow mt-3">
