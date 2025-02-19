@@ -42,16 +42,16 @@ export const metadata: Metadata = {
 		google: '6OpGn6zf_DC6Sq376ndFl1wJ47WnLtXf0YK4Q6qW8u4',
 	},
 	icons: [
-		{ rel: 'icon', url: '/images/Metadata/favicon.ico' },
+		{ rel: 'icon', url: '/favicon.ico' },
 		{
 			rel: 'apple-touch-icon',
-			url: '/images/Metadata/monster/apple-icon.png',
+			url: '/apple-icon.png',
 			sizes: '180x180',
 		},
 		{
 			rel: 'icon',
 			type: 'image/png',
-			url: '/images/Metadata/monster/android-touch-icon.png',
+			url: '/android-touch-icon.png',
 			sizes: '192x192',
 		},
 	],

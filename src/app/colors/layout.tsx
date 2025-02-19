@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 		type: 'website',
 		images: [
 			{
-				url: '/images/Metadata/og-image.jpg',
+				url: '/og-image.jpg',
 				width: 1200,
 				height: 630,
 			},
@@ -28,22 +28,22 @@ export const metadata: Metadata = {
 		title: 'トーラムいろいろツール',
 		description:
 			'トーラムオンラインのいろいろツール。マーケット計算ツールがあります。',
-		images: '/images/Metadata/twitter-image.jpg',
+		images: '/twitter-image.jpg',
 	},
 	verification: {
 		google: '6OpGn6zf_DC6Sq376ndFl1wJ47WnLtXf0YK4Q6qW8u4',
 	},
 	icons: [
-		{ rel: 'icon', url: '/images/Metadata/favicon.ico' },
+		{ rel: 'icon', url: '/favicon.ico' },
 		{
 			rel: 'apple-touch-icon',
-			url: '/images/Metadata/monster/apple-icon.png',
+			url: '/apple-icon.png',
 			sizes: '180x180',
 		},
 		{
 			rel: 'icon',
 			type: 'image/png',
-			url: '/images/Metadata/monster/android-touch-icon.png',
+			url: '/android-touch-icon.png',
 			sizes: '192x192',
 		},
 	],
