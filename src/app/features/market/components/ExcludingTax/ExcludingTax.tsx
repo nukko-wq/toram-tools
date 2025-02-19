@@ -62,9 +62,11 @@ const ExcludingTax = () => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<label className="block mb-2" htmlFor='excludingtax_price'>価格</label>
+				<label className="block mb-2" htmlFor="excludingtax_price">
+					価格
+				</label>
 				<input
-					id='excludingtax_price'
+					id="excludingtax_price"
 					type="number"
 					inputMode="numeric"
 					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
@@ -75,9 +77,11 @@ const ExcludingTax = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label className="block mb-2" htmlFor='excluding-tax-tax'>税率(%)</label>
+				<label className="block mb-2" htmlFor="excluding-tax-tax">
+					税率(%)
+				</label>
 				<input
-					id='excluding-tax-tax'
+					id="excluding-tax-tax"
 					type="number"
 					inputMode="numeric"
 					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
@@ -116,9 +120,9 @@ const ExcludingTax = () => {
 										>
 											<path
 												stroke="currentColor"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												stroke-width="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="2"
 												d="M1 5.917 5.724 10.5 15 1.5"
 											/>
 										</svg>

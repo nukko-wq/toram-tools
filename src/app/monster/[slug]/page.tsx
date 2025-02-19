@@ -6,10 +6,9 @@ import { notFound } from 'next/navigation'
 export const revalidate = 60
 
 /*モンスターの詳細を表示*/
-export default async function MonsterDetail({
-	params,
-}: { params: { slug: string } }) {
-	try {
+export default async function MonsterDetail(props: { params: Promise<{ slug: string }> }) {
+    const params = await props.params;
+    try {
 		const monster = await getDetail(params.slug)
 		if (!monster) {
 			notFound()
