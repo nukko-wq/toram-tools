@@ -10,21 +10,22 @@ type Props = {
 	q?: string
 }
 
-export default async function MonsterPage({ searchParams = {} }: { searchParams?: Props }) {
+export default async function MonsterPage(props: {
+	searchParams?: Promise<Props>
+}) {
+	const searchParams = (await props.searchParams) ?? {}
 
-	const {
-		q = ''
-	} = searchParams
+	const { q = '' } = searchParams
 
 	const session = await auth()
-	console.log("🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 ~ MonsterPage ~ session:", session)
+	console.log('🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 ~ MonsterPage ~ session:', session)
 	const user = session?.user
 
 	if (!session) {
 		redirect('/profile')
 	}
 	return (
-		<div className='max-w-5xl w-full mx-auto pt-16 flex flex-grow flex-col'>
+		<div className="max-w-5xl w-full mx-auto pt-16 flex flex-grow flex-col">
 			{/*}
 			<div>{session.user?.name}</div>
 			<h1 className="">ようこそ {user?.name}</h1>
@@ -44,17 +45,14 @@ export default async function MonsterPage({ searchParams = {} }: { searchParams?
 			*/}
 
 			<Search />
-			<div className='flex flex-grow'>
+			<div className="flex flex-grow">
 				<Suspense key={q} fallback={<Spinner />}>
-					<Results
-						q={q}
-					/>
+					<Results q={q} />
 				</Suspense>
 			</div>
 			{/*
 			<MonsterList />
 			*/}
 		</div>
-
 	)
 }

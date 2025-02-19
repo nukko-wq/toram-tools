@@ -1,9 +1,6 @@
 import { auth, signIn, signOut } from '@/auth'
 import { redirect } from 'next/navigation'
 import type { Metadata } from 'next'
-import Favicon from '/public/images/Metadata/favicon.ico'
-import AppleIcon from '/public/images/Metadata/monster/apple-icon.png'
-import AndroidIcon from '/public/images/Metadata/monster/android-touch-icon.png'
 import Header from '../components/layouts/header/header'
 
 export const metadata: Metadata = {
@@ -15,9 +12,18 @@ export const metadata: Metadata = {
 		follow: false,
 	},
 	icons: [
-		{ rel: 'icon', url: Favicon.src },
-		{ rel: 'apple-touch-icon', url: AppleIcon.src, sizes: '180x180' },
-		{ rel: 'icon', type: 'image/png', url: AndroidIcon.src, sizes: '192x192' },
+		{ rel: 'icon', url: '/images/Metadata/favicon.ico' },
+		{
+			rel: 'apple-touch-icon',
+			url: '/images/Metadata/monster/apple-icon.png',
+			sizes: '180x180',
+		},
+		{
+			rel: 'icon',
+			type: 'image/png',
+			url: '/images/Metadata/monster/android-touch-icon.png',
+			sizes: '192x192',
+		},
 	],
 }
 
