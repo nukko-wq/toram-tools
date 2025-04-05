@@ -52,9 +52,11 @@ const FinalPrice = () => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<label className="block mb-2" htmlFor='final-price-price'>価格</label>
+				<label className="block mb-2" htmlFor="final-price-price">
+					価格
+				</label>
 				<input
-					id='final-price-price'
+					id="final-price-price"
 					type="number"
 					inputMode="numeric"
 					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
@@ -65,9 +67,11 @@ const FinalPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label className="block mb-2" htmlFor='final-price-tax'>税率(%)</label>
+				<label className="block mb-2" htmlFor="final-price-tax">
+					税率(%)
+				</label>
 				<input
-					id='final-price-tax'
+					id="final-price-tax"
 					type="number"
 					inputMode="numeric"
 					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"

@@ -7,7 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"format": "biome format --write --unsafe --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'"
+		"format": "biome check --write --unsafe"
 	},
 	"dependencies": {
 		"@next/third-parties": "15.1.7",
