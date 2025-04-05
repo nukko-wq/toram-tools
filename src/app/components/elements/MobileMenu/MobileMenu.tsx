@@ -3,11 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { SignOut } from '../SignOutButton/SignOutButton'
 
-type MobileMenuProps = {
-	isLoggedIn: boolean
-}
-
-const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
+const MobileMenu = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const router = useRouter()
 
@@ -36,44 +32,8 @@ const MobileMenu = ({ isLoggedIn }: MobileMenuProps) => {
 									マーケット計算
 								</button>
 							</li>
-							{isLoggedIn && (
-								<>
-									<li className="border-b border-gray-300 relative">
-										<button
-											type="button"
-											onClick={() => handleLinkClick('/monster')}
-											className="block w-full text-left py-4 text-gray-700 hover:bg-gray-100 active:bg-gray-100 duration-200"
-										>
-											モンスター
-										</button>
-									</li>
-									<li className="border-b border-gray-300 relative">
-										<button
-											type="button"
-											onClick={() => handleLinkClick('/colors')}
-											className="block py-4 w-full text-left text-gray-700 hover:bg-gray-100 active:bg-gray-100 duration-200"
-										>
-											色一覧
-										</button>
-									</li>
-									<li className="border-b border-gray-300 relative">
-										<button
-											type="button"
-											onClick={() => handleLinkClick('/food')}
-											className="block py-4 w-full text-left text-gray-700 hover:bg-gray-100 active:bg-gray-100 duration-200"
-										>
-											料理バフ
-										</button>
-									</li>
-								</>
-							)}
 						</ul>
 					</div>
-					{isLoggedIn && (
-						<div className="flex flex-grow items-end p-[25px] mb-4">
-							<SignOut />
-						</div>
-					)}
 				</nav>
 				<button
 					onClick={toggleMenu}
