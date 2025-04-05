@@ -1,9 +1,9 @@
+import type { Metadata } from 'next'
+import { tv } from 'tailwind-variants'
+import Header from '../components/layouts/header/header'
+import ExcludingTax from '../features/market/components/ExcludingTax/ExcludingTax'
 import FinalPrice from '../features/market/components/FinalPrice/FinalPrice'
 import UnitPrice from '../features/market/components/UnitPrice/UnitPrice'
-import ExcludingTax from '../features/market/components/ExcludingTax/ExcludingTax'
-import type { Metadata } from 'next'
-import Header from '../components/layouts/header/header'
-import { tv } from 'tailwind-variants'
 
 export const metadata: Metadata = {
 	title: 'マーケット計算 | トーラムいろいろツール',
@@ -27,11 +27,11 @@ const Page = () => {
 	return (
 		<>
 			<Header title="マーケット計算" link="/market" />
-			<div className="flex flex-col bg-gray-100 flex-grow 2xl:justify-center pt-16">
-				<div className="w-full md:mt-4 2xl:mt-0 px-4 py-4 2xl:flex items-start 2xl:mx-auto justify-center">
+			<div className="flex flex-grow flex-col bg-gray-100 pt-16 2xl:justify-center">
+				<div className="w-full items-start justify-center px-4 py-4 md:mt-4 2xl:mx-auto 2xl:mt-0 2xl:flex">
 					<div
 						className={containerVariants({
-							class: '2xl:w-full 2xl:mr-4 2xl:ml-0',
+							class: '2xl:mr-4 2xl:ml-0 2xl:w-full',
 						})}
 					>
 						<h1 className={titleVariants()}>マーケット最安計算</h1>
@@ -44,7 +44,7 @@ const Page = () => {
 
 					<div
 						className={containerVariants({
-							class: 'mt-4 2xl:mt-0 2xl:w-full 2xl:mx-4',
+							class: 'mt-4 2xl:mx-4 2xl:mt-0 2xl:w-full',
 						})}
 					>
 						<h1 className={titleVariants()}>税抜き価格計算</h1>
@@ -57,7 +57,7 @@ const Page = () => {
 
 					<div
 						className={containerVariants({
-							class: 'mt-4 2xl:mt-0 2xl:w-full 2xl:mr-0 2xl:ml-4',
+							class: 'mt-4 2xl:mt-0 2xl:mr-0 2xl:ml-4 2xl:w-full',
 						})}
 					>
 						<h1 className={titleVariants()}>税込み価格計算</h1>

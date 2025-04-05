@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Analytics } from '@vercel/analytics/react'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import Footer from './components/layouts/footer/footer'
+import { Analytics } from '@vercel/analytics/react'
 import type {
 	Article as JsonLDArticle,
 	WebPage as JsonLDWebPage,
 	WithContext,
 } from 'schema-dts'
+import Footer from './components/layouts/footer/footer'
 
 export const metadata: Metadata = {
 	title: 'トーラムいろいろツール',
@@ -72,8 +72,8 @@ export default function RootLayout({
 	return (
 		<html lang="ja">
 			<body className="">
-				<div className="flex flex-col min-h-screen">
-					<main className="flex flex-col flex-grow">{children}</main>
+				<div className="flex min-h-screen flex-col">
+					<main className="flex flex-grow flex-col">{children}</main>
 					<Footer />
 				</div>
 				<Analytics />

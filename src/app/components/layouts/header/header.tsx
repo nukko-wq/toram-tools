@@ -1,19 +1,19 @@
-import Link from 'next/link'
 import MobileMenu from '@/src/app/components/elements/MobileMenu/MobileMenu'
+import Link from 'next/link'
 
 export default async function Header({
 	title,
 	link,
 }: { title: string; link: string }) {
 	return (
-		<header className="flex items-center justify-between border-b z-50 w-full h-16 fixed top-0 shadow-custom backdrop-blur-[5px]">
+		<header className="fixed top-0 z-50 flex h-16 w-full items-center justify-between border-b shadow-custom backdrop-blur-[5px]">
 			<MobileMenu />
-			<div className="flex-grow font-bold text-base lg:text-xl absolute md:static md:ml-4 left-1/2 transform -translate-x-1/2 md:-translate-x-0 opacity-90 text-blue-500">
+			<div className="-translate-x-1/2 md:-translate-x-0 absolute left-1/2 flex-grow transform font-bold text-base text-blue-500 opacity-90 md:static md:ml-4 lg:text-xl">
 				<Link href="/" scroll={false}>
 					トーラムいろいろツール
 				</Link>
 			</div>
-			<div className="hidden md:block md:absolute md:left-1/2 md:transform md:-translate-x-1/2 font-bold flex-grow text-center text-lg lg:text-xl opacity-90 text-slate-700">
+			<div className="md:-translate-x-1/2 hidden flex-grow text-center font-bold text-lg text-slate-700 opacity-90 md:absolute md:left-1/2 md:block md:transform lg:text-xl">
 				<Link href={link}>{title}</Link>
 			</div>
 		</header>

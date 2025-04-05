@@ -1,11 +1,6 @@
 'use client'
 
-import React, {
-	type ChangeEvent,
-	type FormEvent,
-	useEffect,
-	useState,
-} from 'react'
+import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 
 const ExcludingTax = () => {
 	const [price, setPrice] = useState<number | null>(10000)
@@ -62,14 +57,14 @@ const ExcludingTax = () => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<label className="block mb-2" htmlFor="excludingtax_price">
+				<label className="mb-2 block" htmlFor="excludingtax_price">
 					価格
 				</label>
 				<input
 					id="excludingtax_price"
 					type="number"
 					inputMode="numeric"
-					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-none"
 					placeholder="価格"
 					value={price ?? ''}
 					onChange={handlePriceChange}
@@ -77,14 +72,14 @@ const ExcludingTax = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label className="block mb-2" htmlFor="excluding-tax-tax">
+				<label className="mb-2 block" htmlFor="excluding-tax-tax">
 					税率(%)
 				</label>
 				<input
 					id="excluding-tax-tax"
 					type="number"
 					inputMode="numeric"
-					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-none"
 					placeholder="税率"
 					value={tax ?? ''}
 					onChange={handleTaxChange}
@@ -92,13 +87,13 @@ const ExcludingTax = () => {
 				/>
 			</div>
 			<button
-				className="w-full mt-4 px-4 py-2 text-white bg-teal-500 rounded transform transition-transform duration-200 ease-in-out hover:bg-teal-600 hover:scale-95 active:bg-teal-600 active:scale-95"
+				className="mt-4 w-full transform rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600"
 				type="submit"
 				onClick={calculateExcludingTaxPrice}
 			>
 				計算する
 			</button>
-			<div className="mt-4 p-4 rounded bg-teal-100 flex flex-col justify-start items-start">
+			<div className="mt-4 flex flex-col items-start justify-start rounded bg-teal-100 p-4">
 				{result !== null && (
 					<>
 						<p className="text-lg">税抜価格:</p>
@@ -107,12 +102,12 @@ const ExcludingTax = () => {
 							<button
 								type="button"
 								onClick={handleCopy}
-								className="sm:ml-4 mt-1 sm:mt-0 px-3 py-1 text-gray-700 text-sm w-24 sm:w-auto bg-white opacity-70 rounded hover:bg-teal-400 active:bg-teal-400"
+								className="mt-1 w-24 rounded bg-white px-3 py-1 text-gray-700 text-sm opacity-70 hover:bg-teal-400 active:bg-teal-400 sm:mt-0 sm:ml-4 sm:w-auto"
 							>
 								{copied ? (
 									<span className="inline-flex items-center">
 										<svg
-											className="w-3 h-3 text-gray-700 me-1.5"
+											className="me-1.5 h-3 w-3 text-gray-700"
 											aria-hidden="true"
 											xmlns="http://www.w3.org/2000/svg"
 											fill="none"

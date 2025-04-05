@@ -1,11 +1,6 @@
 'use client'
 
-import React, {
-	type ChangeEvent,
-	type FormEvent,
-	useEffect,
-	useState,
-} from 'react'
+import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 
 const FinalPrice = () => {
 	const [price, setPrice] = useState<number | null>(10000)
@@ -52,14 +47,14 @@ const FinalPrice = () => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
-				<label className="block mb-2" htmlFor="final-price-price">
+				<label className="mb-2 block" htmlFor="final-price-price">
 					価格
 				</label>
 				<input
 					id="final-price-price"
 					type="number"
 					inputMode="numeric"
-					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-none"
 					placeholder="価格"
 					value={price ?? ''}
 					onChange={handlePriceChange}
@@ -67,14 +62,14 @@ const FinalPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<label className="block mb-2" htmlFor="final-price-tax">
+				<label className="mb-2 block" htmlFor="final-price-tax">
 					税率(%)
 				</label>
 				<input
 					id="final-price-tax"
 					type="number"
 					inputMode="numeric"
-					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-none"
 					placeholder="税率"
 					value={tax ?? ''}
 					onChange={handleTaxChange}
@@ -82,13 +77,13 @@ const FinalPrice = () => {
 				/>
 			</div>
 			<button
-				className="w-full mt-4 px-4 py-2 text-white bg-teal-500 rounded transform transition-transform duration-200 ease-in-out hover:bg-teal-600 hover:scale-95 active:bg-teal-600 active:scale-95"
+				className="mt-4 w-full transform rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600"
 				type="submit"
 				onClick={calculateFinalPrice}
 			>
 				計算する
 			</button>
-			<div className="mt-4 p-4 rounded bg-teal-100">
+			<div className="mt-4 rounded bg-teal-100 p-4">
 				{result !== null && (
 					<p className="text-lg">
 						出品価格: <br /> {result.toLocaleString()} スピナ

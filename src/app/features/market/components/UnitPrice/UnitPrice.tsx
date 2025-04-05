@@ -94,14 +94,14 @@ const UnitPrice = () => {
 	return (
 		<Form onSubmit={handleSubmit}>
 			<div>
-				<label htmlFor="market-price" className="block mb-2">
+				<label htmlFor="market-price" className="mb-2 block">
 					マーケットの価格
 				</label>
 				<input
 					id="market-price"
 					type="number"
 					inputMode="numeric"
-					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-none"
 					placeholder="価格"
 					value={price ?? ''}
 					onChange={handlePriceChange}
@@ -109,14 +109,14 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<Label htmlFor="quantity" className="block mb-2">
+				<Label htmlFor="quantity" className="mb-2 block">
 					個数
 				</Label>
 				<Input
 					id="quantity"
 					type="number"
 					inputMode="numeric"
-					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-none"
 					placeholder="個数"
 					value={items ?? ''}
 					onChange={handleNumberChange}
@@ -124,14 +124,14 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<Label htmlFor="tax" className="block mb-2">
+				<Label htmlFor="tax" className="mb-2 block">
 					税率(%)
 				</Label>
 				<Input
 					id="tax"
 					type="number"
 					inputMode="numeric"
-					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-none"
 					placeholder="税率"
 					value={tax ?? ''}
 					onChange={handleTaxChange}
@@ -139,14 +139,14 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<Label htmlFor="listing-quantity" className="block mb-2">
+				<Label htmlFor="listing-quantity" className="mb-2 block">
 					出品したい個数
 				</Label>
 				<Input
 					id="listing-quantity"
 					type="number"
 					inputMode="numeric"
-					className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-400"
+					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-none"
 					placeholder="出品したい個数"
 					value={listingQuantity ?? ''}
 					onChange={handleListingQuantitiyChange}
@@ -154,13 +154,13 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<Button
-				className="w-full mt-4 px-4 py-2 text-white bg-teal-500 rounded transform transition-transform duration-200 ease-in-out hover:bg-teal-600 hover:scale-95 active:bg-teal-600 active:scale-95"
+				className="mt-4 w-full transform rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600"
 				type="submit"
 				onPress={calculateUnitPrice}
 			>
 				計算する
 			</Button>
-			<div className="mt-4 p-4 rounded bg-teal-100">
+			<div className="mt-4 rounded bg-teal-100 p-4">
 				{result !== null && (
 					<p className="text-lg">
 						単価: <br />
