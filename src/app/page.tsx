@@ -1,6 +1,6 @@
+import type { Metadata } from 'next'
 import Header from './components/layouts/header/header'
 import Card from './features/card/components/Card'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
 	alternates: {
@@ -12,8 +12,8 @@ export default async function Home() {
 	return (
 		<>
 			<Header title="" link="/" />
-			<div className="flex flex-col flex-grow pt-16 md:pt-32 pb-4 items-center">
-				<div className="grid grid-cols-1 auto-rows-fr gap-4 max-w-7xl mt-4 mx-2 md:mx-4">
+			<div className="flex flex-grow flex-col items-center pt-16 pb-4 md:pt-32">
+				<div className="mx-2 mt-4 grid max-w-7xl auto-rows-fr grid-cols-1 gap-4 md:mx-4">
 					<Card
 						title="マーケット計算"
 						description={[
