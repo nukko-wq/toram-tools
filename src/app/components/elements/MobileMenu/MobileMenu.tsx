@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { SignOut } from '../SignOutButton/SignOutButton'
 
 const MobileMenu = () => {
 	const [isOpen, setIsOpen] = useState(false)
