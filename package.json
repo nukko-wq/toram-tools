@@ -6,7 +6,8 @@
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"format": "biome format --write --unsafe --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'"
 	},
 	"dependencies": {
 		"@next/third-parties": "15.1.7",
