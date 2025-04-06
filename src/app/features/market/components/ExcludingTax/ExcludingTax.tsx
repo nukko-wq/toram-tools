@@ -64,7 +64,7 @@ const ExcludingTax = () => {
 					id="excludingtax_price"
 					type="number"
 					inputMode="numeric"
-					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-none"
+					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-hidden"
 					placeholder="価格"
 					value={price ?? ''}
 					onChange={handlePriceChange}
@@ -79,7 +79,7 @@ const ExcludingTax = () => {
 					id="excluding-tax-tax"
 					type="number"
 					inputMode="numeric"
-					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-none"
+					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-hidden"
 					placeholder="税率"
 					value={tax ?? ''}
 					onChange={handleTaxChange}

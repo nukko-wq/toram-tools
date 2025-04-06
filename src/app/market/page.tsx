@@ -27,7 +27,7 @@ const Page = () => {
 	return (
 		<>
 			<Header title="マーケット計算" link="/market" />
-			<div className="flex flex-grow flex-col bg-gray-100 pt-16 2xl:justify-center">
+			<div className="flex grow flex-col bg-gray-100 pt-16 2xl:justify-center">
 				<div className="w-full items-start justify-center px-4 py-4 md:mt-4 2xl:mx-auto 2xl:mt-0 2xl:flex">
 					<div
 						className={containerVariants({

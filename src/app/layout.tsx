@@ -73,7 +73,7 @@ export default function RootLayout({
 		<html lang="ja">
 			<body className="">
 				<div className="flex min-h-screen flex-col">
-					<main className="flex flex-grow flex-col">{children}</main>
+					<main className="flex grow flex-col">{children}</main>
 					<Footer />
 				</div>
 				<Analytics />
