@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ title, description, link }) => {
 			<div className="flex h-full w-full max-w-lg flex-col rounded-lg border border-gray-200 p-6">
 				<h5 className="font-bold text-2xl text-gray-700">{title}</h5>
 				<hr className="my-2 border-2 border-teal-400" />
-				<div className="mt-3 flex flex-grow flex-col">
+				<div className="mt-3 flex grow flex-col">
 					{Array.isArray(description) ? (
 						descriptionWithIds.map(({ id, text }) => (
 							<p key={id} className="font-normal text-gray-700">

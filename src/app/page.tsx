@@ -12,7 +12,7 @@ export default async function Home() {
 	return (
 		<>
 			<Header title="" link="/" />
-			<div className="flex flex-grow flex-col items-center pt-16 pb-4 md:pt-32">
+			<div className="flex grow flex-col items-center pt-16 pb-4 md:pt-32">
 				<div className="mx-2 mt-4 grid max-w-7xl auto-rows-fr grid-cols-1 gap-4 md:mx-4">
 					<Card
 						title="マーケット計算"
