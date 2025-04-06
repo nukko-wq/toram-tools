@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 		siteName: 'トーラムいろいろツール',
 		images: [
 			{
-				url: '/images/Metadata/og-image.jpg',
+				url: '/og-image.jpg',
 				width: 1200,
 				height: 630,
 			},
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 		title: 'トーラムいろいろツール',
 		description:
 			'トーラムオンラインのいろいろツール。マーケット計算ツールがあります。',
-		images: '/images/Metadata/twitter-image.jpg',
+		images: '/twitter-image.jpg',
 	},
 	verification: {
 		google: '6OpGn6zf_DC6Sq376ndFl1wJ47WnLtXf0YK4Q6qW8u4',
