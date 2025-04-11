@@ -103,6 +103,7 @@ const UnitPrice = () => {
 					inputMode="numeric"
 					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-hidden"
 					placeholder="価格"
+					min={1}
 					value={price ?? ''}
 					onChange={handlePriceChange}
 					onFocus={handlePriceFocus}
@@ -118,6 +119,7 @@ const UnitPrice = () => {
 					inputMode="numeric"
 					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-hidden"
 					placeholder="個数"
+					min={1}
 					value={items ?? ''}
 					onChange={handleNumberChange}
 					onFocus={handleNumberFocus}
@@ -133,6 +135,7 @@ const UnitPrice = () => {
 					inputMode="numeric"
 					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-hidden"
 					placeholder="税率"
+					min={0}
 					value={tax ?? ''}
 					onChange={handleTaxChange}
 					onFocus={handleTaxFocus}
@@ -148,6 +151,7 @@ const UnitPrice = () => {
 					inputMode="numeric"
 					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-hidden"
 					placeholder="出品したい個数"
+					min={1}
 					value={listingQuantity ?? ''}
 					onChange={handleListingQuantitiyChange}
 					onFocus={handleListingQuantityFocus}
