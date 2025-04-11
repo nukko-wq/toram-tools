@@ -54,7 +54,7 @@ const FinalPrice = () => {
 					id="final-price-price"
 					type="number"
 					inputMode="numeric"
-					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-hidden"
+					className="w-full rounded-lg border px-4 py-2 focus:border-teal-400 focus:outline-hidden"
 					placeholder="価格"
 					min={1}
 					value={price ?? ''}
@@ -70,7 +70,7 @@ const FinalPrice = () => {
 					id="final-price-tax"
 					type="number"
 					inputMode="numeric"
-					className="w-full rounded-lg border px-4 py-2 focus:border-blue-400 focus:outline-hidden"
+					className="w-full rounded-lg border px-4 py-2 focus:border-teal-400 focus:outline-hidden"
 					placeholder="税率"
 					min={0}
 					value={tax ?? ''}
