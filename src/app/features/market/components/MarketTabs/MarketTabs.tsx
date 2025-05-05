@@ -1,11 +1,16 @@
 'use client'
 
 import { tv } from 'tailwind-variants'
+import { useState } from 'react'
 import ExcludingTax from '../ExcludingTax/ExcludingTax'
 import FinalPrice from '../FinalPrice/FinalPrice'
 import UnitPrice from '../UnitPrice/UnitPrice'
 
 const MarketTabs = () => {
+	const [activeTab, setActiveTab] = useState<'unit' | 'excluding' | 'final'>(
+		'excluding',
+	)
+
 	const containerVariants = tv({
 		base: 'mx-auto px-4 py-4 max-w-xl bg-white shadow-md rounded-lg',
 	})
@@ -17,6 +22,17 @@ const MarketTabs = () => {
 	const contentVariants = tv({
 		base: 'w-full max-w-xl items-center mt-5',
 	})
+
+	const tabButtonVariants = tv({
+		base: 'px-4 py-2 text-sm font-medium rounded-t-lg',
+		variants: {
+			active: {
+				true: 'bg-white text-teal-500',
+				false: 'bg-gray-100 text-gray-500 hover:text-gray-700',
+			},
+		},
+	})
+
 	return (
 		<>
 			{/* デスクトップ表示時のコンテンツ */}
@@ -63,45 +79,58 @@ const MarketTabs = () => {
 				</div>
 			</div>
 			{/* モバイル表示時のコンテンツ */}
-			<div className="flex 2xl:hidden grow flex-col bg-gray-100 pt-16 2xl:justify-center">
-				<div className="w-full items-start justify-center px-4 py-4 md:mt-4 2xl:mx-auto 2xl:mt-0 2xl:flex">
-					<div
-						className={containerVariants({
-							class: '2xl:mr-4 2xl:ml-0 2xl:w-full',
-						})}
-					>
-						<h1 className={titleVariants()}>マーケット最安計算</h1>
-						<div className={contentVariants()}>
-							<div className="">
-								<UnitPrice />
-							</div>
-						</div>
+			<div className="flex 2xl:hidden grow flex-col bg-gray-100 pt-16">
+				<div className="w-full px-4 pt-4">
+					<div className="flex px-2 max-w-xl mx-auto">
+						<button
+							type="button"
+							className={tabButtonVariants({
+								active: activeTab === 'excluding',
+							})}
+							onClick={() => setActiveTab('excluding')}
+						>
+							税抜き計算
+						</button>
+						<button
+							type="button"
+							className={tabButtonVariants({ active: activeTab === 'unit' })}
+							onClick={() => setActiveTab('unit')}
+						>
+							最安計算
+						</button>
+						<button
+							type="button"
+							className={tabButtonVariants({ active: activeTab === 'final' })}
+							onClick={() => setActiveTab('final')}
+						>
+							税込み計算
+						</button>
 					</div>
-
-					<div
-						className={containerVariants({
-							class: 'mt-4 2xl:mx-4 2xl:mt-0 2xl:w-full',
-						})}
-					>
-						<h1 className={titleVariants()}>税抜き価格計算</h1>
-						<div className={contentVariants()}>
-							<div className="">
-								<ExcludingTax />
+					<div className="">
+						{activeTab === 'unit' && (
+							<div className={containerVariants()}>
+								<h1 className={titleVariants()}>マーケット最安計算</h1>
+								<div className={contentVariants()}>
+									<UnitPrice />
+								</div>
 							</div>
-						</div>
-					</div>
-
-					<div
-						className={containerVariants({
-							class: 'mt-4 2xl:mt-0 2xl:mr-0 2xl:ml-4 2xl:w-full',
-						})}
-					>
-						<h1 className={titleVariants()}>税込み価格計算</h1>
-						<div className={contentVariants()}>
-							<div className="">
-								<FinalPrice />
+						)}
+						{activeTab === 'excluding' && (
+							<div className={containerVariants()}>
+								<h1 className={titleVariants()}>税抜き価格計算</h1>
+								<div className={contentVariants()}>
+									<ExcludingTax />
+								</div>
 							</div>
-						</div>
+						)}
+						{activeTab === 'final' && (
+							<div className={containerVariants()}>
+								<h1 className={titleVariants()}>税込み価格計算</h1>
+								<div className={contentVariants()}>
+									<FinalPrice />
+								</div>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
