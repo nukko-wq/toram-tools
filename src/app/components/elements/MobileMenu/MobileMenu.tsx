@@ -52,7 +52,7 @@ const MobileMenu = () => {
 
 				{isOpen && (
 					<div
-						className="fixed inset-0 z-20 h-svh cursor-pointer bg-black bg-opacity-80 transition-all duration-500"
+						className="fixed inset-0 z-20 h-svh cursor-pointer bg-black opacity-70 transition-all duration-500"
 						onClick={toggleMenu}
 						onKeyDown={(e) => e.key === 'Enter' && toggleMenu()}
 					/>
