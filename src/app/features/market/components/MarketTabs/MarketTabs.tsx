@@ -1,7 +1,7 @@
 'use client'
 
-import { tv } from 'tailwind-variants'
 import { useState } from 'react'
+import { tv } from 'tailwind-variants'
 import ExcludingTax from '../ExcludingTax/ExcludingTax'
 import FinalPrice from '../FinalPrice/FinalPrice'
 import UnitPrice from '../UnitPrice/UnitPrice'
@@ -36,7 +36,7 @@ const MarketTabs = () => {
 	return (
 		<>
 			{/* デスクトップ表示時のコンテンツ */}
-			<div className="hidden 2xl:flex grow flex-col bg-gray-100 pt-16 2xl:justify-center">
+			<div className="hidden grow flex-col bg-gray-100 pt-16 2xl:flex 2xl:justify-center">
 				<div className="w-full items-start justify-center px-4 py-4 md:mt-4 2xl:mx-auto 2xl:mt-0 2xl:flex">
 					<div
 						className={containerVariants({
@@ -79,9 +79,9 @@ const MarketTabs = () => {
 				</div>
 			</div>
 			{/* モバイル表示時のコンテンツ */}
-			<div className="flex 2xl:hidden grow flex-col bg-gray-100 pt-16">
+			<div className="flex grow flex-col bg-gray-100 pt-16 2xl:hidden">
 				<div className="w-full px-4 pt-4">
-					<div className="flex px-2 max-w-xl mx-auto">
+					<div className="mx-auto flex max-w-xl px-2">
 						<button
 							type="button"
 							className={tabButtonVariants({
