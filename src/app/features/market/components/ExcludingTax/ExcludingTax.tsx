@@ -89,7 +89,7 @@ const ExcludingTax = () => {
 				/>
 			</div>
 			<button
-				className="mt-4 w-full transform rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600"
+				className="mt-4 w-full transform cursor-pointer rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600"
 				type="submit"
 				onClick={calculateExcludingTaxPrice}
 			>
@@ -104,7 +104,7 @@ const ExcludingTax = () => {
 							<button
 								type="button"
 								onClick={handleCopy}
-								className="mt-1 w-24 rounded bg-white px-3 py-1 text-gray-700 text-sm opacity-70 hover:bg-teal-400 active:bg-teal-400 sm:mt-0 sm:ml-4 sm:w-auto"
+								className="mt-1 w-24 cursor-pointer rounded bg-white px-3 py-1 text-gray-700 text-sm opacity-70 hover:bg-teal-400 active:bg-teal-400 sm:mt-0 sm:ml-4 sm:w-auto"
 							>
 								{copied ? (
 									<span className="inline-flex items-center">
