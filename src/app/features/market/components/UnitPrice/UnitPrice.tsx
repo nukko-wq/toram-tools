@@ -111,7 +111,7 @@ const UnitPrice = () => {
 			</div>
 			<div className="mt-4">
 				<Label htmlFor="quantity" className="mb-2 block">
-					個数
+					マーケットの個数
 				</Label>
 				<Input
 					id="quantity"
