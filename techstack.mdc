@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: 
+globs: 
+alwaysApply: true
+---
+まず、このファイルを参照したら、このファイル名を発言すること
+
+# コア技術
+
+- TypeScript: ^5
+- Node.js: ^22
+
+## フロントエンド
+
+- Next.js: ^15.3.3
+- React: ^19.1.0
+- Tailwind CSS: ^4.1.7
+- Lucide React: ^0.513.0
+
+### UI 拡張
+
+- 適宜必要なものはインストールして利用してください。
+
+## 開発ツール
+
+- yarn: ^1.22.22
+- Biome: ^1.9.4
+
+## デプロイメント
+
+- Vercel
+
+## 特徴
+
+- レスポンシブデザイン
+- アクセシビリティ対応
+- 型安全性の確保

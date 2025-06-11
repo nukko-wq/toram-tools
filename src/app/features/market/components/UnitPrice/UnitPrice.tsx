@@ -101,7 +101,7 @@ const UnitPrice = () => {
 					id="market-price"
 					type="number"
 					inputMode="numeric"
-					className="w-full rounded-lg border px-4 py-2 focus:border-teal-400 focus:outline-hidden"
+					className="w-full rounded-lg border px-4 py-2 outline-teal-400"
 					placeholder="価格"
 					min={1}
 					value={price ?? ''}
@@ -117,7 +117,7 @@ const UnitPrice = () => {
 					id="quantity"
 					type="number"
 					inputMode="numeric"
-					className="w-full rounded-lg border px-4 py-2 focus:border-teal-400 focus:outline-hidden"
+					className="w-full rounded-lg border px-4 py-2 outline-teal-400"
 					placeholder="個数"
 					min={1}
 					value={items ?? ''}
@@ -133,7 +133,7 @@ const UnitPrice = () => {
 					id="tax"
 					type="number"
 					inputMode="numeric"
-					className="w-full rounded-lg border px-4 py-2 focus:border-teal-400 focus:outline-hidden"
+					className="w-full rounded-lg border px-4 py-2 outline-teal-400"
 					placeholder="税率"
 					min={0}
 					value={tax ?? ''}
@@ -149,7 +149,7 @@ const UnitPrice = () => {
 					id="listing-quantity"
 					type="number"
 					inputMode="numeric"
-					className="w-full rounded-lg border px-4 py-2 focus:border-teal-400 focus:outline-hidden"
+					className="w-full rounded-lg border px-4 py-2 outline-teal-400"
 					placeholder="出品したい個数"
 					min={1}
 					value={listingQuantity ?? ''}
@@ -158,7 +158,7 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<Button
-				className="mt-4 w-full transform cursor-pointer rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600"
+				className="mt-4 w-full transform cursor-pointer rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600 outline-teal-600"
 				type="submit"
 				onPress={calculateUnitPrice}
 			>
