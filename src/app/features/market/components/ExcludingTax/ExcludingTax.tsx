@@ -64,7 +64,7 @@ const ExcludingTax = () => {
 					id="excludingtax_price"
 					type="number"
 					inputMode="numeric"
-					className="w-full rounded-lg border px-4 py-2 focus:border-teal-400 focus:outline-hidden"
+					className="w-full rounded-lg border px-4 py-2 outline-teal-400"
 					placeholder="価格"
 					min={1}
 					value={price ?? ''}
@@ -80,7 +80,7 @@ const ExcludingTax = () => {
 					id="excluding-tax-tax"
 					type="number"
 					inputMode="numeric"
-					className="w-full rounded-lg border px-4 py-2 focus:border-teal-400 focus:outline-hidden"
+					className="w-full rounded-lg border px-4 py-2 outline-teal-400"
 					placeholder="税率"
 					min={0}
 					value={tax ?? ''}
@@ -89,7 +89,7 @@ const ExcludingTax = () => {
 				/>
 			</div>
 			<button
-				className="mt-4 w-full transform cursor-pointer rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600"
+				className="mt-4 w-full transform cursor-pointer rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600 outline-teal-600"
 				type="submit"
 				onClick={calculateExcludingTaxPrice}
 			>
@@ -104,12 +104,16 @@ const ExcludingTax = () => {
 							<button
 								type="button"
 								onClick={handleCopy}
-								className="mt-1 w-24 cursor-pointer rounded bg-white px-3 py-1 text-gray-700 text-sm opacity-70 hover:bg-teal-400 active:bg-teal-400 sm:mt-0 sm:ml-4 sm:w-auto"
+								className={`mt-1 w-24 cursor-pointer rounded px-3 py-1 text-sm sm:mt-0 sm:ml-4 sm:w-auto outline-teal-400 shadow-sm ${
+									copied
+										? 'bg-teal-400 text-white'
+										: 'bg-teal-300 text-gray-600 hover:text-white hover:bg-teal-400 active:bg-teal-400'
+								}`}
 							>
 								{copied ? (
 									<span className="inline-flex items-center">
 										<svg
-											className="me-1.5 h-3 w-3 text-gray-700"
+											className="me-1.5 h-3 w-3 text-white"
 											aria-hidden="true"
 											xmlns="http://www.w3.org/2000/svg"
 											fill="none"
