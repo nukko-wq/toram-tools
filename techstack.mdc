@@ -28,7 +28,7 @@ alwaysApply: true
 
 ## 開発ツール
 
-- yarn: ^1.22.22
+- npm: 11.4.1
 - Biome: ^1.9.4
 
 ## デプロイメント
