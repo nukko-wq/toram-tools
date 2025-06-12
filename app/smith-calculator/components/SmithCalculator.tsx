@@ -175,6 +175,7 @@ export default function SmithCalculator() {
 										<input
 											id={`stat-${stat}`}
 											type="number"
+											inputMode="numeric"
 											min="0"
 											max="999"
 											value={input.characterStats[stat] ?? ''}
@@ -219,6 +220,7 @@ export default function SmithCalculator() {
 									<input
 										id="smith-proficiency"
 										type="number"
+										inputMode="numeric"
 										min="0"
 										value={input.smithProficiency ?? ''}
 										onChange={(e) =>
@@ -249,6 +251,7 @@ export default function SmithCalculator() {
 									<input
 										id="equipment-crafting"
 										type="number"
+										inputMode="numeric"
 										min="0"
 										max="10"
 										value={input.skills.equipmentCrafting}
@@ -278,6 +281,7 @@ export default function SmithCalculator() {
 									<input
 										id="careful-crafting"
 										type="number"
+										inputMode="numeric"
 										min="0"
 										max="10"
 										value={input.skills.carefulCrafting}
@@ -303,6 +307,7 @@ export default function SmithCalculator() {
 									<input
 										id="master-crafting"
 										type="number"
+										inputMode="numeric"
 										min="0"
 										max="10"
 										value={input.skills.masterCrafting}
@@ -333,6 +338,7 @@ export default function SmithCalculator() {
 								<input
 									id="food-str"
 									type="number"
+									inputMode="numeric"
 									min="0"
 									value={input.food.str ?? ''}
 									onChange={(e) =>
@@ -357,6 +363,7 @@ export default function SmithCalculator() {
 								<input
 									id="food-dex"
 									type="number"
+									inputMode="numeric"
 									min="0"
 									value={input.food.dex ?? ''}
 									onChange={(e) =>
@@ -410,6 +417,7 @@ export default function SmithCalculator() {
 								<input
 									id="difficulty"
 									type="number"
+									inputMode="numeric"
 									value={input.difficulty ?? ''}
 									onChange={(e) =>
 										setInput((prev) => ({
@@ -436,6 +444,7 @@ export default function SmithCalculator() {
 								<input
 									id="base-potential"
 									type="number"
+									inputMode="numeric"
 									value={input.basePotential ?? ''}
 									onChange={(e) =>
 										setInput((prev) => ({
@@ -489,6 +498,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-dex`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.dex ?? ''}
 														onChange={(e) =>
@@ -520,6 +530,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-str`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.str ?? ''}
 														onChange={(e) =>
@@ -551,6 +562,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-dex-percent`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.dexPercent ?? ''}
 														onChange={(e) =>
@@ -582,6 +594,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-str-percent`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.strPercent ?? ''}
 														onChange={(e) =>
@@ -634,6 +647,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-dex`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.dex ?? ''}
 														onChange={(e) =>
@@ -665,6 +679,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-str`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.str ?? ''}
 														onChange={(e) =>
@@ -696,6 +711,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-dex-percent`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.dexPercent ?? ''}
 														onChange={(e) =>
@@ -727,6 +743,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-str-percent`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.strPercent ?? ''}
 														onChange={(e) =>
@@ -779,6 +796,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-dex`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.dex ?? ''}
 														onChange={(e) =>
@@ -810,6 +828,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-str`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.str ?? ''}
 														onChange={(e) =>
@@ -841,6 +860,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-dex-percent`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.dexPercent ?? ''}
 														onChange={(e) =>
@@ -872,6 +892,7 @@ export default function SmithCalculator() {
 													<input
 														id={`${key}-str-percent`}
 														type="number"
+														inputMode="numeric"
 														min="0"
 														value={stats.strPercent ?? ''}
 														onChange={(e) =>
