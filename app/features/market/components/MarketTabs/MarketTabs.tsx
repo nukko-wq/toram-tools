@@ -36,7 +36,7 @@ const MarketTabs = () => {
 	return (
 		<>
 			{/* デスクトップ表示時のコンテンツ */}
-			<div className="hidden grow flex-col bg-gray-100 2xl:flex 2xl:justify-center">
+			<div className="hidden grow flex-col bg-gray-50 2xl:flex 2xl:justify-center">
 				<div className="w-full items-start justify-center px-4 py-4 md:mt-4 2xl:mx-auto 2xl:mt-0 2xl:flex">
 					<div
 						className={containerVariants({
@@ -79,7 +79,7 @@ const MarketTabs = () => {
 				</div>
 			</div>
 			{/* モバイル表示時のコンテンツ */}
-			<div className="flex grow flex-col bg-gray-100 pt-4 2xl:hidden">
+			<div className="flex grow flex-col bg-gray-50 pt-4 2xl:hidden">
 				<div className="w-full px-4 pt-4">
 					<div className="mx-auto flex max-w-xl px-2">
 						<button
