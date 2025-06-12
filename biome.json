@@ -10,9 +10,6 @@
 			"correctness": {
 				"noUnusedImports": "warn",
 				"noUnusedVariables": "warn"
-			},
-			"nursery": {
-				"useSortedClasses": "warn"
 			}
 		}
 	},
