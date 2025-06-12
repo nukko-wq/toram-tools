@@ -183,10 +183,10 @@ export default function SmithCalculator() {
 												if (value === '') {
 													updateCharacterStat(stat, undefined)
 												} else {
-													const numValue = parseInt(value)
+													const numValue = Number.parseInt(value)
 													updateCharacterStat(
 														stat,
-														isNaN(numValue) ? 1 : numValue,
+														Number.isNaN(numValue) ? 1 : numValue,
 													)
 												}
 											}}
@@ -210,10 +210,14 @@ export default function SmithCalculator() {
 							{/* 1行目: スミス熟練度, 装備製作 */}
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 								<div>
-									<label className="block text-sm font-medium mb-1">
+									<label
+										htmlFor="smith-proficiency"
+										className="block text-sm font-medium mb-1"
+									>
 										スミス熟練度
 									</label>
 									<input
+										id="smith-proficiency"
 										type="number"
 										min="0"
 										value={input.smithProficiency ?? ''}
@@ -223,7 +227,7 @@ export default function SmithCalculator() {
 												smithProficiency:
 													e.target.value === ''
 														? undefined
-														: Math.max(0, parseInt(e.target.value) || 0),
+														: Math.max(0, Number.parseInt(e.target.value) || 0),
 											}))
 										}
 										onMouseDown={(e) => {
@@ -239,10 +243,11 @@ export default function SmithCalculator() {
 									/>
 								</div>
 								<div>
-									<label className="block text-sm font-medium mb-1">
+									<label htmlFor="equipment-crafting" className="block text-sm font-medium mb-1">
 										装備製作
 									</label>
 									<input
+										id="equipment-crafting"
 										type="number"
 										min="0"
 										max="10"
@@ -254,7 +259,7 @@ export default function SmithCalculator() {
 													...prev.skills,
 													equipmentCrafting: Math.max(
 														0,
-														Math.min(10, parseInt(e.target.value) || 0),
+														Math.min(10, Number.parseInt(e.target.value) || 0),
 													),
 												},
 											}))
@@ -267,10 +272,11 @@ export default function SmithCalculator() {
 							{/* 2行目: 丁寧な制作, 匠の製作技術 */}
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 								<div>
-									<label className="block text-sm font-medium mb-1">
+									<label htmlFor="careful-crafting" className="block text-sm font-medium mb-1">
 										丁寧な制作
 									</label>
 									<input
+										id="careful-crafting"
 										type="number"
 										min="0"
 										max="10"
@@ -282,7 +288,7 @@ export default function SmithCalculator() {
 													...prev.skills,
 													carefulCrafting: Math.max(
 														0,
-														Math.min(10, parseInt(e.target.value) || 0),
+														Math.min(10, Number.parseInt(e.target.value) || 0),
 													),
 												},
 											}))
@@ -291,10 +297,11 @@ export default function SmithCalculator() {
 									/>
 								</div>
 								<div>
-									<label className="block text-sm font-medium mb-1">
+									<label htmlFor="master-crafting" className="block text-sm font-medium mb-1">
 										匠の製作技術
 									</label>
 									<input
+										id="master-crafting"
 										type="number"
 										min="0"
 										max="10"
@@ -306,7 +313,7 @@ export default function SmithCalculator() {
 													...prev.skills,
 													masterCrafting: Math.max(
 														0,
-														Math.min(10, parseInt(e.target.value) || 0),
+														Math.min(10, Number.parseInt(e.target.value) || 0),
 													),
 												},
 											}))
@@ -322,8 +329,9 @@ export default function SmithCalculator() {
 						<h2 className="text-xl font-semibold mb-4">料理</h2>
 						<div className="grid grid-cols-2 gap-4">
 							<div>
-								<label className="block text-sm font-medium mb-1">STR</label>
+								<label htmlFor="food-str" className="block text-sm font-medium mb-1">STR</label>
 								<input
+									id="food-str"
 									type="number"
 									min="0"
 									value={input.food.str ?? ''}
@@ -332,7 +340,7 @@ export default function SmithCalculator() {
 											'str',
 											e.target.value === ''
 												? undefined
-												: parseInt(e.target.value) || 0,
+												: Number.parseInt(e.target.value) || 0,
 										)
 									}
 									onMouseDown={(e) => {
@@ -345,8 +353,9 @@ export default function SmithCalculator() {
 								/>
 							</div>
 							<div>
-								<label className="block text-sm font-medium mb-1">DEX</label>
+								<label htmlFor="food-dex" className="block text-sm font-medium mb-1">DEX</label>
 								<input
+									id="food-dex"
 									type="number"
 									min="0"
 									value={input.food.dex ?? ''}
@@ -355,7 +364,7 @@ export default function SmithCalculator() {
 											'dex',
 											e.target.value === ''
 												? undefined
-												: parseInt(e.target.value) || 0,
+												: Number.parseInt(e.target.value) || 0,
 										)
 									}
 									onMouseDown={(e) => {
@@ -375,10 +384,11 @@ export default function SmithCalculator() {
 						<h2 className="text-xl font-semibold mb-4">製作対象</h2>
 						<div className="space-y-3">
 							<div>
-								<label className="block text-sm font-medium mb-1">
+								<label htmlFor="equipment-type" className="block text-sm font-medium mb-1">
 									装備種別
 								</label>
 								<select
+									id="equipment-type"
 									value={input.equipmentType}
 									onChange={(e) =>
 										setInput((prev) => ({
@@ -396,8 +406,9 @@ export default function SmithCalculator() {
 								</select>
 							</div>
 							<div>
-								<label className="block text-sm font-medium mb-1">難易度</label>
+								<label htmlFor="difficulty" className="block text-sm font-medium mb-1">難易度</label>
 								<input
+									id="difficulty"
 									type="number"
 									value={input.difficulty ?? ''}
 									onChange={(e) =>
@@ -406,7 +417,7 @@ export default function SmithCalculator() {
 											difficulty:
 												e.target.value === ''
 													? undefined
-													: parseInt(e.target.value) || 0,
+													: Number.parseInt(e.target.value) || 0,
 										}))
 									}
 									onMouseDown={(e) => {
@@ -419,10 +430,11 @@ export default function SmithCalculator() {
 								/>
 							</div>
 							<div>
-								<label className="block text-sm font-medium mb-1">
+								<label htmlFor="base-potential" className="block text-sm font-medium mb-1">
 									基礎潜在値
 								</label>
 								<input
+									id="base-potential"
 									type="number"
 									value={input.basePotential ?? ''}
 									onChange={(e) =>
@@ -431,7 +443,7 @@ export default function SmithCalculator() {
 											basePotential:
 												e.target.value === ''
 													? undefined
-													: parseInt(e.target.value) || 0,
+													: Number.parseInt(e.target.value) || 0,
 										}))
 									}
 									onMouseDown={(e) => {
@@ -471,10 +483,11 @@ export default function SmithCalculator() {
 											<h3 className="text-sm font-medium mb-2">{name}</h3>
 											<div className="grid grid-cols-2 gap-2">
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-dex`} className="block text-xs font-medium mb-1">
 														DEX
 													</label>
 													<input
+														id={`${key}-dex`}
 														type="number"
 														min="0"
 														value={stats.dex ?? ''}
@@ -484,7 +497,7 @@ export default function SmithCalculator() {
 																'dex',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -501,10 +514,11 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-str`} className="block text-xs font-medium mb-1">
 														STR
 													</label>
 													<input
+														id={`${key}-str`}
 														type="number"
 														min="0"
 														value={stats.str ?? ''}
@@ -514,7 +528,7 @@ export default function SmithCalculator() {
 																'str',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -531,10 +545,11 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-dex-percent`} className="block text-xs font-medium mb-1">
 														DEX%
 													</label>
 													<input
+														id={`${key}-dex-percent`}
 														type="number"
 														min="0"
 														value={stats.dexPercent ?? ''}
@@ -544,7 +559,7 @@ export default function SmithCalculator() {
 																'dexPercent',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -561,10 +576,11 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-str-percent`} className="block text-xs font-medium mb-1">
 														STR%
 													</label>
 													<input
+														id={`${key}-str-percent`}
 														type="number"
 														min="0"
 														value={stats.strPercent ?? ''}
@@ -574,7 +590,7 @@ export default function SmithCalculator() {
 																'strPercent',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -612,10 +628,11 @@ export default function SmithCalculator() {
 											<h3 className="text-sm font-medium mb-2">{name}</h3>
 											<div className="grid grid-cols-2 gap-2">
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-dex`} className="block text-xs font-medium mb-1">
 														DEX
 													</label>
 													<input
+														id={`${key}-dex`}
 														type="number"
 														min="0"
 														value={stats.dex ?? ''}
@@ -625,7 +642,7 @@ export default function SmithCalculator() {
 																'dex',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -642,10 +659,11 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-str`} className="block text-xs font-medium mb-1">
 														STR
 													</label>
 													<input
+														id={`${key}-str`}
 														type="number"
 														min="0"
 														value={stats.str ?? ''}
@@ -655,7 +673,7 @@ export default function SmithCalculator() {
 																'str',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -672,10 +690,11 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-dex-percent`} className="block text-xs font-medium mb-1">
 														DEX%
 													</label>
 													<input
+														id={`${key}-dex-percent`}
 														type="number"
 														min="0"
 														value={stats.dexPercent ?? ''}
@@ -685,7 +704,7 @@ export default function SmithCalculator() {
 																'dexPercent',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -702,10 +721,11 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-str-percent`} className="block text-xs font-medium mb-1">
 														STR%
 													</label>
 													<input
+														id={`${key}-str-percent`}
 														type="number"
 														min="0"
 														value={stats.strPercent ?? ''}
@@ -715,7 +735,7 @@ export default function SmithCalculator() {
 																'strPercent',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -753,10 +773,11 @@ export default function SmithCalculator() {
 											<h3 className="text-sm font-medium mb-2">{name}</h3>
 											<div className="grid grid-cols-2 gap-2">
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-dex`} className="block text-xs font-medium mb-1">
 														DEX
 													</label>
 													<input
+														id={`${key}-dex`}
 														type="number"
 														min="0"
 														value={stats.dex ?? ''}
@@ -766,7 +787,7 @@ export default function SmithCalculator() {
 																'dex',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -783,10 +804,11 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-str`} className="block text-xs font-medium mb-1">
 														STR
 													</label>
 													<input
+														id={`${key}-str`}
 														type="number"
 														min="0"
 														value={stats.str ?? ''}
@@ -796,7 +818,7 @@ export default function SmithCalculator() {
 																'str',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -813,10 +835,11 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-dex-percent`} className="block text-xs font-medium mb-1">
 														DEX%
 													</label>
 													<input
+														id={`${key}-dex-percent`}
 														type="number"
 														min="0"
 														value={stats.dexPercent ?? ''}
@@ -826,7 +849,7 @@ export default function SmithCalculator() {
 																'dexPercent',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
@@ -843,10 +866,11 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label className="block text-xs font-medium mb-1">
+													<label htmlFor={`${key}-str-percent`} className="block text-xs font-medium mb-1">
 														STR%
 													</label>
 													<input
+														id={`${key}-str-percent`}
 														type="number"
 														min="0"
 														value={stats.strPercent ?? ''}
@@ -856,7 +880,7 @@ export default function SmithCalculator() {
 																'strPercent',
 																e.target.value === ''
 																	? undefined
-																	: parseInt(e.target.value) || 0,
+																	: Number.parseInt(e.target.value) || 0,
 															)
 														}
 														onMouseDown={(e) => {
