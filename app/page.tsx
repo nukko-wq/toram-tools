@@ -13,7 +13,7 @@ export default async function Home() {
 		<>
 			<Header title="" link="/" />
 			<div className="flex grow flex-col items-center pb-4">
-				<div className="mx-2 mt-4 grid max-w-7xl auto-rows-fr grid-cols-1 gap-4 md:mx-4">
+				<div className="mx-2 mt-4 grid max-w-7xl auto-rows-fr grid-cols-1 gap-4 md:mx-4 md:mt-16 lg:grid-cols-2 lg:mt-28">
 					<Card
 						title="マーケット計算"
 						description={[
@@ -26,7 +26,7 @@ export default async function Home() {
 						title="スミス成功率計算"
 						description={[
 							'トーラムオンラインの装備製作の成功率を計算できます。',
-							'装備製作のおともに使ってみてください。',
+							'装備製作のおともに。',
 						]}
 						link="/smith-calculator"
 					/>
