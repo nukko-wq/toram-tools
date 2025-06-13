@@ -2,13 +2,7 @@
 
 import { CircleHelp } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import {
-	Button,
-	Dialog,
-	DialogTrigger,
-	OverlayArrow,
-	Popover,
-} from 'react-aria-components'
+import { Button, Dialog, DialogTrigger, Popover } from 'react-aria-components'
 import { calculateSmithing } from '../lib/calculations'
 import { loadCurrentData, saveCurrentData } from '../lib/localStorage'
 import type { EquipmentType, SmithingInput } from '../lib/types'

@@ -21,6 +21,7 @@ export default async function Home() {
 							'最安値で出品したい場合や国際マーケットで決まった値段で出品したいときにどうぞ。',
 						]}
 						link="/market"
+						color="blue"
 					/>
 					<Card
 						title="スミス成功率計算"
@@ -29,6 +30,7 @@ export default async function Home() {
 							'装備製作のおともに。',
 						]}
 						link="/smith-calculator"
+						color="blue"
 					/>
 				</div>
 			</div>
