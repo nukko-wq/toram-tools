@@ -24,7 +24,7 @@ const MarketTabs = () => {
 	})
 
 	const tabButtonVariants = tv({
-		base: 'px-4 py-2 text-sm font-medium rounded-t-lg',
+		base: 'px-4 py-2 text-sm font-medium rounded-t-lg cursor-pointer',
 		variants: {
 			active: {
 				true: 'bg-white text-teal-500',
