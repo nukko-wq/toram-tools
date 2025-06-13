@@ -69,11 +69,11 @@ function calculateTotalDex(input: SmithingInput): number {
  * 成功率を計算
  */
 function calculateSuccessRate(input: SmithingInput, totalStr: number, totalDex: number): number {
-  const { characterStats, smithProficiency, difficulty } = input;
+  const { characterStats, smithProficiency, difficulty, skills } = input;
   
-  // 成功率 = 10 + スミス熟練度 + TEC/2 + 総DEX/6 - 難易度 + 総STR/10
+  // 成功率 = 装備製作slv + スミス熟練度 + TEC/2 + 総DEX/6 - 難易度 + 総STR/10
   const successRate = 
-    10 + 
+    skills.equipmentCrafting + 
     (smithProficiency ?? 0) + 
     (characterStats.tec ?? 1) / 2 + 
     totalDex / 6 - 
