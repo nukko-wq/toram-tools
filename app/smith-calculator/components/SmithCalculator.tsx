@@ -1,11 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { calculateSmithing } from '../lib/calculations'
-import type { SmithingInput, EquipmentType } from '../lib/types'
-import { saveCurrentData, loadCurrentData } from '../lib/localStorage'
-import MobileResultBar from './MobileResultBar'
 import { CircleHelp } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import {
 	Button,
 	Dialog,
@@ -13,6 +9,10 @@ import {
 	OverlayArrow,
 	Popover,
 } from 'react-aria-components'
+import { calculateSmithing } from '../lib/calculations'
+import { loadCurrentData, saveCurrentData } from '../lib/localStorage'
+import type { EquipmentType, SmithingInput } from '../lib/types'
+import MobileResultBar from './MobileResultBar'
 
 const equipmentTypes: EquipmentType[] = [
 	'片手剣',
@@ -92,8 +92,21 @@ const defaultInput: SmithingInput = {
 export default function SmithCalculator() {
 	const [input, setInput] = useState<SmithingInput>(defaultInput)
 	const [isLoaded, setIsLoaded] = useState(false)
+	const [isMobile, setIsMobile] = useState(false)
 
 	const result = calculateSmithing(input)
+
+	// 画面サイズの監視
+	useEffect(() => {
+		const checkMobile = () => {
+			setIsMobile(window.innerWidth < 768) // md breakpoint
+		}
+
+		checkMobile()
+		window.addEventListener('resize', checkMobile)
+
+		return () => window.removeEventListener('resize', checkMobile)
+	}, [])
 
 	const updateCharacterStat = (
 		stat: keyof typeof input.characterStats,
@@ -175,7 +188,14 @@ export default function SmithCalculator() {
 								<Button>
 									<CircleHelp className="w-4 h-4" />
 								</Button>
-								<Popover placement="end" className="bg-white shadow-xl border border-gray-200 rounded-lg p-0 max-w-md">
+								<Popover
+									placement={isMobile ? 'bottom' : 'right'}
+									crossOffset={0}
+									offset={8}
+									shouldFlip={true}
+									containerPadding={16}
+									className="bg-white shadow-xl border border-gray-200 rounded-lg p-0 w-[calc(100vw-2rem)] max-w-md md:w-auto"
+								>
 									<OverlayArrow>
 										<svg
 											width={12}
@@ -183,68 +203,108 @@ export default function SmithCalculator() {
 											viewBox="0 0 12 12"
 											role="presentation"
 											aria-hidden="true"
-											className="rotate-90 fill-white drop-shadow"
+											className={`fill-white drop-shadow ${isMobile ? 'rotate-180' : 'rotate-90'}`}
 										>
 											<path d="M0 0 L6 6 L12 0" />
 										</svg>
 									</OverlayArrow>
-									<Dialog className="p-4">
-										<div className="space-y-4">
-											<h3 className="text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2">
+									<Dialog className="p-3 sm:p-4">
+										<div className="space-y-3 sm:space-y-4">
+											<h3 className="text-base sm:text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2">
 												ステータスによる潜在値上昇量
 											</h3>
 											<div className="overflow-hidden rounded-lg border border-gray-200">
-												<table className="w-full text-sm">
+												<table className="w-full text-xs sm:text-sm">
 													<thead className="bg-gray-50">
 														<tr>
-															<th className="px-4 py-3 text-left font-medium text-gray-700 border-b border-gray-200">
+															<th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-medium text-gray-700 border-b border-gray-200">
 																武器種別
 															</th>
-															<th className="px-4 py-3 text-left font-medium text-gray-700 border-b border-gray-200">
+															<th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-medium text-gray-700 border-b border-gray-200">
 																計算式
 															</th>
 														</tr>
 													</thead>
 													<tbody className="bg-white divide-y divide-gray-100">
 														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-4 py-3 font-medium text-gray-800">片手剣</td>
-															<td className="px-4 py-3 text-gray-600 font-mono">(STR+DEX)÷20</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+																片手剣
+															</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+																(STR+DEX)÷20
+															</td>
 														</tr>
 														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-4 py-3 font-medium text-gray-800">両手剣</td>
-															<td className="px-4 py-3 text-gray-600 font-mono">STR÷10</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+																両手剣
+															</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+																STR÷10
+															</td>
 														</tr>
 														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-4 py-3 font-medium text-gray-800">弓</td>
-															<td className="px-4 py-3 text-gray-600 font-mono">(STR+DEX)÷20</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+																弓
+															</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+																(STR+DEX)÷20
+															</td>
 														</tr>
 														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-4 py-3 font-medium text-gray-800">自動弓</td>
-															<td className="px-4 py-3 text-gray-600 font-mono">DEX÷10</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+																自動弓
+															</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+																DEX÷10
+															</td>
 														</tr>
 														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-4 py-3 font-medium text-gray-800">杖</td>
-															<td className="px-4 py-3 text-gray-600 font-mono">INT÷10</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+																杖
+															</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+																INT÷10
+															</td>
 														</tr>
 														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-4 py-3 font-medium text-gray-800">魔道具</td>
-															<td className="px-4 py-3 text-gray-600 font-mono">(INT+AGI)÷20</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+																魔道具
+															</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+																(INT+AGI)÷20
+															</td>
 														</tr>
 														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-4 py-3 font-medium text-gray-800">手甲</td>
-															<td className="px-4 py-3 text-gray-600 font-mono">AGI÷10</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+																手甲
+															</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+																AGI÷10
+															</td>
 														</tr>
 														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-4 py-3 font-medium text-gray-800">旋風槍</td>
-															<td className="px-4 py-3 text-gray-600 font-mono">(STR+AGI)÷20</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+																旋風槍
+															</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+																(STR+AGI)÷20
+															</td>
 														</tr>
 														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-4 py-3 font-medium text-gray-800">抜刀剣</td>
-															<td className="px-4 py-3 text-gray-600 font-mono">(DEX+AGI)÷20</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+																抜刀剣
+															</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+																(DEX+AGI)÷20
+															</td>
 														</tr>
 														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-4 py-3 font-medium text-gray-800">体防具</td>
-															<td className="px-4 py-3 text-gray-600 font-mono">VIT÷10</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+																体防具
+															</td>
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+																VIT÷10
+															</td>
 														</tr>
 													</tbody>
 												</table>
