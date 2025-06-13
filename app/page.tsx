@@ -4,7 +4,7 @@ import Card from './features/card/components/Card'
 
 export const metadata: Metadata = {
 	alternates: {
-		canonical: 'https://toram-tools.vercel.app/',
+		canonical: 'https://toram-tools.nukko.dev/',
 	},
 }
 

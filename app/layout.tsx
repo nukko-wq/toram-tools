@@ -61,7 +61,7 @@ const jsonLD: WithContext<JsonLDArticle | JsonLDWebPage> = {
 	'@context': 'https://schema.org',
 	'@type': 'WebPage',
 	name: 'トーラムいろいろツール',
-	url: 'https://toram-tools.vercel.app',
+	url: 'https://toram-tools.nukko.dev',
 }
 
 export default function RootLayout({
