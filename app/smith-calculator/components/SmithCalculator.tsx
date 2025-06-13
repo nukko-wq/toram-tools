@@ -5,6 +5,14 @@ import { calculateSmithing } from '../lib/calculations'
 import type { SmithingInput, EquipmentType } from '../lib/types'
 import { saveCurrentData, loadCurrentData } from '../lib/localStorage'
 import MobileResultBar from './MobileResultBar'
+import { CircleHelp } from 'lucide-react'
+import {
+	Button,
+	Dialog,
+	DialogTrigger,
+	OverlayArrow,
+	Popover,
+} from 'react-aria-components'
 
 const equipmentTypes: EquipmentType[] = [
 	'片手剣',
@@ -161,7 +169,91 @@ export default function SmithCalculator() {
 				{/* 左カラム: キャラクター */}
 				<div className="gap-4 md:gap-6 lg:col-span-3 xl:col-span-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1">
 					<div className="bg-white p-6 rounded-lg shadow-md order-1">
-						<h2 className="text-xl font-semibold mb-4">ステータス</h2>
+						<div className="flex gap-2 mb-4">
+							<h2 className="text-xl font-semibold">ステータス</h2>
+							<DialogTrigger>
+								<Button>
+									<CircleHelp className="w-4 h-4" />
+								</Button>
+								<Popover placement="end" className="bg-white shadow-xl border border-gray-200 rounded-lg p-0 max-w-md">
+									<OverlayArrow>
+										<svg
+											width={12}
+											height={12}
+											viewBox="0 0 12 12"
+											role="presentation"
+											aria-hidden="true"
+											className="rotate-90 fill-white drop-shadow"
+										>
+											<path d="M0 0 L6 6 L12 0" />
+										</svg>
+									</OverlayArrow>
+									<Dialog className="p-4">
+										<div className="space-y-4">
+											<h3 className="text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2">
+												ステータスによる潜在値上昇量
+											</h3>
+											<div className="overflow-hidden rounded-lg border border-gray-200">
+												<table className="w-full text-sm">
+													<thead className="bg-gray-50">
+														<tr>
+															<th className="px-4 py-3 text-left font-medium text-gray-700 border-b border-gray-200">
+																武器種別
+															</th>
+															<th className="px-4 py-3 text-left font-medium text-gray-700 border-b border-gray-200">
+																計算式
+															</th>
+														</tr>
+													</thead>
+													<tbody className="bg-white divide-y divide-gray-100">
+														<tr className="hover:bg-gray-50 transition-colors">
+															<td className="px-4 py-3 font-medium text-gray-800">片手剣</td>
+															<td className="px-4 py-3 text-gray-600 font-mono">(STR+DEX)÷20</td>
+														</tr>
+														<tr className="hover:bg-gray-50 transition-colors">
+															<td className="px-4 py-3 font-medium text-gray-800">両手剣</td>
+															<td className="px-4 py-3 text-gray-600 font-mono">STR÷10</td>
+														</tr>
+														<tr className="hover:bg-gray-50 transition-colors">
+															<td className="px-4 py-3 font-medium text-gray-800">弓</td>
+															<td className="px-4 py-3 text-gray-600 font-mono">(STR+DEX)÷20</td>
+														</tr>
+														<tr className="hover:bg-gray-50 transition-colors">
+															<td className="px-4 py-3 font-medium text-gray-800">自動弓</td>
+															<td className="px-4 py-3 text-gray-600 font-mono">DEX÷10</td>
+														</tr>
+														<tr className="hover:bg-gray-50 transition-colors">
+															<td className="px-4 py-3 font-medium text-gray-800">杖</td>
+															<td className="px-4 py-3 text-gray-600 font-mono">INT÷10</td>
+														</tr>
+														<tr className="hover:bg-gray-50 transition-colors">
+															<td className="px-4 py-3 font-medium text-gray-800">魔道具</td>
+															<td className="px-4 py-3 text-gray-600 font-mono">(INT+AGI)÷20</td>
+														</tr>
+														<tr className="hover:bg-gray-50 transition-colors">
+															<td className="px-4 py-3 font-medium text-gray-800">手甲</td>
+															<td className="px-4 py-3 text-gray-600 font-mono">AGI÷10</td>
+														</tr>
+														<tr className="hover:bg-gray-50 transition-colors">
+															<td className="px-4 py-3 font-medium text-gray-800">旋風槍</td>
+															<td className="px-4 py-3 text-gray-600 font-mono">(STR+AGI)÷20</td>
+														</tr>
+														<tr className="hover:bg-gray-50 transition-colors">
+															<td className="px-4 py-3 font-medium text-gray-800">抜刀剣</td>
+															<td className="px-4 py-3 text-gray-600 font-mono">(DEX+AGI)÷20</td>
+														</tr>
+														<tr className="hover:bg-gray-50 transition-colors">
+															<td className="px-4 py-3 font-medium text-gray-800">体防具</td>
+															<td className="px-4 py-3 text-gray-600 font-mono">VIT÷10</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</Dialog>
+								</Popover>
+							</DialogTrigger>
+						</div>
 						<div className="grid grid-cols-2 gap-4">
 							{(['str', 'dex', 'vit', 'agi', 'int', 'tec'] as const).map(
 								(stat) => (
@@ -245,7 +337,10 @@ export default function SmithCalculator() {
 									/>
 								</div>
 								<div>
-									<label htmlFor="equipment-crafting" className="block text-sm font-medium mb-1">
+									<label
+										htmlFor="equipment-crafting"
+										className="block text-sm font-medium mb-1"
+									>
 										装備製作
 									</label>
 									<input
@@ -275,7 +370,10 @@ export default function SmithCalculator() {
 							{/* 2行目: 丁寧な制作, 匠の製作技術 */}
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 								<div>
-									<label htmlFor="careful-crafting" className="block text-sm font-medium mb-1">
+									<label
+										htmlFor="careful-crafting"
+										className="block text-sm font-medium mb-1"
+									>
 										丁寧な制作
 									</label>
 									<input
@@ -301,7 +399,10 @@ export default function SmithCalculator() {
 									/>
 								</div>
 								<div>
-									<label htmlFor="master-crafting" className="block text-sm font-medium mb-1">
+									<label
+										htmlFor="master-crafting"
+										className="block text-sm font-medium mb-1"
+									>
 										匠の製作技術
 									</label>
 									<input
@@ -334,7 +435,12 @@ export default function SmithCalculator() {
 						<h2 className="text-xl font-semibold mb-4">料理</h2>
 						<div className="grid grid-cols-2 gap-4">
 							<div>
-								<label htmlFor="food-str" className="block text-sm font-medium mb-1">STR</label>
+								<label
+									htmlFor="food-str"
+									className="block text-sm font-medium mb-1"
+								>
+									STR
+								</label>
 								<input
 									id="food-str"
 									type="number"
@@ -359,7 +465,12 @@ export default function SmithCalculator() {
 								/>
 							</div>
 							<div>
-								<label htmlFor="food-dex" className="block text-sm font-medium mb-1">DEX</label>
+								<label
+									htmlFor="food-dex"
+									className="block text-sm font-medium mb-1"
+								>
+									DEX
+								</label>
 								<input
 									id="food-dex"
 									type="number"
@@ -391,7 +502,10 @@ export default function SmithCalculator() {
 						<h2 className="text-xl font-semibold mb-4">製作対象</h2>
 						<div className="space-y-3">
 							<div>
-								<label htmlFor="equipment-type" className="block text-sm font-medium mb-1">
+								<label
+									htmlFor="equipment-type"
+									className="block text-sm font-medium mb-1"
+								>
 									装備種別
 								</label>
 								<select
@@ -413,7 +527,12 @@ export default function SmithCalculator() {
 								</select>
 							</div>
 							<div>
-								<label htmlFor="difficulty" className="block text-sm font-medium mb-1">難易度</label>
+								<label
+									htmlFor="difficulty"
+									className="block text-sm font-medium mb-1"
+								>
+									難易度
+								</label>
 								<input
 									id="difficulty"
 									type="number"
@@ -438,7 +557,10 @@ export default function SmithCalculator() {
 								/>
 							</div>
 							<div>
-								<label htmlFor="base-potential" className="block text-sm font-medium mb-1">
+								<label
+									htmlFor="base-potential"
+									className="block text-sm font-medium mb-1"
+								>
 									基礎潜在値
 								</label>
 								<input
@@ -492,7 +614,10 @@ export default function SmithCalculator() {
 											<h3 className="text-sm font-medium mb-2">{name}</h3>
 											<div className="grid grid-cols-2 gap-2">
 												<div>
-													<label htmlFor={`${key}-dex`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-dex`}
+														className="block text-xs font-medium mb-1"
+													>
 														DEX
 													</label>
 													<input
@@ -524,7 +649,10 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label htmlFor={`${key}-str`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-str`}
+														className="block text-xs font-medium mb-1"
+													>
 														STR
 													</label>
 													<input
@@ -556,7 +684,10 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label htmlFor={`${key}-dex-percent`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-dex-percent`}
+														className="block text-xs font-medium mb-1"
+													>
 														DEX%
 													</label>
 													<input
@@ -588,7 +719,10 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label htmlFor={`${key}-str-percent`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-str-percent`}
+														className="block text-xs font-medium mb-1"
+													>
 														STR%
 													</label>
 													<input
@@ -641,7 +775,10 @@ export default function SmithCalculator() {
 											<h3 className="text-sm font-medium mb-2">{name}</h3>
 											<div className="grid grid-cols-2 gap-2">
 												<div>
-													<label htmlFor={`${key}-dex`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-dex`}
+														className="block text-xs font-medium mb-1"
+													>
 														DEX
 													</label>
 													<input
@@ -673,7 +810,10 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label htmlFor={`${key}-str`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-str`}
+														className="block text-xs font-medium mb-1"
+													>
 														STR
 													</label>
 													<input
@@ -705,7 +845,10 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label htmlFor={`${key}-dex-percent`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-dex-percent`}
+														className="block text-xs font-medium mb-1"
+													>
 														DEX%
 													</label>
 													<input
@@ -737,7 +880,10 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label htmlFor={`${key}-str-percent`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-str-percent`}
+														className="block text-xs font-medium mb-1"
+													>
 														STR%
 													</label>
 													<input
@@ -790,7 +936,10 @@ export default function SmithCalculator() {
 											<h3 className="text-sm font-medium mb-2">{name}</h3>
 											<div className="grid grid-cols-2 gap-2">
 												<div>
-													<label htmlFor={`${key}-dex`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-dex`}
+														className="block text-xs font-medium mb-1"
+													>
 														DEX
 													</label>
 													<input
@@ -822,7 +971,10 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label htmlFor={`${key}-str`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-str`}
+														className="block text-xs font-medium mb-1"
+													>
 														STR
 													</label>
 													<input
@@ -854,7 +1006,10 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label htmlFor={`${key}-dex-percent`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-dex-percent`}
+														className="block text-xs font-medium mb-1"
+													>
 														DEX%
 													</label>
 													<input
@@ -886,7 +1041,10 @@ export default function SmithCalculator() {
 													/>
 												</div>
 												<div>
-													<label htmlFor={`${key}-str-percent`} className="block text-xs font-medium mb-1">
+													<label
+														htmlFor={`${key}-str-percent`}
+														className="block text-xs font-medium mb-1"
+													>
 														STR%
 													</label>
 													<input
