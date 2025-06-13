@@ -31,6 +31,15 @@ const MobileMenu = () => {
 									マーケット計算
 								</button>
 							</li>
+							<li className="relative border-gray-300 border-b">
+								<button
+									type="button"
+									onClick={() => handleLinkClick('/smith-calculator')}
+									className="block w-full py-4 text-left text-gray-700 duration-200 hover:bg-gray-100 active:bg-gray-100"
+								>
+									スミス成功率計算
+								</button>
+							</li>
 						</ul>
 					</div>
 				</nav>
