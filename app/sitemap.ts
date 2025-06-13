@@ -8,5 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		{
 			url: 'https://toram-tools.nukko.dev/market',
 		},
+		{
+			url: 'https://toram-tools.nukko.dev/smith-calculator',
+		},
 	]
 }
