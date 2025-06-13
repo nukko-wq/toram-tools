@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function SmithCalculatorPage() {
 	return (
 		<>
-			<Header title="スミス成功率計算" link="/" />
+			<Header title="スミス成功率計算" link="/smith-calculator" />
 			<SmithCalculator />
 		</>
 	)
