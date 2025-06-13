@@ -2,13 +2,7 @@
 
 import { CircleHelp } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import {
-	Button,
-	Dialog,
-	DialogTrigger,
-	OverlayArrow,
-	Popover,
-} from 'react-aria-components'
+import { Button, Dialog, DialogTrigger, Popover } from 'react-aria-components'
 import { calculateSmithing } from '../lib/calculations'
 import { loadCurrentData, saveCurrentData } from '../lib/localStorage'
 import type { EquipmentType, SmithingInput } from '../lib/types'
@@ -194,115 +188,103 @@ export default function SmithCalculator() {
 									offset={8}
 									shouldFlip={true}
 									containerPadding={16}
-									className="bg-white shadow-xl border border-gray-200 rounded-lg p-0 w-[calc(100vw-2rem)] max-w-md md:w-auto"
+									className="bg-gradient-to-br from-blue-50 to-blue-100 shadow-xl border border-blue-200 rounded-lg p-0 w-[calc(100vw-2rem)] max-w-md md:w-auto"
 								>
-									<OverlayArrow>
-										<svg
-											width={12}
-											height={12}
-											viewBox="0 0 12 12"
-											role="presentation"
-											aria-hidden="true"
-											className={`fill-white drop-shadow ${isMobile ? 'rotate-180' : 'rotate-90'}`}
-										>
-											<path d="M0 0 L6 6 L12 0" />
-										</svg>
-									</OverlayArrow>
 									<Dialog className="p-3 sm:p-4">
 										<div className="space-y-3 sm:space-y-4">
-											<h3 className="text-base sm:text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2">
+											<h3 className="text-base sm:text-lg font-semibold text-blue-800 border-b border-blue-300 pb-2">
 												ステータスによる潜在値上昇量
 											</h3>
-											<div className="overflow-hidden rounded-lg border border-gray-200">
+											<div className="overflow-hidden rounded-lg border border-blue-200">
 												<table className="w-full text-xs sm:text-sm">
-													<thead className="bg-gray-50">
+													<thead className="bg-blue-50/50">
 														<tr>
-															<th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-medium text-gray-700 border-b border-gray-200">
+															<th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-medium text-blue-700 border-b border-blue-200">
 																武器種別
 															</th>
-															<th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-medium text-gray-700 border-b border-gray-200">
+															<th className="px-2 sm:px-4 py-2 sm:py-3 text-left font-medium text-blue-700 border-b border-blue-200">
 																計算式
 															</th>
 														</tr>
 													</thead>
-													<tbody className="bg-white divide-y divide-gray-100">
-														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+													<tbody className="bg-white/70 divide-y divide-blue-100">
+														<tr className="hover:bg-blue-50 transition-colors">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-blue-800">
 																片手剣
 															</td>
-															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-blue-700 font-mono">
 																(STR+DEX)÷20
 															</td>
 														</tr>
-														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+														<tr className="hover:bg-blue-50 transition-colors">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-blue-800">
 																両手剣
 															</td>
-															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-blue-700 font-mono">
 																STR÷10
 															</td>
 														</tr>
-														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+														<tr className="hover:bg-blue-50 transition-colors">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-blue-800">
 																弓
 															</td>
-															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-blue-700 font-mono">
 																(STR+DEX)÷20
 															</td>
 														</tr>
-														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+														<tr className="hover:bg-blue-50 transition-colors">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-blue-800">
 																自動弓
 															</td>
-															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-blue-700 font-mono">
 																DEX÷10
 															</td>
 														</tr>
-														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+														<tr className="hover:bg-blue-50 transition-colors">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-blue-800">
 																杖
 															</td>
-															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-blue-700 font-mono">
 																INT÷10
 															</td>
 														</tr>
-														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+														<tr className="hover:bg-blue-50 transition-colors">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-blue-800">
 																魔道具
 															</td>
-															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-blue-700 font-mono">
 																(INT+AGI)÷20
 															</td>
 														</tr>
-														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+														<tr className="hover:bg-blue-50 transition-colors">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-blue-800">
 																手甲
 															</td>
-															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-blue-700 font-mono">
 																AGI÷10
 															</td>
 														</tr>
-														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+														<tr className="hover:bg-blue-50 transition-colors">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-blue-800">
 																旋風槍
 															</td>
-															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-blue-700 font-mono">
 																(STR+AGI)÷20
 															</td>
 														</tr>
-														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+														<tr className="hover:bg-blue-50 transition-colors">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-blue-800">
 																抜刀剣
 															</td>
-															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-blue-700 font-mono">
 																(DEX+AGI)÷20
 															</td>
 														</tr>
-														<tr className="hover:bg-gray-50 transition-colors">
-															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-gray-800">
+														<tr className="hover:bg-blue-50 transition-colors">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 font-medium text-blue-800">
 																体防具
 															</td>
-															<td className="px-2 sm:px-4 py-2 sm:py-3 text-gray-600 font-mono">
+															<td className="px-2 sm:px-4 py-2 sm:py-3 text-blue-700 font-mono">
 																VIT÷10
 															</td>
 														</tr>
