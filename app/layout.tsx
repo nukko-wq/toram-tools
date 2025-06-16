@@ -12,7 +12,7 @@ import Footer from './components/layouts/footer/footer'
 export const metadata: Metadata = {
 	title: 'トーラムいろいろツール',
 	description:
-		'トーラムオンラインのいろいろツール。マーケット計算ツールがあります。',
+		'トーラムオンラインのいろいろツール。マーケット計算ツールやスミス成功率計算ツールがあります。',
 	robots: {
 		index: true,
 		follow: true,
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: 'トーラムいろいろツール',
 		description:
-			'トーラムオンラインのいろいろツール。マーケット計算ツールがあります。',
+			'トーラムオンラインのいろいろツール。マーケット計算ツールやスミス成功率計算ツールがあります。',
 		type: 'website',
 		siteName: 'トーラムいろいろツール',
 		images: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 		card: 'summary',
 		title: 'トーラムいろいろツール',
 		description:
-			'トーラムオンラインのいろいろツール。マーケット計算ツールがあります。',
+			'トーラムオンラインのいろいろツール。マーケット計算ツールやスミス成功率計算ツールがあります。',
 		images: '/twitter-image.jpg',
 	},
 	verification: {
