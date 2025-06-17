@@ -13,7 +13,7 @@ export default async function Header({
 					トーラムいろいろツール
 				</Link>
 			</div>
-			<div className="md:-translate-x-1/2 hidden grow text-center font-bold text-lg text-slate-700 opacity-90 md:absolute md:left-1/2 md:block md:transform lg:text-xl">
+			<div className="md:-translate-x-1/2 hidden grow text-center font-bold text-lg text-slate-700 md:absolute md:left-1/2 md:block md:transform lg:text-xl">
 				<Link href={link}>{title}</Link>
 			</div>
 		</header>
