@@ -7,6 +7,7 @@ import { calculateSmithing } from '../lib/calculations'
 import { loadCurrentData, saveCurrentData } from '../lib/localStorage'
 import type { EquipmentType, SmithingInput } from '../lib/types'
 import MobileResultBar from './MobileResultBar'
+import EquipmentSlot from './EquipmentSlot'
 
 const equipmentTypes: EquipmentType[] = [
 	'片手剣',
@@ -642,485 +643,50 @@ export default function SmithCalculator() {
 						<div className="space-y-4">
 							{/* 1行目: メイン武器, サブ武器 */}
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-								{[
-									{ key: 'main', name: 'メイン武器' },
-									{ key: 'sub', name: 'サブ武器' },
-								].map(({ key, name }) => {
-									const stats =
-										input.equipment[key as keyof typeof input.equipment]
-									return (
-										<div
-											key={key}
-											className="border border-gray-200 rounded-lg p-3"
-										>
-											<h3 className="text-sm font-medium mb-2">{name}</h3>
-											<div className="grid grid-cols-2 gap-2">
-												<div>
-													<label
-														htmlFor={`${key}-dex`}
-														className="block text-xs font-medium mb-1"
-													>
-														DEX
-													</label>
-													<input
-														id={`${key}-dex`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.dex ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'dex',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'dex',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-												<div>
-													<label
-														htmlFor={`${key}-str`}
-														className="block text-xs font-medium mb-1"
-													>
-														STR
-													</label>
-													<input
-														id={`${key}-str`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.str ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'str',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'str',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-												<div>
-													<label
-														htmlFor={`${key}-dex-percent`}
-														className="block text-xs font-medium mb-1"
-													>
-														DEX%
-													</label>
-													<input
-														id={`${key}-dex-percent`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.dexPercent ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'dexPercent',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'dexPercent',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-												<div>
-													<label
-														htmlFor={`${key}-str-percent`}
-														className="block text-xs font-medium mb-1"
-													>
-														STR%
-													</label>
-													<input
-														id={`${key}-str-percent`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.strPercent ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'strPercent',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'strPercent',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-											</div>
-										</div>
-									)
-								})}
+								<EquipmentSlot
+									name="メイン武器"
+									slotKey="main"
+									stats={input.equipment.main}
+									onStatsChange={updateEquipmentStat}
+								/>
+								<EquipmentSlot
+									name="サブ武器"
+									slotKey="sub"
+									stats={input.equipment.sub}
+									onStatsChange={updateEquipmentStat}
+								/>
 							</div>
 
 							{/* 2行目: 体装備, 追加装備 */}
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-								{[
-									{ key: 'body', name: '体装備' },
-									{ key: 'additional', name: '追加装備' },
-								].map(({ key, name }) => {
-									const stats =
-										input.equipment[key as keyof typeof input.equipment]
-									return (
-										<div
-											key={key}
-											className="border border-gray-200 rounded-lg p-3"
-										>
-											<h3 className="text-sm font-medium mb-2">{name}</h3>
-											<div className="grid grid-cols-2 gap-2">
-												<div>
-													<label
-														htmlFor={`${key}-dex`}
-														className="block text-xs font-medium mb-1"
-													>
-														DEX
-													</label>
-													<input
-														id={`${key}-dex`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.dex ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'dex',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'dex',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-												<div>
-													<label
-														htmlFor={`${key}-str`}
-														className="block text-xs font-medium mb-1"
-													>
-														STR
-													</label>
-													<input
-														id={`${key}-str`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.str ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'str',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'str',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-												<div>
-													<label
-														htmlFor={`${key}-dex-percent`}
-														className="block text-xs font-medium mb-1"
-													>
-														DEX%
-													</label>
-													<input
-														id={`${key}-dex-percent`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.dexPercent ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'dexPercent',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'dexPercent',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-												<div>
-													<label
-														htmlFor={`${key}-str-percent`}
-														className="block text-xs font-medium mb-1"
-													>
-														STR%
-													</label>
-													<input
-														id={`${key}-str-percent`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.strPercent ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'strPercent',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'strPercent',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-											</div>
-										</div>
-									)
-								})}
+								<EquipmentSlot
+									name="体装備"
+									slotKey="body"
+									stats={input.equipment.body}
+									onStatsChange={updateEquipmentStat}
+								/>
+								<EquipmentSlot
+									name="追加装備"
+									slotKey="additional"
+									stats={input.equipment.additional}
+									onStatsChange={updateEquipmentStat}
+								/>
 							</div>
 
 							{/* 3行目: 特殊装備, オシャレ装備 */}
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-								{[
-									{ key: 'special', name: '特殊装備' },
-									{ key: 'fashion', name: 'オシャレ装備' },
-								].map(({ key, name }) => {
-									const stats =
-										input.equipment[key as keyof typeof input.equipment]
-									return (
-										<div
-											key={key}
-											className="border border-gray-200 rounded-lg p-3"
-										>
-											<h3 className="text-sm font-medium mb-2">{name}</h3>
-											<div className="grid grid-cols-2 gap-2">
-												<div>
-													<label
-														htmlFor={`${key}-dex`}
-														className="block text-xs font-medium mb-1"
-													>
-														DEX
-													</label>
-													<input
-														id={`${key}-dex`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.dex ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'dex',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'dex',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-												<div>
-													<label
-														htmlFor={`${key}-str`}
-														className="block text-xs font-medium mb-1"
-													>
-														STR
-													</label>
-													<input
-														id={`${key}-str`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.str ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'str',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'str',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-												<div>
-													<label
-														htmlFor={`${key}-dex-percent`}
-														className="block text-xs font-medium mb-1"
-													>
-														DEX%
-													</label>
-													<input
-														id={`${key}-dex-percent`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.dexPercent ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'dexPercent',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'dexPercent',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-												<div>
-													<label
-														htmlFor={`${key}-str-percent`}
-														className="block text-xs font-medium mb-1"
-													>
-														STR%
-													</label>
-													<input
-														id={`${key}-str-percent`}
-														type="number"
-														inputMode="numeric"
-														min="0"
-														value={stats.strPercent ?? ''}
-														onChange={(e) =>
-															updateEquipmentStat(
-																key as keyof typeof input.equipment,
-																'strPercent',
-																e.target.value === ''
-																	? undefined
-																	: Number.parseInt(e.target.value) || 0,
-															)
-														}
-														onMouseDown={(e) => {
-															if (document.activeElement === e.target) {
-																e.preventDefault()
-																updateEquipmentStat(
-																	key as keyof typeof input.equipment,
-																	'strPercent',
-																	undefined,
-																)
-															}
-														}}
-														className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
-													/>
-												</div>
-											</div>
-										</div>
-									)
-								})}
+								<EquipmentSlot
+									name="特殊装備"
+									slotKey="special"
+									stats={input.equipment.special}
+									onStatsChange={updateEquipmentStat}
+								/>
+								<EquipmentSlot
+									name="オシャレ装備"
+									slotKey="fashion"
+									stats={input.equipment.fashion}
+									onStatsChange={updateEquipmentStat}
+								/>
 							</div>
 						</div>
 					</div>
