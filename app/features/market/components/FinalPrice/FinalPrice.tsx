@@ -1,11 +1,17 @@
 'use client'
 
-import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
+import { type ChangeEvent, type FormEvent, useState } from 'react'
 
 const FinalPrice = () => {
 	const [price, setPrice] = useState<number | null>(10000)
 	const [tax, setTax] = useState<number | null>(3)
-	const [result, setResult] = useState<number | null>(null)
+	const [result, setResult] = useState<number | null>(() => {
+		// 初期値を計算
+		const initialPrice = 10000
+		const initialTax = 3
+		const finalPrice = initialPrice * (1 + initialTax / 100)
+		return Math.floor(finalPrice)
+	})
 
 	const handlePriceChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value.trim()
@@ -39,10 +45,6 @@ const FinalPrice = () => {
 		}
 	}
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	useEffect(() => {
-		calculateFinalPrice()
-	}, [])
 
 	return (
 		<form onSubmit={handleSubmit}>

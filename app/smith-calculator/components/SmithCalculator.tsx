@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { calculateSmithing } from '../lib/calculations'
 import { loadCurrentData, saveCurrentData } from '../lib/localStorage'
 import type { EquipmentType, SmithingInput } from '../lib/types'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 import CharacterStatsSection from './CharacterStatsSection'
 import CraftingTargetSection from './CraftingTargetSection'
 import EquipmentSection from './EquipmentSection'
@@ -77,21 +78,11 @@ const defaultInput: SmithingInput = {
 export default function SmithCalculator() {
 	const [input, setInput] = useState<SmithingInput>(defaultInput)
 	const [isLoaded, setIsLoaded] = useState(false)
-	const [isMobile, setIsMobile] = useState(false)
+	
+	// useMediaQueryを使用してパフォーマンスを最適化
+	const isMobile = useMediaQuery('(max-width: 767px)')
 
 	const result = calculateSmithing(input)
-
-	// 画面サイズの監視
-	useEffect(() => {
-		const checkMobile = () => {
-			setIsMobile(window.innerWidth < 768) // md breakpoint
-		}
-
-		checkMobile()
-		window.addEventListener('resize', checkMobile)
-
-		return () => window.removeEventListener('resize', checkMobile)
-	}, [])
 
 	const updateCharacterStat = (
 		stat: keyof typeof input.characterStats,
