@@ -30,7 +30,7 @@ const UnitPrice = () => {
 		setTax(value ? Number(value) : null)
 	}
 
-	const handleListingQuantitiyChange = (
+	const handleListingQuantityChange = (
 		event: ChangeEvent<HTMLInputElement>,
 	) => {
 		const value = event.target.value.trim()
@@ -153,7 +153,7 @@ const UnitPrice = () => {
 					placeholder="出品したい個数"
 					min={1}
 					value={listingQuantity ?? ''}
-					onChange={handleListingQuantitiyChange}
+					onChange={handleListingQuantityChange}
 					onFocus={handleListingQuantityFocus}
 				/>
 			</div>
