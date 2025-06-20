@@ -4,14 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Toram Tools** is a Next.js 15.3.3 application with React 19 and TypeScript, providing utility tools for the MMORPG "Toram Online". The application is primarily in Japanese and includes a Market Calculator and Smith Calculator (in development).
+**Toram Tools** is a Next.js 15.3.3 application with React 19 and TypeScript, providing utility tools for the MMORPG "Toram Online". The application is primarily in Japanese and includes a Market Calculator and Smith Calculator.
 
 ## Essential Commands
 
 ### Development
 ```bash
 npm run dev          # Start development server with Turbopack
-npm run build        # Build for production
+npm run build        # Build for production  
+npm run start        # Start production server
 npm run lint         # Run Next.js linting
 npm run format       # Format code with Biome (auto-fix enabled)
 ```
@@ -53,7 +54,8 @@ Currently no test framework is configured.
 - `@/*` maps to project root for imports
 
 ### Code Standards
-- Biome configuration enforces single quotes and semicolons as needed
+- Biome configuration enforces single quotes, JSX double quotes, and semicolons as needed
+- Automatic import organization enabled
 - Japanese text content throughout the application
 - Component props use TypeScript interfaces
 

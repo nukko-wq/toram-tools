@@ -1,19 +1,37 @@
 'use client'
 
-import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
-import { Button, Form, Input, Label } from 'react-aria-components'
+import { type ChangeEvent, type FormEvent, useState } from 'react'
 
 const UnitPrice = () => {
 	const [price, setPrice] = useState<number | null>(10000)
 	const [items, setItems] = useState<number | null>(99)
 	const [tax, setTax] = useState<number | null>(3)
-	const [result, setResult] = useState<number | null>(null)
 	const [listingQuantity, setListingQuantity] = useState<number | null>(99)
-	const [listingPrice, setListingPrice] = useState<number | null>(null)
-	const [DisplayQuantity, setDisplayQuantity] = useState<number | null>(99)
-	const [priceIncludingTax, setPriceIncludingTax] = useState<number | null>(
-		null,
-	)
+	
+	// 初期値を計算して設定
+	const calculateInitialValues = () => {
+		const initialPrice = 10000
+		const initialItems = 99
+		const initialTax = 3
+		const initialListingQuantity = 99
+		
+		const unitPrice = initialPrice / (1 + initialTax / 100) / initialItems
+		const listingPrice = unitPrice * initialListingQuantity
+		const priceIncludingTax = Math.ceil(Math.floor(listingPrice) * (1 + initialTax / 100))
+		
+		return {
+			unitPrice,
+			listingPrice: Math.ceil(listingPrice),
+			priceIncludingTax,
+			displayQuantity: initialListingQuantity
+		}
+	}
+	
+	const initialValues = calculateInitialValues()
+	const [result, setResult] = useState<number | null>(initialValues.unitPrice)
+	const [listingPrice, setListingPrice] = useState<number | null>(initialValues.listingPrice)
+	const [DisplayQuantity, setDisplayQuantity] = useState<number | null>(initialValues.displayQuantity)
+	const [priceIncludingTax, setPriceIncludingTax] = useState<number | null>(initialValues.priceIncludingTax)
 
 	const handlePriceChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value.trim()
@@ -30,7 +48,7 @@ const UnitPrice = () => {
 		setTax(value ? Number(value) : null)
 	}
 
-	const handleListingQuantitiyChange = (
+	const handleListingQuantityChange = (
 		event: ChangeEvent<HTMLInputElement>,
 	) => {
 		const value = event.target.value.trim()
@@ -86,13 +104,9 @@ const UnitPrice = () => {
 		calculateUnitPrice()
 	}
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	useEffect(() => {
-		calculateUnitPrice()
-	}, [])
 
 	return (
-		<Form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit}>
 			<div>
 				<label htmlFor="market-price" className="mb-2 block">
 					マーケットの価格
@@ -110,10 +124,10 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<Label htmlFor="quantity" className="mb-2 block">
+				<label htmlFor="quantity" className="mb-2 block">
 					マーケットの個数
-				</Label>
-				<Input
+				</label>
+				<input
 					id="quantity"
 					type="number"
 					inputMode="numeric"
@@ -126,10 +140,10 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<Label htmlFor="tax" className="mb-2 block">
+				<label htmlFor="tax" className="mb-2 block">
 					税率(%)
-				</Label>
-				<Input
+				</label>
+				<input
 					id="tax"
 					type="number"
 					inputMode="numeric"
@@ -142,10 +156,10 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<Label htmlFor="listing-quantity" className="mb-2 block">
+				<label htmlFor="listing-quantity" className="mb-2 block">
 					出品したい個数
-				</Label>
-				<Input
+				</label>
+				<input
 					id="listing-quantity"
 					type="number"
 					inputMode="numeric"
@@ -153,17 +167,17 @@ const UnitPrice = () => {
 					placeholder="出品したい個数"
 					min={1}
 					value={listingQuantity ?? ''}
-					onChange={handleListingQuantitiyChange}
+					onChange={handleListingQuantityChange}
 					onFocus={handleListingQuantityFocus}
 				/>
 			</div>
-			<Button
+			<button
 				className="mt-4 w-full transform cursor-pointer rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600 outline-teal-600"
 				type="submit"
-				onPress={calculateUnitPrice}
+				onClick={calculateUnitPrice}
 			>
 				計算する
-			</Button>
+			</button>
 			<div className="mt-4 rounded bg-teal-100 p-4">
 				{result !== null && (
 					<p className="text-lg">
@@ -185,7 +199,7 @@ const UnitPrice = () => {
 				)}
 				<p className="mt-4">※小数点以下は切り捨て</p>
 			</div>
-		</Form>
+		</form>
 	)
 }
 

@@ -1,11 +1,17 @@
 'use client'
 
-import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
+import { type ChangeEvent, type FormEvent, useState } from 'react'
 
 const ExcludingTax = () => {
 	const [price, setPrice] = useState<number | null>(10000)
 	const [tax, setTax] = useState<number | null>(3)
-	const [result, setResult] = useState<number | null>(null)
+	const [result, setResult] = useState<number | null>(() => {
+		// 初期値を計算
+		const initialPrice = 10000
+		const initialTax = 3
+		const excludingTaxPrice = initialPrice / (1 + initialTax / 100)
+		return Math.ceil(excludingTaxPrice)
+	})
 	const [copied, setCopied] = useState(false)
 
 	const handlePriceChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -49,10 +55,6 @@ const ExcludingTax = () => {
 		}
 	}
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	useEffect(() => {
-		calculateExcludingTaxPrice()
-	}, [])
 
 	return (
 		<form onSubmit={handleSubmit}>
