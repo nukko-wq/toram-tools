@@ -1,7 +1,6 @@
 'use client'
 
 import { type ChangeEvent, type FormEvent, useState } from 'react'
-import { Button, Form, Input, Label } from 'react-aria-components'
 
 const UnitPrice = () => {
 	const [price, setPrice] = useState<number | null>(10000)
@@ -107,7 +106,7 @@ const UnitPrice = () => {
 
 
 	return (
-		<Form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit}>
 			<div>
 				<label htmlFor="market-price" className="mb-2 block">
 					マーケットの価格
@@ -125,10 +124,10 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<Label htmlFor="quantity" className="mb-2 block">
+				<label htmlFor="quantity" className="mb-2 block">
 					マーケットの個数
-				</Label>
-				<Input
+				</label>
+				<input
 					id="quantity"
 					type="number"
 					inputMode="numeric"
@@ -141,10 +140,10 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<Label htmlFor="tax" className="mb-2 block">
+				<label htmlFor="tax" className="mb-2 block">
 					税率(%)
-				</Label>
-				<Input
+				</label>
+				<input
 					id="tax"
 					type="number"
 					inputMode="numeric"
@@ -157,10 +156,10 @@ const UnitPrice = () => {
 				/>
 			</div>
 			<div className="mt-4">
-				<Label htmlFor="listing-quantity" className="mb-2 block">
+				<label htmlFor="listing-quantity" className="mb-2 block">
 					出品したい個数
-				</Label>
-				<Input
+				</label>
+				<input
 					id="listing-quantity"
 					type="number"
 					inputMode="numeric"
@@ -172,13 +171,13 @@ const UnitPrice = () => {
 					onFocus={handleListingQuantityFocus}
 				/>
 			</div>
-			<Button
+			<button
 				className="mt-4 w-full transform cursor-pointer rounded bg-teal-500 px-4 py-2 text-white transition-transform duration-200 ease-in-out hover:scale-95 hover:bg-teal-600 active:scale-95 active:bg-teal-600 outline-teal-600"
 				type="submit"
-				onPress={calculateUnitPrice}
+				onClick={calculateUnitPrice}
 			>
 				計算する
-			</Button>
+			</button>
 			<div className="mt-4 rounded bg-teal-100 p-4">
 				{result !== null && (
 					<p className="text-lg">
@@ -200,7 +199,7 @@ const UnitPrice = () => {
 				)}
 				<p className="mt-4">※小数点以下は切り捨て</p>
 			</div>
-		</Form>
+		</form>
 	)
 }
 
