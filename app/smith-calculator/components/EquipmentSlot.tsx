@@ -4,7 +4,11 @@ interface EquipmentSlotProps {
 	name: string
 	slotKey: keyof EquipmentSet
 	stats: EquipmentStats
-	onStatsChange: (slotKey: keyof EquipmentSet, stat: string, value: number | undefined) => void
+	onStatsChange: (
+		slotKey: keyof EquipmentSet,
+		stat: string,
+		value: number | undefined,
+	) => void
 }
 
 export default function EquipmentSlot({

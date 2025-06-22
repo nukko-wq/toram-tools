@@ -72,7 +72,10 @@ export default function SkillsSection({
 							onChange={(e) =>
 								handleSkillChange(
 									'equipmentCrafting',
-									Math.max(0, Math.min(10, Number.parseInt(e.target.value) || 0)),
+									Math.max(
+										0,
+										Math.min(10, Number.parseInt(e.target.value) || 0),
+									),
 								)
 							}
 							className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
@@ -99,7 +102,10 @@ export default function SkillsSection({
 							onChange={(e) =>
 								handleSkillChange(
 									'carefulCrafting',
-									Math.max(0, Math.min(10, Number.parseInt(e.target.value) || 0)),
+									Math.max(
+										0,
+										Math.min(10, Number.parseInt(e.target.value) || 0),
+									),
 								)
 							}
 							className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
@@ -122,7 +128,10 @@ export default function SkillsSection({
 							onChange={(e) =>
 								handleSkillChange(
 									'masterCrafting',
-									Math.max(0, Math.min(10, Number.parseInt(e.target.value) || 0)),
+									Math.max(
+										0,
+										Math.min(10, Number.parseInt(e.target.value) || 0),
+									),
 								)
 							}
 							className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"

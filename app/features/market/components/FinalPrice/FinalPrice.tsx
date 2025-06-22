@@ -45,7 +45,6 @@ const FinalPrice = () => {
 		}
 	}
 
-
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>

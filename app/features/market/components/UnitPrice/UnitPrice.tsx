@@ -7,31 +7,39 @@ const UnitPrice = () => {
 	const [items, setItems] = useState<number | null>(99)
 	const [tax, setTax] = useState<number | null>(3)
 	const [listingQuantity, setListingQuantity] = useState<number | null>(99)
-	
+
 	// 初期値を計算して設定
 	const calculateInitialValues = () => {
 		const initialPrice = 10000
 		const initialItems = 99
 		const initialTax = 3
 		const initialListingQuantity = 99
-		
+
 		const unitPrice = initialPrice / (1 + initialTax / 100) / initialItems
 		const listingPrice = unitPrice * initialListingQuantity
-		const priceIncludingTax = Math.ceil(Math.floor(listingPrice) * (1 + initialTax / 100))
-		
+		const priceIncludingTax = Math.ceil(
+			Math.floor(listingPrice) * (1 + initialTax / 100),
+		)
+
 		return {
 			unitPrice,
 			listingPrice: Math.ceil(listingPrice),
 			priceIncludingTax,
-			displayQuantity: initialListingQuantity
+			displayQuantity: initialListingQuantity,
 		}
 	}
-	
+
 	const initialValues = calculateInitialValues()
 	const [result, setResult] = useState<number | null>(initialValues.unitPrice)
-	const [listingPrice, setListingPrice] = useState<number | null>(initialValues.listingPrice)
-	const [DisplayQuantity, setDisplayQuantity] = useState<number | null>(initialValues.displayQuantity)
-	const [priceIncludingTax, setPriceIncludingTax] = useState<number | null>(initialValues.priceIncludingTax)
+	const [listingPrice, setListingPrice] = useState<number | null>(
+		initialValues.listingPrice,
+	)
+	const [DisplayQuantity, setDisplayQuantity] = useState<number | null>(
+		initialValues.displayQuantity,
+	)
+	const [priceIncludingTax, setPriceIncludingTax] = useState<number | null>(
+		initialValues.priceIncludingTax,
+	)
 
 	const handlePriceChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value.trim()
@@ -103,7 +111,6 @@ const UnitPrice = () => {
 		event.preventDefault()
 		calculateUnitPrice()
 	}
-
 
 	return (
 		<form onSubmit={handleSubmit}>
