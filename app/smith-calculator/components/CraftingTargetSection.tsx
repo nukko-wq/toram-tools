@@ -44,7 +44,9 @@ export default function CraftingTargetSection({
 					<select
 						id="equipment-type"
 						value={equipmentType}
-						onChange={(e) => onEquipmentTypeChange(e.target.value as EquipmentType)}
+						onChange={(e) =>
+							onEquipmentTypeChange(e.target.value as EquipmentType)
+						}
 						className="w-full px-2 py-1 border border-gray-300 rounded outline-blue-500"
 					>
 						{equipmentTypes.map((type) => (
@@ -55,7 +57,10 @@ export default function CraftingTargetSection({
 					</select>
 				</div>
 				<div>
-					<label htmlFor="difficulty" className="block text-sm font-medium mb-1">
+					<label
+						htmlFor="difficulty"
+						className="block text-sm font-medium mb-1"
+					>
 						難易度
 					</label>
 					<input

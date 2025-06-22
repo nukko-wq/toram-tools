@@ -55,7 +55,6 @@ const ExcludingTax = () => {
 		}
 	}
 
-
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>

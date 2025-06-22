@@ -157,10 +157,7 @@ export default function CharacterStatsSection({
 									onStatsChange(stat, undefined)
 								} else {
 									const numValue = Number.parseInt(value)
-									onStatsChange(
-										stat,
-										Number.isNaN(numValue) ? 1 : numValue,
-									)
+									onStatsChange(stat, Number.isNaN(numValue) ? 1 : numValue)
 								}
 							}}
 							onMouseDown={(e) => {

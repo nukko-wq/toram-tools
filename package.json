@@ -6,8 +6,8 @@
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
-		"format": "biome check --write --unsafe",
+		"lint": "npx @biomejs/biome lint --write",
+		"format": "npx @biomejs/biome format --write",
 		"upgrade-interactive": "ncu --interactive --format group"
 	},
 	"dependencies": {

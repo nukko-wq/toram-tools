@@ -78,7 +78,7 @@ const defaultInput: SmithingInput = {
 export default function SmithCalculator() {
 	const [input, setInput] = useState<SmithingInput>(defaultInput)
 	const [isLoaded, setIsLoaded] = useState(false)
-	
+
 	// useMediaQueryを使用してパフォーマンスを最適化
 	const isMobile = useMediaQuery('(max-width: 767px)')
 
