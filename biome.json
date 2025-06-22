@@ -9,6 +9,7 @@
 				"noUnusedImports": "warn",
 				"noUnusedVariables": "warn"
 			},
+			"a11y": "off",
 			"style": {
 				"noParameterAssign": "error",
 				"useAsConstAssertion": "error",
@@ -20,6 +21,9 @@
 				"useNumberNamespace": "error",
 				"noInferrableTypes": "error",
 				"noUselessElse": "error"
+			},
+			"nursery": {
+				"useUniqueElementIds": "off"
 			}
 		}
 	},
