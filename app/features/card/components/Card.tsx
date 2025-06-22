@@ -35,7 +35,7 @@ const Card: React.FC<CardProps> = ({
 	}
 
 	return (
-		<Link href={link} scroll={false}>
+		<Link href={link} scroll={false} className="outline-blue-500">
 			<div className="flex h-full w-full max-w-lg flex-col rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
 				<h5 className="font-bold text-2xl text-gray-700">{title}</h5>
 				<hr className={`my-2 border-2 ${colorClasses[color]}`} />
