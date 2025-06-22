@@ -1,4 +1,4 @@
-import type { Skills, SmithingInput } from '../lib/types'
+import type { Skills } from '../lib/types'
 
 interface SkillsSectionProps {
 	skills: Skills
