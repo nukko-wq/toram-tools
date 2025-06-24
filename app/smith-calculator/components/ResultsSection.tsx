@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { SmithingResult } from '../lib/types'
 
 interface ResultsSectionProps {
@@ -11,10 +12,21 @@ export default function ResultsSection({ result }: ResultsSectionProps) {
 				<h2 className="text-xl font-semibold mb-4">計算結果</h2>
 				<div className="space-y-4">
 					<div className="bg-white p-4 rounded-lg">
-						<div className="text-3xl font-bold text-blue-600 mb-1">
-							{result.successRate.toFixed(2)}%
+						<div className="flex items-center justify-between">
+							<div>
+								<div className="text-3xl font-bold text-blue-600 mb-1">
+									{result.successRate.toFixed(2)}%
+								</div>
+								<div className="text-sm text-gray-600">成功率</div>
+							</div>
+							<Image 
+								src="/pomu.jpg" 
+								alt="ポム" 
+								width={64}
+								height={64}
+								className="object-contain"
+							/>
 						</div>
-						<div className="text-sm text-gray-600">成功率</div>
 					</div>
 
 					<div className="bg-white p-4 rounded-lg">
