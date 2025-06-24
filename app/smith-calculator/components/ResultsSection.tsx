@@ -11,7 +11,7 @@ export default function ResultsSection({ result }: ResultsSectionProps) {
 			<div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg shadow-md">
 				<h2 className="text-xl font-semibold mb-4">計算結果</h2>
 				<div className="space-y-4">
-					<div className="bg-white p-4 rounded-lg">
+					<div className="bg-white px-4 rounded-lg">
 						<div className="flex items-center justify-between">
 							<div>
 								<div className="text-3xl font-bold text-blue-600 mb-1">
@@ -19,11 +19,11 @@ export default function ResultsSection({ result }: ResultsSectionProps) {
 								</div>
 								<div className="text-sm text-gray-600">成功率</div>
 							</div>
-							<Image 
-								src="/pomu.jpg" 
-								alt="ポム" 
-								width={64}
-								height={64}
+							<Image
+								src="/pomu2.jpg"
+								alt="ポム"
+								width={96}
+								height={96}
 								className="object-contain"
 							/>
 						</div>
