@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useReducer, useMemo, useCallback } from 'react'
 import { calculateSmithing } from '../lib/calculations'
 import { loadCurrentData, saveCurrentData } from '../lib/localStorage'
-import type { EquipmentType, SmithingInput } from '../lib/types'
+import type { EquipmentType, SmithingInput, Skills } from '../lib/types'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import CharacterStatsSection from './CharacterStatsSection'
 import CraftingTargetSection from './CraftingTargetSection'
@@ -12,6 +12,7 @@ import FoodSection from './FoodSection'
 import MobileResultBar from './MobileResultBar'
 import ResultsSection from './ResultsSection'
 import SkillsSection from './SkillsSection'
+import { smithingReducer } from '../lib/reducer'
 
 const defaultInput: SmithingInput = {
 	characterStats: {
@@ -76,99 +77,49 @@ const defaultInput: SmithingInput = {
 }
 
 export default function SmithCalculator() {
-	const [input, setInput] = useState<SmithingInput>(defaultInput)
+	const [input, dispatch] = useReducer(smithingReducer, defaultInput)
 	const [isLoaded, setIsLoaded] = useState(false)
 
-	// useMediaQueryを使用してパフォーマンスを最適化
 	const isMobile = useMediaQuery('(max-width: 767px)')
 
-	const result = calculateSmithing(input)
+	const result = useMemo(() => calculateSmithing(input), [input])
 
-	const updateCharacterStat = (
-		stat: keyof typeof input.characterStats,
-		value: number | undefined,
-	) => {
-		setInput((prev) => ({
-			...prev,
-			characterStats: {
-				...prev.characterStats,
-				[stat]:
-					value === undefined ? undefined : Math.max(1, Math.min(999, value)),
-			},
-		}))
-	}
+	const updateCharacterStat = useCallback((stat: keyof typeof input.characterStats, value: number | undefined) => {
+		dispatch({ type: 'UPDATE_CHARACTER_STAT', payload: { stat, value } })
+	}, [])
 
-	const updateEquipmentStat = (
-		slot: keyof typeof input.equipment,
-		stat: string,
-		value: number | undefined,
-	) => {
-		setInput((prev) => ({
-			...prev,
-			equipment: {
-				...prev.equipment,
-				[slot]: {
-					...prev.equipment[slot],
-					[stat]:
-						value === undefined || value === 0 ? undefined : Math.max(0, value),
-				},
-			},
-		}))
-	}
+	const updateEquipmentStat = useCallback((slot: keyof typeof input.equipment, stat: string, value: number | undefined) => {
+		dispatch({ type: 'UPDATE_EQUIPMENT_STAT', payload: { slot, stat, value } })
+	}, [])
 
-	const updateFood = (
-		stat: keyof typeof input.food,
-		value: number | undefined,
-	) => {
-		setInput((prev) => ({
-			...prev,
-			food: {
-				...prev.food,
-				[stat]:
-					value === undefined || value === 0 ? undefined : Math.max(0, value),
-			},
-		}))
-	}
+	const updateFood = useCallback((stat: keyof typeof input.food, value: number | undefined) => {
+		dispatch({ type: 'UPDATE_FOOD', payload: { stat, value } })
+	}, [])
 
-	const updateSkills = (skills: typeof input.skills) => {
-		setInput((prev) => ({
-			...prev,
-			skills,
-		}))
-	}
+	const updateSkills = useCallback((skills: Skills) => {
+		dispatch({ type: 'UPDATE_SKILLS', payload: skills })
+	}, [])
 
-	const updateSmithProficiency = (value: number | undefined) => {
-		setInput((prev) => ({
-			...prev,
-			smithProficiency: value,
-		}))
-	}
+	const updateSmithProficiency = useCallback((value: number | undefined) => {
+		dispatch({ type: 'UPDATE_SMITH_PROFICIENCY', payload: value })
+	}, [])
 
-	const updateEquipmentType = (equipmentType: EquipmentType) => {
-		setInput((prev) => ({
-			...prev,
-			equipmentType,
-		}))
-	}
+	const updateEquipmentType = useCallback((equipmentType: EquipmentType) => {
+		dispatch({ type: 'UPDATE_EQUIPMENT_TYPE', payload: equipmentType })
+	}, [])
 
-	const updateDifficulty = (value: number | undefined) => {
-		setInput((prev) => ({
-			...prev,
-			difficulty: value,
-		}))
-	}
+	const updateDifficulty = useCallback((value: number | undefined) => {
+		dispatch({ type: 'UPDATE_DIFFICULTY', payload: value })
+	}, [])
 
-	const updateBasePotential = (value: number | undefined) => {
-		setInput((prev) => ({
-			...prev,
-			basePotential: value,
-		}))
-	}
+	const updateBasePotential = useCallback((value: number | undefined) => {
+		dispatch({ type: 'UPDATE_BASE_POTENTIAL', payload: value })
+	}, [])
 
 	useEffect(() => {
 		const savedData = loadCurrentData()
 		if (savedData) {
-			setInput(savedData)
+			dispatch({ type: 'SET_INPUT', payload: savedData })
 		}
 		setIsLoaded(true)
 	}, [])
@@ -190,7 +141,6 @@ export default function SmithCalculator() {
 	return (
 		<div className="max-w-7xl mx-auto p-4 lg:p-6 pb-20 md:pb-6 space-y-6 lg:space-y-8 lg:mt-6">
 			<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-[1fr_2fr] xl:gap-8 gap-4 md:gap-6 lg:gap-0 lg:space-y-6">
-				{/* 左カラム: キャラクター */}
 				<div className="gap-4 md:gap-6 lg:col-span-3 xl:col-span-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1">
 					<CharacterStatsSection
 						characterStats={input.characterStats}
@@ -217,7 +167,6 @@ export default function SmithCalculator() {
 					/>
 				</div>
 
-				{/* 中央カラム: 装備品プロパティ/計算結果 */}
 				<div className="gap-6 xl:gap-5 lg:col-span-2 xl:col-span-1 flex flex-col">
 					<EquipmentSection
 						equipment={input.equipment}
@@ -227,7 +176,6 @@ export default function SmithCalculator() {
 				</div>
 			</div>
 
-			{/* モバイル用固定結果バー */}
 			<MobileResultBar result={result} />
 		</div>
 	)
