@@ -1,11 +1,11 @@
-import type { SmithingInput, CharacterStats, Equipment, Food, Skills, EquipmentType } from './types';
+import type { SmithingInput, CharacterStats, EquipmentSet, FoodBonus, Skills, EquipmentType } from './types';
 
 // Actionの型定義
 export type Action =
   | { type: 'SET_INPUT'; payload: SmithingInput }
   | { type: 'UPDATE_CHARACTER_STAT'; payload: { stat: keyof CharacterStats; value: number | undefined } }
-  | { type: 'UPDATE_EQUIPMENT_STAT'; payload: { slot: keyof Equipment; stat: string; value: number | undefined } }
-  | { type: 'UPDATE_FOOD'; payload: { stat: keyof Food; value: number | undefined } }
+  | { type: 'UPDATE_EQUIPMENT_STAT'; payload: { slot: keyof EquipmentSet; stat: string; value: number | undefined } }
+  | { type: 'UPDATE_FOOD'; payload: { stat: keyof FoodBonus; value: number | undefined } }
   | { type: 'UPDATE_SKILLS'; payload: Skills }
   | { type: 'UPDATE_SMITH_PROFICIENCY'; payload: number | undefined }
   | { type: 'UPDATE_EQUIPMENT_TYPE'; payload: EquipmentType }
