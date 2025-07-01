@@ -6,6 +6,9 @@ export const metadata: Metadata = {
 	title: 'マーケット計算 | トーラムいろいろツール',
 	description:
 		'トーラムオンラインのマーケット単価計算や税抜価格の計算ができます。',
+	alternates: {
+		canonical: 'https://toram-tools.nukko.dev/market',
+	},
 }
 
 const Page = () => {
