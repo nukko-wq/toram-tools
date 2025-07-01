@@ -1,12 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { Analytics } from '@vercel/analytics/react'
-import type {
-	Article as JsonLDArticle,
-	WebPage as JsonLDWebPage,
-	WithContext,
-} from 'schema-dts'
 import Footer from './components/layouts/footer/footer'
 
 export const metadata: Metadata = {
@@ -57,13 +51,6 @@ export const metadata: Metadata = {
 	],
 }
 
-const jsonLD: WithContext<JsonLDArticle | JsonLDWebPage> = {
-	'@context': 'https://schema.org',
-	'@type': 'WebPage',
-	name: 'トーラムいろいろツール',
-	url: 'https://toram-tools.nukko.dev',
-}
-
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -76,13 +63,6 @@ export default function RootLayout({
 					<main className="flex grow flex-col">{children}</main>
 					<Footer />
 				</div>
-				<Analytics />
-				<script
-					key="json-ld"
-					type="application/ld+json"
-					// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD) }}
-				/>
 			</body>
 			<GoogleAnalytics gaId="G-GZ32LPEYKN" />
 		</html>
