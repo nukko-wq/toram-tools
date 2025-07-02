@@ -79,7 +79,7 @@ export default function RootLayout({
 					<Footer />
 				</div>
 			</body>
-			<GoogleAnalytics gaId={GA_ID} />
+			{GA_ID && <GoogleAnalytics gaId={GA_ID} />}
 		</html>
 	)
 }
