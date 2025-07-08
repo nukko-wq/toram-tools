@@ -89,8 +89,8 @@ function calculateSuccessRate(
 		(difficulty ?? 0) +
 		totalStr / 10
 
-	// 0-100%の範囲に制限
-	return Math.max(0, Math.min(100, successRate))
+	// 0%未満の場合のみ0に制限（100%を超える値は許可）
+	return Math.max(0, successRate)
 }
 
 /**

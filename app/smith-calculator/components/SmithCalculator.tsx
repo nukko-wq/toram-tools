@@ -84,17 +84,33 @@ export default function SmithCalculator() {
 
 	const result = useMemo(() => calculateSmithing(input), [input])
 
-	const updateCharacterStat = useCallback((stat: keyof typeof input.characterStats, value: number | undefined) => {
-		dispatch({ type: 'UPDATE_CHARACTER_STAT', payload: { stat, value } })
-	}, [])
+	const updateCharacterStat = useCallback(
+		(stat: keyof typeof input.characterStats, value: number | undefined) => {
+			dispatch({ type: 'UPDATE_CHARACTER_STAT', payload: { stat, value } })
+		},
+		[],
+	)
 
-	const updateEquipmentStat = useCallback((slot: keyof typeof input.equipment, stat: string, value: number | undefined) => {
-		dispatch({ type: 'UPDATE_EQUIPMENT_STAT', payload: { slot, stat, value } })
-	}, [])
+	const updateEquipmentStat = useCallback(
+		(
+			slot: keyof typeof input.equipment,
+			stat: string,
+			value: number | undefined,
+		) => {
+			dispatch({
+				type: 'UPDATE_EQUIPMENT_STAT',
+				payload: { slot, stat, value },
+			})
+		},
+		[],
+	)
 
-	const updateFood = useCallback((stat: keyof typeof input.food, value: number | undefined) => {
-		dispatch({ type: 'UPDATE_FOOD', payload: { stat, value } })
-	}, [])
+	const updateFood = useCallback(
+		(stat: keyof typeof input.food, value: number | undefined) => {
+			dispatch({ type: 'UPDATE_FOOD', payload: { stat, value } })
+		},
+		[],
+	)
 
 	const updateSkills = useCallback((skills: Skills) => {
 		dispatch({ type: 'UPDATE_SKILLS', payload: skills })
