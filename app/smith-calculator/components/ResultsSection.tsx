@@ -6,6 +6,11 @@ interface ResultsSectionProps {
 }
 
 export default function ResultsSection({ result }: ResultsSectionProps) {
+	// 成功率の色を統一
+	const getSuccessRateColor = () => {
+		return 'text-blue-600'
+	}
+
 	return (
 		<div className="space-y-4 lg:space-y-6 lg:col-span-2 xl:col-span-1">
 			<div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg shadow-md">
@@ -14,7 +19,9 @@ export default function ResultsSection({ result }: ResultsSectionProps) {
 					<div className="bg-white px-4 rounded-lg">
 						<div className="flex items-center justify-between">
 							<div>
-								<div className="text-3xl font-bold text-blue-600 mb-1">
+								<div
+									className={`text-3xl font-bold mb-1 ${getSuccessRateColor()}`}
+								>
 									{result.successRate.toFixed(2)}%
 								</div>
 								<div className="text-sm text-gray-600">成功率</div>
