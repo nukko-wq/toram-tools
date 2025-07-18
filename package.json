@@ -11,12 +11,12 @@
 		"upgrade-interactive": "ncu --interactive --format group"
 	},
 	"dependencies": {
-		"@next/third-parties": "^15.3.4",
+		"@next/third-parties": "^15.4.1",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
 		"html-react-parser": "^5.2.5",
 		"lucide-react": "^0.513.0",
-		"next": "15.3.4",
+		"next": "15.4.1",
 		"react": "19.1.0",
 		"react-aria-components": "^1.10.1",
 		"react-dom": "19.1.0",
@@ -27,7 +27,7 @@
 		"uuidv4": "^6.2.13"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.0.6",
+		"@biomejs/biome": "2.1.2",
 		"@tailwindcss/postcss": "^4.1.11",
 		"@tailwindcss/typography": "^0.5.15",
 		"@types/node": "^22",
