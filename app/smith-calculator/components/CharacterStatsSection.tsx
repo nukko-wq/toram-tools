@@ -18,7 +18,7 @@ export default function CharacterStatsSection({
 			<div className="flex gap-2 mb-4">
 				<h2 className="text-xl font-semibold">ステータス</h2>
 				<DialogTrigger>
-					<Button>
+					<Button className="cursor-pointer">
 						<CircleHelp className="w-4 h-4" />
 					</Button>
 					<Popover
