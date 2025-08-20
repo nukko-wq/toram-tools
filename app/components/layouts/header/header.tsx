@@ -1,5 +1,5 @@
-import MobileMenu from '@/app/components/elements/MobileMenu/MobileMenu'
 import Link from 'next/link'
+import MobileMenu from '@/app/components/elements/MobileMenu/MobileMenu'
 
 export default async function Header({
 	title,
