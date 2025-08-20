@@ -1,4 +1,4 @@
-import type { EquipmentStats, EquipmentSet } from '../lib/types'
+import type { EquipmentSet, EquipmentStats } from '../lib/types'
 
 interface EquipmentSlotProps {
 	name: string

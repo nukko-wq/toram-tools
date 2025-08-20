@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useState, useReducer, useMemo, useCallback } from 'react'
+import { useCallback, useEffect, useMemo, useReducer, useState } from 'react'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 import { calculateSmithing } from '../lib/calculations'
 import { loadCurrentData, saveCurrentData } from '../lib/localStorage'
-import type { EquipmentType, SmithingInput, Skills } from '../lib/types'
-import { useMediaQuery } from '../hooks/useMediaQuery'
+import { smithingReducer } from '../lib/reducer'
+import type { EquipmentType, Skills, SmithingInput } from '../lib/types'
 import CharacterStatsSection from './CharacterStatsSection'
 import CraftingTargetSection from './CraftingTargetSection'
 import EquipmentSection from './EquipmentSection'
@@ -12,7 +13,6 @@ import FoodSection from './FoodSection'
 import MobileResultBar from './MobileResultBar'
 import ResultsSection from './ResultsSection'
 import SkillsSection from './SkillsSection'
-import { smithingReducer } from '../lib/reducer'
 
 const defaultInput: SmithingInput = {
 	characterStats: {
